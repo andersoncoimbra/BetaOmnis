@@ -1,9 +1,9 @@
-<div id="form_add_reembolso" class="modal fade">
+<div id="form_add_compensar" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content col-md-10 ">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4>Novo Reembolso</h4>
+                <h4>Campensar reembolso</h4>
             </div>
 
             {!! Form::open(array('url' => '/reembolso', 'class'=>'form-horizontal')) !!}
@@ -62,18 +62,14 @@
                 </div>
             </div>
 
-<div class="modal-footer">
-    <input type="submit" class="btn btn-success" value="Registrar">
+            <div class="modal-footer">
+                <input type="submit" class="btn btn-success" value="Registrar">
 
-</div>
+            </div>
             {!! Form::close() !!}
         </div>
     </div>
 </div>
-
-<input type="button" class="btn btn-success pull-right" value="Novo Reembolso" onclick="formModal('reembolso')" style="margin-bottom: 10px;">
-
-
 
 
 

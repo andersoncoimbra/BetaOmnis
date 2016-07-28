@@ -19,7 +19,12 @@ class ReembolsoController extends Controller
     {
 
         //dd($rembolso);
-        return view('reembolso');
+        $reembolsos = Reembolso::all();
+
+        return view('reembolso', ['reembolsos'=>$reembolsos]);
+
+
+
     }
 
     public function postIndex(Request $request)
@@ -37,6 +42,8 @@ class ReembolsoController extends Controller
         $reembolso->data_envio  = $request->dataenvio;
 
         $reembolso->save();
+
+
 
 
         return redirect()->route('reembolso.index');

@@ -14,7 +14,7 @@
 Route::auth();
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('welcome');
 });
 
 Route::group(['prefix'=>'/faturamento'], function (){
