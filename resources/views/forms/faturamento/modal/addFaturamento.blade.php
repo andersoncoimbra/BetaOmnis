@@ -1,12 +1,12 @@
-<div id="form_add_detalhes" class="modal fade">
+<div id="form_add_faturamento" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content col-md-10 ">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4>Detalhes</h4>
+                <h4>Novo Reembolso</h4>
             </div>
 
-            {!! Form::open(array('url' => '/reembolso', 'class'=>'form-horizontal')) !!}
+            {!! Form::open(array('url' => '/faturamento', 'class'=>'form-horizontal')) !!}
             <div class="form-group">
                 {!! Form::label('parceiro', 'Nome do Parceiro', array('class' => 'col-sm-2 control-label')) !!}
                 <div class="col-sm-10">
@@ -70,6 +70,10 @@
         </div>
     </div>
 </div>
+
+<input type="button" class="btn btn-success pull-right" value="Novo Faturamento" onclick="formModal('faturamento')" style="margin-bottom: 10px;">
+
+
 
 
 

@@ -19,6 +19,12 @@ Route::get('/', function () {
 
 Route::group(['prefix'=>'/faturamento'], function (){
     Route::get('/', ['uses'=>'FaturamentoController@getIndex', 'as'=>'faturamento.index']);
+    Route::post('/', ['uses'=>'FaturamentoController@postIndex', 'as'=>'faturamento.index']);
+
+    Route::get('/{id}/detalhes', ['uses'=>'FaturamentoController@getDetalhes', 'as'=>'faturamento.detalhes']);
+    Route::get('/{id}/detalhes', ['uses'=>'FaturamentoController@postDetalhes', 'as'=>'faturamento.detalhes']);
+
+
 });
 
 Route::group(['prefix'=>'reembolso'], function (){

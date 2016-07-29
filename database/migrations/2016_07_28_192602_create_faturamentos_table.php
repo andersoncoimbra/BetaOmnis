@@ -14,6 +14,15 @@ class CreateFaturamentosTable extends Migration
     {
         Schema::create('faturamentos', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('parceiro', 50);
+            $table->string('job', 50);
+            $table->decimal('valor', 5,2);
+            $table->string('nf', 50)->nullable();
+            $table->decimal('valorfaturado', 5,2)->nullable();
+            $table->dateTime('datafaturamento')->nullable();
+            $table->decimal('valorrecebido', 5,2)->nullable();
+            $table->dateTime('datapagamento')->nullable();
+            $table->string('status',12)->nullable();
             $table->timestamps();
         });
     }

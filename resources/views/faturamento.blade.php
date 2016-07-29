@@ -8,7 +8,11 @@
                     <div class="panel-heading">Faturamento</div>
 
                     <div class="panel-body">
-                        Tabela de Faturamento
+                        @include('forms.faturamento.modal.addFaturamento')
+                        @include('forms.faturamento.modal.detalhes')
+                        @include('forms.faturamento.modal.compensar')
+                        @include('forms.faturamento.modal.nf')
+                        @include('list.listfaturamento')
                     </div>
                 </div>
             </div>
