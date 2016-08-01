@@ -4,27 +4,27 @@
 <div class="form-group">
     {!! Form::label('parceiro', 'Nome do Parceiro ajax', array('class' => 'col-sm-4 control-label')) !!}
     <div class="col-sm-8">
-        <input name="parceiro" class="form-control" type="text" placeholder="Escreva o nome do Parceiro">
+        {!! Form::text('parceiro', null, array('class'=>'form-control')) !!}
     </div>
 </div>
 <div class="form-group">
     {!! Form::label('job', 'Nome do Job', array('class' => 'col-sm-4 control-label')) !!}
     <div class="col-sm-8">
-        {!! Form::text('job') !!}
+        {!! Form::text('job', null, array('class'=>'form-control')) !!}
     </div>
 </div>
 
 <div class="form-group">
     {!! Form::label('valor', 'Valor:', array('class' => 'col-sm-4 control-label')) !!}
     <div class="col-sm-8">
-        <input name="valor"  class="form-control" type="text">
+        {!! Form::text('valor', null, array('class'=>'form-control')) !!}
     </div>
 </div>
 
 <div class="form-group">
     {!! Form::label('data', 'Data', array('class' => 'col-sm-4 control-label')) !!}
     <div class="col-sm-8">
-        <input name="data"  class="form-control" type="date" placeholder="Data 12 / 07 / 2016">
+        {!! Form::text('data', null, array('class'=>'form-control', 'type'=>'date')) !!}
     </div>
 </div>
 

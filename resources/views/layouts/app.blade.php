@@ -81,6 +81,7 @@
 
     <script type="text/javascript">
         function formModal(tipo,id,nivel) {
+            $("#"+nivel+'-'+tipo).html("Carregando...");
             $(document).ready(function () {
                 $.ajax({
                     url: nivel+'/'+id+"/"+tipo
