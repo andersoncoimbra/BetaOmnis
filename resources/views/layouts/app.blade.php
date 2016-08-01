@@ -95,6 +95,7 @@
             });
         }
     </script>
+
     @yield('script')
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 </body>

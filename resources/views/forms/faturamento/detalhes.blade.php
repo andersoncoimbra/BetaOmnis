@@ -1,8 +1,15 @@
-</div>
+<div>
+    <table class="table">
+        <tr><th>Data de registro</th><th>Data de Atualização</th></tr>
+        <tr><td>{{date('d / m / Y', strtotime($faturamento->created_at))}}</td><td>{{date('d / m / Y', strtotime($faturamento->update_at))}}</td></tr>
+        <tr><th>Ultimo usuário</th><th>Status</th></tr>
+        <tr><td>{{$faturamento->lastuser}}</td><td>{{$faturamento->status}}</td></tr>
 
+    </table>
+</div>
 {!! Form::model($faturamento, array('route' => array('faturamento.detalhes',$faturamento), 'class'=>'form-horizontal')) !!}
 <div class="form-group">
-    {!! Form::label('parceiro', 'Nome do Parceiro ajax', array('class' => 'col-sm-4 control-label')) !!}
+    {!! Form::label('parceiro', 'Nome do Parceiro', array('class' => 'col-sm-4 control-label')) !!}
     <div class="col-sm-8">
         {!! Form::text('parceiro', null, array('class'=>'form-control')) !!}
     </div>
@@ -55,8 +62,7 @@
 <div class="form-group">
     {!! Form::label('obs', 'Observações', array('class' => 'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
-        <textarea name="identificador" class="form-control" placeholder="Escreva o Observações"></textarea>
-    </div>
+        {!! Form::text('obs', null, array('class' => 'form-control')) !!}    </div>
 </div>
 
 <div class="modal-footer">

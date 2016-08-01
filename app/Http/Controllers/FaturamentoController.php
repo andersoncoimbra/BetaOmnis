@@ -32,14 +32,33 @@ class FaturamentoController extends Controller
 
     public function getDetalhes($id,Request $request){
 
-
-
-    }
-
-    public function postDetalhes($id, Request $request){
-
         $faturamento = Faturamento::find($id);
         return view('forms.faturamento.detalhes',['faturamento'=>$faturamento]);
+    }
+    public function postDetalhes($id,Request $request)
+    {
+        dd($id);
+    }
+
+    public function getNf($id, Request $request){
+
+        $faturamento = Faturamento::find($id);
+        return view('forms.faturamento.nf',['faturamento'=>$faturamento]);
+    }
+
+    public function postNf($id, Request $request){
+
+        dd($request);
+    }
+
+    public function getQuitacao($id,Request $request){
+
+        $faturamento = Faturamento::find($id);
+        return view('forms.faturamento.quitacao',['faturamento'=>$faturamento]);
+    }
+    public function postQuitacao($id,Request $request)
+    {
+        dd($id);
     }
 
 }

@@ -10,7 +10,7 @@
                     <div class="panel-body">
                         @include('forms.faturamento.modal.addFaturamento')
                         @include('forms.faturamento.modal.detalhes')
-                        @include('forms.faturamento.modal.compensar')
+                        @include('forms.faturamento.modal.quitacao')
                         @include('forms.faturamento.modal.nf')
                         @include('list.listfaturamento')
                     </div>

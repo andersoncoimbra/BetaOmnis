@@ -22,8 +22,13 @@ Route::group(['prefix'=>'/faturamento'], function (){
     Route::post('/', ['uses'=>'FaturamentoController@postIndex', 'as'=>'faturamento.index']);
 
     Route::get('/{id}/detalhes', ['uses'=>'FaturamentoController@getDetalhes', 'as'=>'faturamento.detalhes']);
-    Route::get('/{id}/detalhes', ['uses'=>'FaturamentoController@postDetalhes', 'as'=>'faturamento.detalhes']);
+    Route::post('/{id}/detalhes', ['uses'=>'FaturamentoController@postDetalhes', 'as'=>'faturamento.detalhes']);
 
+    Route::get('/{id}/nf', ['uses'=>'FaturamentoController@getNf', 'as'=>'faturamento.nf']);
+    Route::post('/{id}/nf', ['uses'=>'FaturamentoController@postNf', 'as'=>'faturamento.nf']);
+
+    Route::get('/{id}/quitacao', ['uses'=>'FaturamentoController@getQuitacao', 'as'=>'faturamento.quitacao']);
+    Route::post('/{id}/quitacao', ['uses'=>'FaturamentoController@postQuitacao', 'as'=>'faturamento.quitacao']);
 
 });
 
