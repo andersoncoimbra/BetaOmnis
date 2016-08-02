@@ -1,9 +1,9 @@
 <div>
     <table class="table">
-        <tr><th>Data de registro</th><th>Data de Atualização</th></tr>
-        <tr><td>{{date('d / m / Y', strtotime($faturamento->created_at))}}</td><td>{{date('d / m / Y', strtotime($faturamento->update_at))}}</td></tr>
+        <tr><th>Data de registro</th><th>Atualização</th></tr>
+        <tr><td>{{date('d / m / Y', strtotime($faturamento->created_at))}}</td><td>{{date('d / m / Y H:s', strtotime($faturamento->updated_at))}}</td></tr>
         <tr><th>Ultimo usuário</th><th>Status</th></tr>
-        <tr><td>{{$faturamento->lastuser}}</td><td>{{$faturamento->status}}</td></tr>
+        <tr><td>{{$faturamento->lastuser}}</td><td class="@if($faturamento->nf<1) danger @endif">{{$faturamento->status}}</td></tr>
 
     </table>
 </div>
@@ -31,7 +31,7 @@
 <div class="form-group">
     {!! Form::label('data', 'Data', array('class' => 'col-sm-4 control-label')) !!}
     <div class="col-sm-8">
-        {!! Form::text('data', null, array('class'=>'form-control', 'type'=>'date')) !!}
+        {!! Form::date('data', date('d/m/Y', strtotime($faturamento->data)), array('class'=>'form-control', 'placeholder'=>'Ex: 01/11/2016')) !!}
     </div>
 </div>
 
