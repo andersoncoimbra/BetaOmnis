@@ -3,7 +3,7 @@
         <div class="modal-content col-md-10 ">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4>Novo Reembolso</h4>
+                <h4>Novo Faturamento</h4>
             </div>
 
             {!! Form::open(array('url' => '/faturamento', 'class'=>'form-horizontal')) !!}
@@ -25,9 +25,9 @@
                 <div class="col-sm-4">
                     <input name="valor"  class="form-control" type="text" placeholder="9999,99">
                 </div>
-                {!! Form::label('data', 'Data', array('class' => 'col-sm-2 control-label')) !!}
+                {!! Form::label('data', 'Data para Faturamento', array('class' => 'col-sm-2 control-label')) !!}
                 <div class="col-sm-4">
-                    <input name="data"  class="form-control" type="date" placeholder="Data 12 / 07 / 2016">
+                    <input name="datafaturamento"  class="form-control" type="date" placeholder="Data 12 / 07 / 2016">
                 </div>
             </div>
 
@@ -58,7 +58,7 @@
             <div class="form-group">
                 {!! Form::label('obs', 'Observações', array('class' => 'col-sm-2 control-label')) !!}
                 <div class="col-sm-10">
-                    <textarea name="identificador" class="form-control" placeholder="Escreva o Observações"></textarea>
+                    <textarea name="obs" class="form-control" placeholder="Escreva o Observações"></textarea>
                 </div>
             </div>
 

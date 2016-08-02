@@ -1,4 +1,13 @@
+<div>
+    <table class="table">
+        <tr><th>Valor Fechado</th><th>Data do Faturamento</th></tr>
+        <tr><td>R$ {{$faturamento->valor}}</td><td>{{date('d / m / Y', strtotime($faturamento->datafaturamento))}}</td></tr>
+        <tr><th>Ultimo usuário</th><th>Status</th></tr>
+        <tr><td>{{$faturamento->lastuser}}</td><td class="@if($faturamento->nf<1) danger @endif">{{$faturamento->status}}</td></tr>
 
+    </table>
+</div>
+<hr>
 {!! Form::model($faturamento, array('route' => array('faturamento.nf',$faturamento), 'class'=>'form-horizontal')) !!}
 <div class="form-group">
     {!! Form::label('nf', 'Numero da NF', array('class' => 'col-sm-4 control-label')) !!}
@@ -7,20 +16,19 @@
     </div>
 </div>
 
-
+<hr>
 <div class="form-group">
-    {!! Form::label('valorfaturado', 'Valor:', array('class' => 'col-sm-2 control-label')) !!}
-    <div class="col-sm-4">
+    {!! Form::label('valorfaturado', 'Valor NF:', array('class' => 'col-sm-4 control-label')) !!}
+    <div class="col-sm-8">
         {!! Form::text('valorfaturado', null, array('class'=>'form-control', 'placeholder'=>'9999,99')) !!}
-
-    </div>
-    {!! Form::label('valorliquido', 'Liquido', array('class' => 'col-sm-2 control-label')) !!}
-    <div class="col-sm-4">
-        {!! Form::text('valorliquido', null, array('class'=>'form-control', 'placeholder'=>'9999,99')) !!}
     </div>
 </div>
-
-
+<div class="form-group">
+{!! Form::label('valorliquido', 'Valor liquido', array('class' => 'col-sm-4 control-label')) !!}
+<div class="col-sm-8">
+    {!! Form::text('valorliquido', null, array('class'=>'form-control', 'placeholder'=>'9999,99')) !!}
+</div>
+    </div>
 <!--
     <div class="form-group">
         {!! Form::label('fornecedor', 'Nome do Fornecedor', array('class' => 'col-sm-2 control-label')) !!}
@@ -44,9 +52,14 @@
     </div>
     -->
 <div class="form-group">
-    {!! Form::label('datafaturamento', 'Data de Faturamento', array('class' => 'col-sm-4 control-label')) !!}
+    {!! Form::label('data', 'Data de Vencimento', array('class' => 'col-sm-4 control-label')) !!}
     <div class="col-sm-8">
-        <input name="datafaturamento"  class="form-control" type="date" placeholder="12 / 07 / 2016" value="{{$faturamento->datafaturamento}}">
+        {!! $dp = null !!}
+        @if($faturamento->data)
+            <?php $dp = date('d/m/Y', strtotime($faturamento->data))?>
+            @endforelse
+        {!! Form::date('data', $dp, array('class'=>'form-control', 'placeholder'=>'Ex: 01/11/2016')) !!}
+
     </div>
 </div>
 
@@ -58,7 +71,7 @@
 </div>
 
 <div class="modal-footer">
-    <input type="submit" class="btn btn-success" value="Registrar">
+    <input type="submit" class="btn btn-success" value="Atualizar" {{$faturamento->status == 'Quitado'?'disabled':null}}>
 
 </div>
 
