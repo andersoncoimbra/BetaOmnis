@@ -12,7 +12,7 @@
 <div class="form-group">
     {!! Form::label('nf', 'Numero da NF', array('class' => 'col-sm-4 control-label')) !!}
     <div class="col-sm-8">
-        {!! Form::text('nf', null, array('class'=>'form-control', 'placeholder'=>'Escreva o numero da Nota Fiscal')) !!}
+        {!! Form::text('nf', null, array('class'=>'form-control', 'placeholder'=>'Escreva o numero da Nota Fiscal', 'x-moz-errormessage'=>'Preencha o numero da nota fiscal','required'=>'')) !!}
     </div>
 </div>
 
@@ -20,13 +20,13 @@
 <div class="form-group">
     {!! Form::label('valorfaturado', 'Valor NF:', array('class' => 'col-sm-4 control-label')) !!}
     <div class="col-sm-8">
-        {!! Form::text('valorfaturado', null, array('class'=>'form-control', 'placeholder'=>'9999,99')) !!}
+        {!! Form::text('valorfaturado', null, array('class'=>'form-control', 'placeholder'=>'9999,99','x-moz-errormessage'=>'Preencha o valor da nota Fiscal','required'=>'')) !!}
     </div>
 </div>
 <div class="form-group">
 {!! Form::label('valorliquido', 'Valor liquido', array('class' => 'col-sm-4 control-label')) !!}
 <div class="col-sm-8">
-    {!! Form::text('valorliquido', null, array('class'=>'form-control', 'placeholder'=>'9999,99')) !!}
+    {!! Form::text('valorliquido', null, array('class'=>'form-control', 'placeholder'=>'9999,99', 'x-moz-errormessage'=>'Preencha o Valor liquido da nota fiscal','required'=>'')) !!}
 </div>
     </div>
 <!--
@@ -58,7 +58,7 @@
         @if($faturamento->data)
             <?php $dp = date('d/m/Y', strtotime($faturamento->data))?>
             @endforelse
-        {!! Form::date('data', $dp, array('class'=>'form-control', 'placeholder'=>'Ex: 01/11/2016')) !!}
+        {!! Form::date('data', $dp, array('class'=>'form-control', 'placeholder'=>'Ex: 01/11/2016', 'x-moz-errormessage'=>'Preencha a data de vencimento da nota fiscal','required'=>'')) !!}
 
     </div>
 </div>

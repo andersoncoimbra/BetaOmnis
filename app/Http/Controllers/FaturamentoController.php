@@ -99,7 +99,7 @@ class FaturamentoController extends Controller
         $faturamento = Faturamento::find($id);
 
         $faturamento->valorrecebido = str_replace(',','.',$request->valorrecebido);
-        $faturamento->datapagamento = date('Y-m-d', strtotime(str_replace('/','-',$request->data)));
+        $faturamento->datapagamento = date('Y-m-d', strtotime(str_replace('/','-',$request->datapagamento)));
         $faturamento->obs = $request->obs;
         $faturamento->status = 'Quitado';
         $faturamento->save();

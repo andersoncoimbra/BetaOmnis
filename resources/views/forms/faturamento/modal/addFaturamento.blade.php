@@ -10,24 +10,24 @@
             <div class="form-group">
                 {!! Form::label('parceiro', 'Nome do Parceiro', array('class' => 'col-sm-2 control-label')) !!}
                 <div class="col-sm-10">
-                    <input name="parceiro" class="form-control" type="text" placeholder="Escreva o nome do Parceiro">
+                    <input name="parceiro" class="form-control" type="text" placeholder="Escreva o nome do Parceiro" x-moz-errormessage="Prencha o nome do parceiro" required>
                 </div>
             </div>
             <div class="form-group">
                 {!! Form::label('job', 'Nome do Job', array('class' => 'col-sm-2 control-label')) !!}
                 <div class="col-sm-10">
-                    <input name="job" class="form-control" type="text" placeholder="Escreva o nome do Job">
+                    <input name="job" class="form-control" type="text" placeholder="Escreva o nome do Job" x-moz-errormessage="Prencha o nome do Job" required>
                 </div>
             </div>
 
             <div class="form-group">
                 {!! Form::label('valor', 'Valor:', array('class' => 'col-sm-2 control-label')) !!}
                 <div class="col-sm-4">
-                    <input name="valor"  class="form-control" type="text" placeholder="9999,99">
+                    <input name="valor"  class="form-control" type="text" placeholder="9999,99" x-moz-errormessage="Prencha o valor" required>
                 </div>
                 {!! Form::label('data', 'Data para Faturamento', array('class' => 'col-sm-2 control-label')) !!}
                 <div class="col-sm-4">
-                    <input name="datafaturamento"  class="form-control" type="date" placeholder="Data 12 / 07 / 2016">
+                    <input name="datafaturamento"  class="form-control" type="date" placeholder="Data 12 / 07 / 2016" x-moz-errormessage="Prencha a data para faturamento" required>
                 </div>
             </div>
 

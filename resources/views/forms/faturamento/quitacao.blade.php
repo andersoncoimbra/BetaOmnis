@@ -14,7 +14,7 @@
 <div class="form-group">
     {!! Form::label('valorrecebido', 'Valor Recebido:', array('class' => 'col-sm-2 control-label')) !!}
     <div class="col-sm-4">
-        {!! Form::text('valorrecebido', null, array('class'=>'form-control')) !!}
+        {!! Form::text('valorrecebido', null, array('class'=>'form-control', 'x-moz-errormessage'=>'Preencha o numero da nota fiscal','required'=>'')) !!}
 
     </div>
 </div>
@@ -26,7 +26,7 @@
 <div class="form-group">
     {!! Form::label('datapagamento', 'Data de Recebimento', array('class' => 'col-sm-2 control-label')) !!}
     <div class="col-sm-4">
-        {!! Form::date('datapagamento', $dp, array('class'=>'form-control', 'placeholder'=>'Ex: 01/11/2016')) !!}
+        {!! Form::date('datapagamento', $dp, array('class'=>'form-control', 'placeholder'=>'Ex: 01/11/2016', 'x-moz-errormessage'=>'Preencha o numero da nota fiscal','required'=>'')) !!}
 
     </div>
 </div>

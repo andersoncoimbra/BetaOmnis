@@ -7,7 +7,7 @@
         <tr><td>{{$faturamento->lastuser}}</td><td class="@if($faturamento->nf<1) danger @else success @endif">{{$faturamento->status}}</td></tr>
         @if($faturamento->valorrecebido > 0)
             <tr><th>Valor Pago</th><th>Data de pagamento</th></tr>
-            <tr><td>R$ {{$faturamento->valorrecebido}}</td><td>{{$faturamento->datapagamento}}</td></tr>
+            <tr><td>R$ {{$faturamento->valorrecebido}}</td><td>{{date('d / m / Y', strtotime($faturamento->datapagamento))}}</td></tr>
         @endif
 
 
