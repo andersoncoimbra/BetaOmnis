@@ -4,7 +4,6 @@
         <tr><td>R$ {{$faturamento->valor}}</td><td>{{date('d / m / Y', strtotime($faturamento->datafaturamento))}}</td></tr>
         <tr><th>Ultimo usuário</th><th>Status</th></tr>
         <tr><td>{{$faturamento->lastuser}}</td><td class="{!! $faturamento->nf<1? 'danger' : 'success' !!}">{{$faturamento->status}}</td></tr>
-
     </table>
 </div>
 <hr>
@@ -63,14 +62,47 @@
     </div>
 </div>
 
-<div class="form-group">
-    {!! Form::label('obs', 'Observações', array('class' => 'col-sm-2 control-label')) !!}
-    <div class="col-sm-10">
-        {!! Form::text('obs', null, array('class'=>'form-control', 'placeholder'=>'Observações')) !!}
+<div id="impostos" style="display: none">
+    <div class="form-group">
+        {!! Form::label('iss', 'ISS', array('class' => 'col-sm-2 control-label')) !!}
+        <div class="col-sm-4">
+            {!! Form::text('iss', null, array('class'=>'form-control', 'placeholder'=>'ISS')) !!}
+        </div>
+        {!! Form::label('inss', 'INSS', array('class' => 'col-sm-2 control-label')) !!}
+        <div class="col-sm-4">
+            {!! Form::text('inss', null, array('class'=>'form-control', 'placeholder'=>'INSS')) !!}
+        </div>
+        {!! Form::label('ir', 'IR', array('class' => 'col-sm-2 control-label')) !!}
+        <div class="col-sm-4">
+            {!! Form::text('ir', null, array('class'=>'form-control', 'placeholder'=>'IR')) !!}
+        </div>
+        {!! Form::label('csll', 'CSLL', array('class' => 'col-sm-2 control-label')) !!}
+        <div class="col-sm-4">
+            {!! Form::text('csll', null, array('class'=>'form-control', 'placeholder'=>'CSLL')) !!}
+        </div>
+        {!! Form::label('pis', 'PIS', array('class' => 'col-sm-2 control-label')) !!}
+        <div class="col-sm-4">
+            {!! Form::text('pis', null, array('class'=>'form-control', 'placeholder'=>'PIS')) !!}
+        </div>
+        {!! Form::label('cofins', 'COFINS', array('class' => 'col-sm-2 control-label')) !!}
+        <div class="col-sm-4">
+            {!! Form::text('cofins', null, array('class'=>'form-control', 'placeholder'=>'Cofins')) !!}
+        </div>
     </div>
 </div>
 
+
+<div class="form-group">
+    {!! Form::label('obs', 'Observações', array('class' => 'col-sm-2 control-label')) !!}
+    <div class="col-sm-10">
+        {!! Form::textarea('obs', null, array('class'=>'form-control')) !!}
+    </div>
+</div>
+
+
 <div class="modal-footer">
+    <input type="button" class="btn btn-success pull-left" value="Impostos" {{$faturamento->status == 'Quitado'?'disabled':null}} onclick="showDiv('impostos');">
+
     <input type="submit" class="btn btn-success" value="Atualizar" {{$faturamento->status == 'Quitado'?'disabled':null}}>
 
 </div>

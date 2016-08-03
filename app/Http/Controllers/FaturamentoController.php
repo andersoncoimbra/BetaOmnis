@@ -83,6 +83,12 @@ class FaturamentoController extends Controller
         $faturamento->obs = $request->obs;
         $faturamento->lastuser = \Auth::user()->name;
         $faturamento->status = "Faturado";
+        $faturamento->iss = $request->iss;
+        $faturamento->inss = $request->inss;
+        $faturamento->ir = $request->ir;
+        $faturamento->csll = $request->csll;
+        $faturamento->pis = $request->pis;
+        $faturamento->cofins = $request->cofins;
 
         $faturamento->save();
 
@@ -102,6 +108,7 @@ class FaturamentoController extends Controller
         $faturamento->datapagamento = date('Y-m-d', strtotime(str_replace('/','-',$request->datapagamento)));
         $faturamento->obs = $request->obs;
         $faturamento->status = 'Quitado';
+        $faturamento->lastuser = \Auth::user()->name;
         $faturamento->save();
 
         return redirect()->route('faturamento.index');

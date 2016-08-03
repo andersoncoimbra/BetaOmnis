@@ -95,6 +95,12 @@
             });
         }
     </script>
+    <script  type="text/javascript">
+        function showDiv(div)
+        {
+            document.getElementById(div).style.display = 'block';
+        }
+    </script>
 
     @yield('script')
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
