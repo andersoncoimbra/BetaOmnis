@@ -19,7 +19,7 @@
 <div class="form-group">
     {!! Form::label('valorfaturado', 'Valor NF:', array('class' => 'col-sm-4 control-label')) !!}
     <div class="col-sm-8">
-        {!! Form::text('valorfaturado', null, array('class'=>'form-control', 'placeholder'=>'9999,99','x-moz-errormessage'=>'Preencha o valor da nota Fiscal','required'=>'')) !!}
+        {!! Form::text('valorfaturado', null, array('class'=>'form-control', 'placeholder'=>'9999,99','x-moz-errormessage'=>'Preencha o valor da nota Fiscal','required'=>'', 'onchange'=>'calcLiquido();',  'onkeyup'=>'calcLiquido();')) !!}
     </div>
 </div>
 <div class="form-group">
@@ -64,29 +64,59 @@
 
 <div id="impostos" style="display: none">
     <div class="form-group">
-        {!! Form::label('iss', 'ISS', array('class' => 'col-sm-2 control-label')) !!}
-        <div class="col-sm-4">
-            {!! Form::text('iss', null, array('class'=>'form-control', 'placeholder'=>'ISS')) !!}
+        {!! Form::label('iss', 'ISS', array('class' => 'col-md-4 control-label')) !!}
+        <div class="col-sm-8">
+            <div class="input-group">
+                <input type="number" class="form-control" placeholder="Percentual" id="piss" aria-describedby="basic-addon2" onkeyup="calcularImpostos('valorfaturado','piss','iss');" onchange="calcularImpostos('valorfaturado','piss','iss');">
+                <span class="input-group-addon" id="basic-addon2">%</span>
+                <span class="input-group-addon" id="basic-addon2"> R$ </span>
+                {!! Form::text('iss', null, array('class'=>'form-control', 'placeholder'=>'ISS')) !!}
+            </div>
         </div>
-        {!! Form::label('inss', 'INSS', array('class' => 'col-sm-2 control-label')) !!}
-        <div class="col-sm-4">
-            {!! Form::text('inss', null, array('class'=>'form-control', 'placeholder'=>'INSS')) !!}
+        {!! Form::label('inss', 'INSS', array('class' => 'col-sm-4 control-label')) !!}
+        <div class="col-sm-8">
+            <div class="input-group">
+                <input type="number" class="form-control" placeholder="Percentual" id="pinss" aria-describedby="basic-addon2" onkeyup="calcularImpostos('valorfaturado','pinss','inss');" onchange="calcularImpostos('valorfaturado',fa'pinss','inss');">
+                <span class="input-group-addon" id="basic-addon2">%</span>
+                <span class="input-group-addon" id="basic-addon2"> R$ </span>
+                {!! Form::text('inss', null, array('class'=>'form-control', 'placeholder'=>'INSS')) !!}
+            </div>
         </div>
-        {!! Form::label('ir', 'IR', array('class' => 'col-sm-2 control-label')) !!}
-        <div class="col-sm-4">
+        {!! Form::label('ir', 'IR', array('class' => 'col-sm-4 control-label')) !!}
+        <div class="col-sm-8">
+            <div class="input-group">
+                <input type="number" class="form-control" placeholder="Percentual" id="pir" aria-describedby="basic-addon2" onkeyup="calcularImpostos('valorfaturado','pir','ir');"  onchange="calcularImpostos('valorfaturado','pir','ir');">
+                <span class="input-group-addon" id="basic-addon2">%</span>
+                <span class="input-group-addon" id="basic-addon2"> R$ </span>
             {!! Form::text('ir', null, array('class'=>'form-control', 'placeholder'=>'IR')) !!}
+            </div>
         </div>
-        {!! Form::label('csll', 'CSLL', array('class' => 'col-sm-2 control-label')) !!}
-        <div class="col-sm-4">
+        {!! Form::label('csll', 'CSLL', array('class' => 'col-sm-4 control-label')) !!}
+        <div class="col-sm-8">
+            <div class="input-group">
+                <input type="number" class="form-control" placeholder="Percentual" id="pcsll" aria-describedby="basic-addon2" onkeyup="calcularImpostos('valorfaturado','pcsll','csll');"  onchange="calcularImpostos('valorfaturado','pcsll','csll');">
+                <span class="input-group-addon" id="basic-addon2">%</span>
+                <span class="input-group-addon" id="basic-addon2"> R$ </span>
             {!! Form::text('csll', null, array('class'=>'form-control', 'placeholder'=>'CSLL')) !!}
+            </div>
         </div>
-        {!! Form::label('pis', 'PIS', array('class' => 'col-sm-2 control-label')) !!}
-        <div class="col-sm-4">
-            {!! Form::text('pis', null, array('class'=>'form-control', 'placeholder'=>'PIS')) !!}
+        {!! Form::label('pis', 'PIS', array('class' => 'col-sm-4 control-label')) !!}
+        <div class="col-sm-8">
+            <div class="input-group">
+                <input type="number" step="any" class="form-control" placeholder="Percentual" id="ppis" aria-describedby="basic-addon2" onkeyup="calcularImpostos('valorfaturado','ppis','pis');" onchange="calcularImpostos('valorfaturado','ppis','pis');">
+                <span class="input-group-addon" id="basic-addon2">%</span>
+                <span class="input-group-addon" id="basic-addon2"> R$ </span>
+                {!! Form::text('pis', null, array('class'=>'form-control', 'placeholder'=>'PIS','step'=>'any')) !!}
+            </div>
         </div>
-        {!! Form::label('cofins', 'COFINS', array('class' => 'col-sm-2 control-label')) !!}
-        <div class="col-sm-4">
+        {!! Form::label('cofins', 'COFINS', array('class' => 'col-sm-4 control-label')) !!}
+        <div class="col-sm-8">
+            <div class="input-group">
+                <input type="number" class="form-control" placeholder="Percentual" id="pcofins" aria-describedby="basic-addon2" onkeyup="calcularImpostos('valorfaturado','pcofins','cofins');"  onchange="calcularImpostos('valorfaturado','pcofins','cofins');">
+                <span class="input-group-addon" id="basic-addon2">%</span>
+                <span class="input-group-addon" id="basic-addon2"> R$ </span>
             {!! Form::text('cofins', null, array('class'=>'form-control', 'placeholder'=>'Cofins')) !!}
+            </div>
         </div>
     </div>
 </div>

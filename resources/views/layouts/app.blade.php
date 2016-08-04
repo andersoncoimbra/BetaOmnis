@@ -94,11 +94,22 @@
 
             });
         }
-    </script>
-    <script  type="text/javascript">
         function showDiv(div)
         {
             document.getElementById(div).style.display = 'block';
+        }
+        function calcularImpostos(id1,id2,id3)
+        {
+            var i = function (id) { return document.getElementById(id); }
+
+           i(id3).value = parseFloat(i(id1).value)*parseFloat(i(id2).value)/100;
+            calcLiquido();
+
+        }
+        function calcLiquido() {
+            var i = function (id) { return document.getElementById(id); }
+
+            i('valorliquido').value = parseFloat(i('valorfaturado').value) - parseFloat(i('iss').value)- parseFloat(i('ir').value)- parseFloat(i('inss').value)- parseFloat(i('csll').value)- parseFloat(i('pis').value)- parseFloat(i('cofins').value);
         }
     </script>
 
