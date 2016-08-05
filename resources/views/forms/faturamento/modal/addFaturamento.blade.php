@@ -71,7 +71,6 @@
     </div>
 </div>
 
-<input type="button" class="btn btn-success pull-right" value="Novo Faturamento" onclick="formModal('faturamento')" style="margin-bottom: 10px;">
 
 
 
