@@ -12,8 +12,16 @@ class FaturamentoController extends Controller
     public function getIndex()
     {
         $faturamentos = Faturamento::all();
-       // dd($faturamento);
-        return view('faturamento', ['faturamentos'=>$faturamentos]);
+
+        //Tabela de vencimentos nos ultimos 5 dias//////////
+        $now = date('Y-m-d');
+        $periodo = date('Y-m-d',mktime(0, 0, 0, date("m"), date("d") - 5, date("Y")));
+        $faturasvenc = Faturamento::whereBetween('data',[$periodo,$now])->where('status','=','Faturado')->get();
+        ////////////////////////////////////////////////////////////
+
+
+
+        return view('faturamento', ['faturamentos'=>$faturamentos, 'faturavenc'=>$faturasvenc]);
     }
 
     public function postIndex(Request $request)
