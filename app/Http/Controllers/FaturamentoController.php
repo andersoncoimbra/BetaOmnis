@@ -9,11 +9,6 @@ use App\Http\Requests;
 
 class FaturamentoController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function getIndex()
     {
         $faturamentos = Faturamento::all();
@@ -27,7 +22,6 @@ class FaturamentoController extends Controller
         $faturamento->parceiro = $request->parceiro;
         $faturamento->job = $request->job;
         $faturamento->valor = $request->valor;
-        $faturamento->status = "Aberto";
         //$faturamento->obs = $request->obs ;
         // dd($faturamento);
         $faturamento->save();
@@ -43,11 +37,7 @@ class FaturamentoController extends Controller
     }
     public function postDetalhes($id,Request $request)
     {
-        $faturamento = Faturamento::find($id);
-
-
-
-        dd($faturamento);
+        dd($id);
     }
 
     public function getNf($id, Request $request){
