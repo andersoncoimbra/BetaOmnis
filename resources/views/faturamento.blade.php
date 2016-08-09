@@ -1,8 +1,12 @@
 @extends('layouts.app')
+@section('script')
 
+@endsection
 @section('content')
     <div class="container">
         <div class="row">
+            @include('panel.dashboardFaturamento', ['totalquitacao' => $totalquitacao,'totalfaturado'=>$totalfaturado,'totalreceber'=>$totalreceber])
+
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading">Faturamento</div>

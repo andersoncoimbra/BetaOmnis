@@ -40,7 +40,7 @@
 <div class="form-group">
     {!! Form::label('datafaturamento', 'Data para Faturamento', array('class' => 'col-sm-4 control-label')) !!}
     <div class="col-sm-8">
-        {!! Form::date('datafaturamento', $dp, array('class'=>'form-control', 'placeholder'=>'Ex: 01/11/2016')) !!}
+        {!! Form::text('datafaturamento', $dp, array('class'=>'form-control', 'placeholder'=>'Ex: 01/11/2016','required'=>'')) !!}
     </div>
 </div>
 <div class="form-group">
