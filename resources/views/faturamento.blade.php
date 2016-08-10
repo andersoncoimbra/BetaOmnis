@@ -17,7 +17,7 @@
                         @include('forms.faturamento.modal.quitacao')
                         @include('forms.faturamento.modal.nf')
 
-                        <input type="button" class="btn btn-info pull-left" value="Exportar Excel"  style="margin-bottom: 10px;">
+                        <a href="{{URL::to('/faturamento/excel')}}"><input type="button" class="btn btn-info pull-left" value="Exportar Excel"  style="margin-bottom: 10px;"></a>
                         <input type="button" class="btn btn-success pull-right" value="Novo Faturamento" onclick="formModal('faturamento')" style="margin-bottom: 10px;">
 
                         @include('list.listfaturamento')

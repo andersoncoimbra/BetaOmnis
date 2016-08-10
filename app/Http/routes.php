@@ -30,6 +30,8 @@ Route::group(['prefix'=>'/faturamento'], function (){
     Route::get('/{id}/quitacao', ['uses'=>'FaturamentoController@getQuitacao', 'as'=>'faturamento.quitacao']);
     Route::post('/{id}/quitacao', ['uses'=>'FaturamentoController@postQuitacao', 'as'=>'faturamento.quitacao']);
 
+    Route::get('/excel', ['uses'=>'ExcelController@getExport','as'=>'faturamento.export.excel']);
+
 });
 
 Route::group(['prefix'=>'reembolso'], function (){
