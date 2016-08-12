@@ -24,6 +24,8 @@ class ExcelController extends Controller
                 $sheet->fromArray($faturamento);
             });
         })->export('xlsx');
+
+        return redirect()->route('faturamento.index');
     }
 
 }

@@ -25,7 +25,6 @@ class FaturamentoController extends Controller
         $faturasvenc = Faturamento::where('status','=','Faturado')->whereBetween('data',[$periodo,$now])->get();
         ////////////////////////////////////////////////////////////
 
-
         return view('faturamento', ['faturamentos'=>$faturamentos, 'totalquitacao'=>$totalquitacao,'totalfaturado'=>$totalfaturado,'totalreceber'=>$totalreceber, 'faturavenc'=>$faturasvenc]);
     }
 

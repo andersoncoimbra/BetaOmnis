@@ -1,5 +1,5 @@
-<div class="panel panel-primary">
-    <div class="panel-heading">Faturamento do ultimos 30 dias</div>
+<div class="panel panel-primary col-md-12">
+    <div class="panel-heading">Faturamento dos ultimos 30 dias</div>
     <div class="panel-body">
             <div class="col-md-4">
                 <div class="thumbnail">
