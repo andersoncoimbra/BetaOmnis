@@ -17,6 +17,23 @@ Route::get('/', function () {
     return view('dashboard');
 });
 
+//Rotas para os Jobs
+Route::group(['prefix'=>'jobs'], function () {
+    Route::get('/', 'JobController@index');
+    Route::post('/', 'JobController@post');
+    Route::get('/novo', 'JobController@novo');
+    //Detalhes Job
+    Route::get('/{id}', 'JobController@detalhesjob');
+    //Detalhes e adição de extras de vaga
+    Route::get('/{id}/sp','JobController@solicitapessoal');
+    Route::post('/{id}/sp','JobController@postsolicitapessoal');
+    Route::get('/{id}/sp/{evg}',['as'=>'get.extras','uses'=>'JobController@detalhesVaga']);
+    Route::post('/{id}/sp/{evg}',['uses'=>'JobController@postExtraVaga']);
+
+    //Gera orçamento
+    Route::get('/{id}/o','JobController@orcamento');
+});
+
 Route::group(['prefix'=>'/faturamento'], function (){
     Route::get('/', ['uses'=>'FaturamentoController@getIndex', 'as'=>'faturamento.index']);
     Route::post('/', ['uses'=>'FaturamentoController@postIndex', 'as'=>'faturamento.index']);

@@ -28,7 +28,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="#">
                 <img src="/assets/img/logo.png" alt="" />
             </a>
         </div>
@@ -273,10 +273,9 @@
                     </div>
                     <!--end user image section-->
                 </li>
-                <li class="sidebar-search">
-                    <!-- search section-->
+
+                    <!-- search section
                     <div class="input-group custom-search-form">
-                        <input type="text" class="form-control" placeholder="Search...">
                         <span class="input-group-btn">
                                 <button class="btn btn-default" type="button">
                                     <i class="fa fa-search"></i>
@@ -284,18 +283,28 @@
                             </span>
                     </div>
                     <!--end search section-->
+
+                <li class="">
+                    <a href="{{URL::to('/')}}"><i class="fa fa-dashboard fa-fw"></i>Dashboard</a>
+                </li>
                 </li>
                 <li class="">
-                    <a href="index.html"><i class="fa fa-dashboard fa-fw"></i>Dashboard</a>
+                    <a href="/jobs"><i class="fa fa-dashboard fa-fw"></i>Jobs<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="#">Novo Job</a>
+                        </li>
+
+                    </ul>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Financeiro<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="#">Faturamento</a>
+                            <a href="/faturamento">Faturamento</a>
                         </li>
                         <li>
-                            <a href="#">Reembolsos</a>
+                            <a href="/reembolso">Reembolsos</a>
                         </li>
                     </ul>
                     <!-- second-level-items -->
