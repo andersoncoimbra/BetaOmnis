@@ -265,7 +265,7 @@
                             <img src="/assets/img/user.jpg" alt="">
                         </div>
                         <div class="user-info">
-                            <div>{{ Auth::user()->name }}</div>
+                            <div></div>
                             <div class="user-text-online">
                                 <span class="user-circle-online btn btn-success btn-circle "></span>&nbsp;Online
                             </div>
@@ -292,7 +292,7 @@
                     <a href="/jobs"><i class="fa fa-dashboard fa-fw"></i>Jobs<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="#">Novo Job</a>
+                            <a href="/jobs/novo">Novo Job</a>
                         </li>
 
                     </ul>
