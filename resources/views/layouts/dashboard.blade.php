@@ -292,8 +292,12 @@
                     <a href="/jobs"><i class="fa fa-dashboard fa-fw"></i>Jobs<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="#">Novo Job</a>
+                            <a href="/jobs/novo">Novo Job</a>
                         </li>
+                        <li>
+                            <a href="/jobs">Lista de Jobs</a>
+                        </li>
+
 
                     </ul>
                 </li>

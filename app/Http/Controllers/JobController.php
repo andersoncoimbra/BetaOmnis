@@ -51,6 +51,7 @@ class JobController extends Controller
 
     public function post(Request $request)
     {
+       // dd($request);
         $this->gravar(
             $request->nomejob,
             $request->parceiro,
@@ -66,7 +67,7 @@ class JobController extends Controller
             $request->valor,
             $request->custo
         );
-        $jobs = Job::all();
+       // $jobs = Job::all();
 
         return redirect('/jobs/');
     }
@@ -207,8 +208,8 @@ class JobController extends Controller
         $job->codemail = $codmail;
         $job->nf = $nf;
         $job->codtele = $codtele;
-        $job->inicio = $inicio;
-        $job->fim = $fim;
+        $job->inicio = date('Y-m-d', strtotime(str_replace('/','-',$inicio)));
+        $job->fim = date('Y-m-d', strtotime(str_replace('/','-',$fim)));
         $job->status = $status;
         $job->valor = $valor;
         $job->custo = $custo;
