@@ -265,7 +265,7 @@
                             <img src="/assets/img/user.jpg" alt="">
                         </div>
                         <div class="user-info">
-                            <div>{{ Auth::user()->name }}</div>
+                            <div></div>
                             <div class="user-text-online">
                                 <span class="user-circle-online btn btn-success btn-circle "></span>&nbsp;Online
                             </div>
