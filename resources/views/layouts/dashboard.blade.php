@@ -289,7 +289,7 @@
                 </li>
                 </li>
                 <li class="">
-                    <a href="/jobs"><i class="fa fa-dashboard fa-fw"></i>Jobs<span class="fa arrow"></span></a>
+                    <a href="/jobs"><i class="fa fa-briefcase fa-fw"></i>Jobs<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
                             <a href="/jobs/novo">Novo Job</a>

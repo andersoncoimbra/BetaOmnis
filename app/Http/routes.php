@@ -13,9 +13,7 @@
 
 Route::auth();
 
-Route::get('/', function () {
-    return view('dashboard');
-});
+Route::get('/', 'Homecontroller@index');
 
 //Rotas para os Jobs
 Route::group(['prefix'=>'jobs'], function () {
