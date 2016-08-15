@@ -294,6 +294,10 @@
                         <li>
                             <a href="/jobs/novo">Novo Job</a>
                         </li>
+                        <li>
+                            <a href="/jobs">Lista de Jobs</a>
+                        </li>
+
 
                     </ul>
                 </li>
