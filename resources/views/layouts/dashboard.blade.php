@@ -301,6 +301,19 @@
 
                     </ul>
                 </li>
+                <li class="">
+                    <a href="/jobs"><i class="fa fa-briefcase fa-fw"></i>Cadastros<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="/cadastros/parceiros">Parceiros</a>
+                        </li>
+                        <li>
+                            <a href="/jobs">Praças</a>
+                        </li>
+
+
+                    </ul>
+                </li>
                 <li>
                     <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Financeiro<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
