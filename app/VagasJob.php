@@ -10,4 +10,9 @@ class VagasJob extends Model
     {
         return $this->belongsTo(Job::class);
     }
+
+    public function extras()
+    {
+        return $this->hasMany(ExtrasVagasJob::class, 'id_vaga_job');
+    }
 }
