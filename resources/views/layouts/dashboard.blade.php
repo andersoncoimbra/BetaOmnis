@@ -265,7 +265,7 @@
                             <img src="/assets/img/user.jpg" alt="">
                         </div>
                         <div class="user-info">
-                            <div></div>
+                            <div>{{Auth::user()->name}}</div>
                             <div class="user-text-online">
                                 <span class="user-circle-online btn btn-success btn-circle "></span>&nbsp;Online
                             </div>
@@ -308,7 +308,7 @@
                             <a href="/cadastros/parceiros">Parceiros</a>
                         </li>
                         <li>
-                            <a href="/jobs">Praças</a>
+                            <a href="/cadastros/pracas">Praças</a>
                         </li>
 
 
@@ -334,7 +334,7 @@
                             <a href="blank.html">Sistema</a>
                         </li>
                         <li>
-                            <a href="login.html">Status do sistemas</a>
+                            <a href="login.html">Status do sistema</a>
                         </li>
                     </ul>
                     <!-- second-level-items -->

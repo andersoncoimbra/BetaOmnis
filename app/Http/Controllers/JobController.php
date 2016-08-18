@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\ExtrasVagasJob;
 use App\Job;
 use App\Parceiro;
+use App\Praca;
 use App\VagasJob;
 use Illuminate\Http\Request;
 
@@ -15,13 +16,13 @@ class JobController extends Controller
     //
     private $parceiro = ['','Parceiro 1','Parceiro 2','Parceiro 3','Parceiro 4','Parceiro 5','Parceiro 6','Parceiro 7','Parceiro 8','Parceiro 10','Parceiro 13','Parceiro 32','Parceiro 33','Parceiro 34','Parceiro 31','Parceiro 314','Parceiro 34','Parceiro 35','Parceiro 36','Parceiro 37','Parceiro 15','Parceiro 26','Parceiro 47','Parceiro 58','Parceiro 89'];
     private $status = ['','Orçamento', 'Stand by', 'Exercução'];
-    private $praca = ['','Praça 1', 'Praça 2', 'Praça 3', 'Praça 4', 'Praça 5'];
+    private $praca;
     private $cargo = ['','cargo 1','cargo 2','cargo 3','cargo 4','cargo 5','cargo 6','cargo 7','cargo 8','cargo 9','cargo 2','cargo 3','cargo 4','cargo 5','cargo 6','cargo 7','cargo 8','cargo 9','cargo 2','cargo 3','cargo 4','cargo 5','cargo 6','cargo 7','cargo 8','cargo 9'];
     private $regime = ['','Regime 1', 'Regime 2', 'Regime 3', 'Regime 4', 'Regime 5'];
     private $contratante = ['','Omnis', 'Parceiro', 'Outro'];
     private $periodo = ['', 'Diario', 'Mensal','Unico'];
     private $tipoajuda = ['','Ajuda de custo', 'Pacote de dados', 'Vale transporte'];
-
+    private $estados = array("AC"=>"Acre", "AL"=>"Alagoas", "AM"=>"Amazonas", "AP"=>"Amapá","BA"=>"Bahia","CE"=>"Ceará","DF"=>"Distrito Federal","ES"=>"Espírito Santo","GO"=>"Goiás","MA"=>"Maranhão","MT"=>"Mato Grosso","MS"=>"Mato Grosso do Sul","MG"=>"Minas Gerais","PA"=>"Pará","PB"=>"Paraíba","PR"=>"Paraná","PE"=>"Pernambuco","PI"=>"Piauí","RJ"=>"Rio de Janeiro","RN"=>"Rio Grande do Norte","RO"=>"Rondônia","RS"=>"Rio Grande do Sul","RR"=>"Roraima","SC"=>"Santa Catarina","SE"=>"Sergipe","SP"=>"São Paulo","TO"=>"Tocantins");
     public function __construct()
     {
         $this->middleware('auth');
@@ -33,8 +34,10 @@ class JobController extends Controller
         $parceiros = Parceiro::all();
         $ds     = $this->status;
         $dp     = $this->parceiro;
-        $p      = $this->praca;
+        $p      = Praca::all();
 
+        //dd($p);
+        //dd($p);
 
         return view('jobs', ['jobs'=> $jobs, 'ds'=> $ds, 'parceiros'=>$parceiros, 'p'=>$p]);
     }
@@ -44,9 +47,9 @@ class JobController extends Controller
         $parceiros = Parceiro::all();
         $ds     = $this->status;
         $dp     = $this->parceiro;
-        $p      = $this->praca;
+        $p      = Praca::all();
 
-        return view('forms.job.addJob', ['ds'=> $ds, 'parceiros'=>$parceiros, 'p'=>$p]);
+        return view('forms.job.addJob', ['ds'=> $ds, 'parceiros'=>$parceiros, 'p'=>$p, 'estados'=>$this->estados]);
     }
 
     public function post(Request $request)

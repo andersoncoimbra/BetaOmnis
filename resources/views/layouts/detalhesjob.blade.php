@@ -1,7 +1,5 @@
 @extends('layouts.dashboard')
-@section('title')
-    Detalhes do Job
-    @endsection
+
 
 @section('content')
         <div class="row">
@@ -89,4 +87,5 @@
                 </div>
             </div>
         </div>
+
 @endsection

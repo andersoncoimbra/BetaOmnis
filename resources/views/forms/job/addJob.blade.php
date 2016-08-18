@@ -26,8 +26,8 @@
         {!! Form::label('praca', 'Selecione a praça', array('class' => 'col-sm-2 control-label')) !!}
         <div class="col-sm-4">
             <select name="praca" class="form-control selectpicker" style="margin: 3px;">
-                @forelse($p as$key => $value)
-                    <option value="{{$key}}">{{$value}}</option>
+                @forelse($p as $value)
+                    <option value="{{$value->id}}">{{$value->nome}}</option>
                 @empty
                     <option value="0" >Sem Praça</option>
                 @endforelse
