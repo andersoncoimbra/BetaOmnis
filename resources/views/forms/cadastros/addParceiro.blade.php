@@ -21,19 +21,6 @@
         {!! Form::close() !!}
     </div>
 </div>
-
-<div class="col-md-12">
-    <table class="table-responsive table table-striped">
-        <caption>Lista de Parceiros</caption>
-        <tr><th>#ID</th><th>Nome do Parceiro</th><th>CNPJ</th></tr>
-        @forelse($parceiro as $parceiro)
-        <tr><td>{{$parceiro->id}}</td><td>{{$parceiro->nome}}</td><td>{{$parceiro->cnpj}}</td></tr>
-        @empty
-        <tr><td>Sem parceiros Cadastrado</td></tr>
-        @endforelse
-    </table>
-</div>
-
 @section('script')
 <script type="text/javascript">
     function addparceiro() {

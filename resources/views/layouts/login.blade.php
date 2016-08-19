@@ -23,9 +23,8 @@
 <script src="assets/plugins/bootstrap/bootstrap.min.js"></script>
 <script src="assets/plugins/metisMenu/jquery.metisMenu.js"></script>
 <script type="text/javascript">
-
-
-                $('body').attr('style','background:url(http://beta.omnis.tk/assets/img/bg1.jpg) no-repeat')
+    var alt = Math.floor(Math.random()*10+1)
+    $('body').attr('style','background:url(http://beta.omnis.tk/assets/img/bg/bg'+alt+'.jpg) no-repeat')
 
 </script>
 

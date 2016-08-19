@@ -64,4 +64,10 @@ class CadastroController extends Controller
         return view('list.listjobscadastro', ['jobs'=>$jobs]);
 
     }
+
+    public function findJobParceiro($id)
+    {
+        $jobs = Parceiro::find($id)->jobs()->get();
+        return view('list.cadastros.listJobParceiro', ['jobs'=>$jobs]);
+    }
 }

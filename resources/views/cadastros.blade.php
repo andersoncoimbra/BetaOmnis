@@ -13,16 +13,14 @@
             </ul>
         </div>
     @endif
-
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">Cadastros de Parceiros</div>
-
                     <div class="panel-body">
                         <button type="button" onclick="addparceiro()" class="btn btn-primary pull-right" >Novo Parceiro</button>
-
                         @include('forms.cadastros.addParceiro')
+                        @include('list.listparceiro')
                     </div>
                 </div>
             </div>

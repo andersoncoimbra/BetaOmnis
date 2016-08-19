@@ -14,8 +14,6 @@
                 <div id="cadastros-jobs">
                     <h1>Detalhes</h1>
                 </div>
-
-
             </div>
         </div>
     </div>
