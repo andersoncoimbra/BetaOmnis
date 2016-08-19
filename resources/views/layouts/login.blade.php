@@ -14,7 +14,7 @@
 
 </head>
 
-<body class="body-Login-back">
+<body class="body-Login-back" style="background-size: 100% 100%;">
 @yield('content')
 
 
@@ -25,6 +25,8 @@
 <script type="text/javascript">
     var alt = Math.floor(Math.random()*10+1)
     $('body').attr('style','background:url(http://beta.omnis.tk/assets/img/bg/bg'+alt+'.jpg) no-repeat')
+
+
 
 </script>
 
