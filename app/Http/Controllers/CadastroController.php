@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Job;
 use App\Praca;
 use Illuminate\Http\Request;
 
@@ -54,5 +55,13 @@ class CadastroController extends Controller
         $pracas->save();
 
         return redirect()->route('pracas');
+    }
+
+    public function jobs($id)
+    {
+        $jobs = Praca::find($id)->jobs()->get();
+
+        return view('list.listjobscadastro', ['jobs'=>$jobs]);
+
     }
 }

@@ -4,7 +4,23 @@
 @endsection
 
 @section('content')
-<div id="form_add_pracas" class="modal fade">
+    <div id="form_add_jobs" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content col-md-10 ">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4>Lista de Job</h4>
+                </div>
+                <div id="cadastros-jobs">
+                    <h1>Detalhes</h1>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div id="form_add_pracas" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -61,9 +77,9 @@
 <div class="col-md-12">
     <table class="table-responsive table table-striped">
         <caption>Lista de pracas</caption>
-        <tr><th>#ID</th><th>Nome do pracas</th><th>CNPJ</th></tr>
+        <tr><th>#ID</th><th>Nome do pracas</th><th>CNPJ</th><th>Jobs</th></tr>
         @forelse($pracas as $praca)
-            <tr><td>{{$praca->id}}</td><td>{{$praca->nome}}</td><td>{{$praca->estado}}</td></tr>
+            <tr><td>{{$praca->id}}</td><td>{{$praca->nome}}</td><td>{{$praca->estado}}</td><td><button class="btn btn-info" onclick="formModal('jobs','{{$praca->id}}','cadastros')">Jobs</button></td></tr>
         @empty
             <tr><td>Sem pracas Cadastrado</td></tr>
         @endforelse

@@ -67,5 +67,6 @@ Route::group(['prefix'=>'cadastros'], function (){
     Route::get('/pracas', ['uses'=>'CadastroController@pracas', 'as'=>'pracas']);
     Route::post('/pracas', ['uses'=> 'CadastroController@addPracas', 'as'=>'cadastro.pracas']);
 
+    Route::get('/cadastros/{id}/jobs', ['uses'=>'CadastroController@jobs']);
 
 });

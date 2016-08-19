@@ -21,7 +21,6 @@
         {!! Form::close() !!}
     </div>
 </div>
-<button type="button" onclick="addparceiro()" class="btn btn-primary pull-right" >Novo Parceiro</button>
 
 <div class="col-md-12">
     <table class="table-responsive table table-striped">

@@ -20,6 +20,7 @@
                     <div class="panel-heading">Cadastros de Parceiros</div>
 
                     <div class="panel-body">
+                        <button type="button" onclick="addparceiro()" class="btn btn-primary pull-right" >Novo Parceiro</button>
 
                         @include('forms.cadastros.addParceiro')
                     </div>
