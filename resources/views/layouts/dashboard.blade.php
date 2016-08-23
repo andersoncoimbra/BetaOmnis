@@ -381,7 +381,7 @@
         $("#"+nivel+'-'+tipo).html("Carregando...");
         $(document).ready(function () {
             $.ajax({
-                url: nivel+'/'+id+"/"+tipo
+                url: '{{URL::to('/')}}'+'/'+nivel+'/'+id+"/"+tipo
             }).done(function (html) {
 
                 $("#"+nivel+'-'+tipo).html(html);

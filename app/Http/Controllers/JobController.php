@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\ExtrasVagasJob;
+use App\Faturamento;
 use App\Job;
 use App\Parceiro;
 use App\Praca;
@@ -198,6 +199,13 @@ class JobController extends Controller
         $vj = VagasJob::all()->where('id_job', $id);
 
         return view('layouts.orcamento', ['id'=>$id, "job"=>$job, 'p'=>$p, 'pc'=>$pc, 'vj'=>$vj, 'dp'=>$dp]);
+    }
+
+    public function financeiro($id)
+    {
+        $job = Job::find($id);
+
+        return view('layouts.jobs.financeiro', ['id'=>$id,'job'=>$job]);
     }
 
     protected function gravar($nomejob, $parceiro, $praca, $codnome, $codnome, $codmail, $nf, $codtele, $inicio, $fim, $status, $valor, $custo)

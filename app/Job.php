@@ -21,4 +21,9 @@ class Job extends Model
     {
         return $this->belongsTo(Praca::class, 'praca');
     }
+
+    public function faturas()
+    {
+        return $this->hasMany(Faturamento::class, 'job_id');
+    }
 }

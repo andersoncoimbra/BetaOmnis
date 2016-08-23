@@ -23,13 +23,17 @@ Route::group(['prefix'=>'jobs'], function () {
     //Detalhes Job
     Route::get('/{id}', 'JobController@detalhesjob');
     //Detalhes e adição de extras de vaga
-    Route::get('/{id}/sp','JobController@solicitapessoal');
+    Route::get('/{id}/sp',['uses'=>'JobController@solicitapessoal', 'as'=>'jobs.sp']);
     Route::post('/{id}/sp','JobController@postsolicitapessoal');
     Route::get('/{id}/sp/{evg}',['as'=>'get.extras','uses'=>'JobController@detalhesVaga']);
     Route::post('/{id}/sp/{evg}',['uses'=>'JobController@postExtraVaga']);
 
     //Gera orçamento
     Route::get('/{id}/o','JobController@orcamento');
+
+    //Relatorio Financeiro
+    Route::get('/{id}/financeiro',['as'=>'jobs.financeiro','uses'=>'JobController@financeiro']);
+
 });
 
 Route::group(['prefix'=>'/faturamento'], function (){

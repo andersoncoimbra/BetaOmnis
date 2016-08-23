@@ -77,11 +77,11 @@
 
                         <div class="col-md-12 clearfix">
                             <button class="btn btn-danger ">Editar</button>
-                            <a href="{{url()->current()}}/sp"> <button class="btn btn-default ">Solicitações de pessoal</button></a>
+                            <a href="{{URL::route('jobs.sp', $job->id)}}"> <button class="btn btn-default ">Solicitações de pessoal</button></a>
                             <button class="btn btn-info ">Solicitações</button>
                             <button class="btn btn-success ">Informaçoes do Job</button>
                             <a href="{{url()->current()}}/o"><button class="btn btn-warning ">Gerar Orçamento</button></a>
-                            <button class="btn btn-primary ">Conta</button>
+                            <a href="{{URL::route('jobs.financeiro', $job->id)}}"><button class="btn btn-primary ">Financeiro</button></a>
                         </div>
                     </div>
                 </div>
