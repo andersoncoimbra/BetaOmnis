@@ -45,6 +45,12 @@ class CadastroController extends Controller
         return view('forms.cadastros.pracas',['pracas'=>$pracas]);
     }
 
+    public function praca($id)
+    {
+        $jobs = Praca::find($id)->jobs()->get();
+        return view('list.listjobscadastro', ['jobs'=>$jobs]);
+    }
+
     public function addPracas(Request $request)
     {
         $pracas = new Praca();

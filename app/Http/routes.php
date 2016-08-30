@@ -67,12 +67,20 @@ Route::group(['prefix'=>'cadastros'], function (){
 
     Route::get('/parceiros', ['uses'=>'CadastroController@index', 'as'=>'cadastros.index']);
     Route::post('/parceiros', ['uses'=> 'CadastroController@addParceiro', 'as'=>'cadastro.parceiro']);
-    Route::get('/parceiro/{id}/jobs', ['uses'=> 'CadastroController@findJobParceiro']);
-
 
     Route::get('/pracas', ['uses'=>'CadastroController@pracas', 'as'=>'pracas']);
     Route::post('/pracas', ['uses'=> 'CadastroController@addPracas', 'as'=>'cadastro.pracas']);
 
     Route::get('/cadastros/{id}/jobs', ['uses'=>'CadastroController@jobs']);
+
+});
+
+Route::group(['prefix'=>'parceiros'], function (){
+    Route::get('/{id}/jobs', ['uses'=> 'CadastroController@findJobParceiro']);
+
+});
+
+Route::group(['prefix'=>'pracas'], function (){
+    Route::get('/{id}/jobs', ['uses'=> 'CadastroController@praca']);
 
 });

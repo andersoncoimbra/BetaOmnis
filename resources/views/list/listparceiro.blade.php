@@ -4,7 +4,7 @@
         <caption>Lista de Parceiros</caption>
         <tr><th>#ID</th><th>Nome do Parceiro</th><th>CNPJ</th><th>Jobs</th></tr>
         @forelse($parceiro as $parceiro)
-            <tr><td>{{$parceiro->id}}</td><td>{{$parceiro->nome}}</td><td>{{$parceiro->cnpj}}</td><th><button class="btn btn-info" onclick="formModal('jobs','{{$parceiro->id}}','parceiro')">Jobs</button></th></tr>
+            <tr><td>{{$parceiro->id}}</td><td>{{$parceiro->nome}}</td><td>{{$parceiro->cnpj}}</td><th><button class="btn btn-info" onclick="formModal('jobs','{{$parceiro->id}}','parceiros')">Jobs</button></th></tr>
         @empty
             <tr><td>Sem parceiros Cadastrado</td></tr>
         @endforelse
