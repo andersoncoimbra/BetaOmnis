@@ -1,6 +1,9 @@
 @extends('layouts.dashboard')
+@section('breadcrumbs')
+    >>{!! Html::linkRoute('lista.jobs', 'Todos os Jobs') !!}
+    >>{!! Html::linkRoute('detalhes.job', 'Detalhes do Job', $id) !!}
 
-
+@endsection
 @section('content')
     <!--
     View chamada pelo controle
@@ -9,7 +12,7 @@
 
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h3>Vagas do job - {{$nomejob}}</h3></div>
+                    <div class="panel-heading"><h3>Cadastro de vagas do job - {{$nomejob}}</h3></div>
                     <div class="panel-body " style="padding-right: 5px; padding-left: 5px;">
                         {!! Form::open(array('url' => '/jobs/'.$id.'/sp', 'class'=>'form-horizontal')) !!}
                         <div class="col-md-2">

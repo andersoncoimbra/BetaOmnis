@@ -1,5 +1,7 @@
 @extends('layouts.dashboard')
-
+@section('breadcrumbs')
+    >>{!! Html::linkRoute('lista.jobs', 'Todos os Jobs') !!}
+@endsection
 
 @section('content')
         <div class="row">

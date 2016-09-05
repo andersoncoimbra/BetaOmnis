@@ -1,9 +1,14 @@
 @extends('layouts.dashboard')
-
-
+@section('breadcrumbs')
+    {!! Html::linkRoute('lista.jobs', 'Todos os Jobs') !!} >>
+    {!! Html::linkRoute('detalhes.job', 'Detalhes do Job', $id) !!}
+@endsection
+@section('title')
+    Orçamento
+    @endsection
 @section('content')
         <div class="row">
-            <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-12">
                 <div id="print" class="panel panel-default">
                     <div class="panel-heading">
                         <div class="col-md-12">

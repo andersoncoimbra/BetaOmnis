@@ -17,11 +17,11 @@ Route::get('/', 'Homecontroller@index');
 
 //Rotas para os Jobs
 Route::group(['prefix'=>'jobs'], function () {
-    Route::get('/', 'JobController@index');
+    Route::get('/', ['uses'=>'JobController@index', 'as'=>'lista.jobs']);
     Route::post('/', 'JobController@post');
     Route::get('/novo', 'JobController@novo');
     //Detalhes Job
-    Route::get('/{id}', 'JobController@detalhesjob');
+    Route::get('/{id}', ['uses'=>'JobController@detalhesjob', 'as'=>'detalhes.job']);
     //Detalhes e adição de extras de vaga
     Route::get('/{id}/sp',['uses'=>'JobController@solicitapessoal', 'as'=>'jobs.sp']);
     Route::post('/{id}/sp','JobController@postsolicitapessoal');

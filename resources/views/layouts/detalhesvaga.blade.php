@@ -1,6 +1,11 @@
 @extends('layouts.dashboard')
+@section('breadcrumbs')
+    >>{!! Html::linkRoute('lista.jobs', 'Todos os Jobs') !!}
+    >>{!! Html::linkRoute('detalhes.job', 'Detalhes do Job', $id) !!}
+    >>{!! Html::linkRoute('jobs.sp', 'Cadastro de Vaga', $id) !!}
 
 
+@endsection
 @section('content')
           <div class="row">
             <div class="col-md-12">
