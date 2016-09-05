@@ -332,10 +332,10 @@
                     <a href="#"><i class="fa fa-sliders fa-fw"></i>Configurações<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li class="selected">
-                            <a href="blank.html">Sistema</a>
+                            <a href="#">Sistema</a>
                         </li>
                         <li>
-                            <a href="login.html">Status do sistema</a>
+                            <a href="#">Status do sistema</a>
                         </li>
                     </ul>
                     <!-- second-level-items -->

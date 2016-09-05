@@ -198,7 +198,7 @@ class JobController extends Controller
         // $vj = VagasJob::all()->where('id_job', $id)->sum('valor');
         $vj = VagasJob::all()->where('id_job', $id);
 
-        return view('layouts.orcamento', ['id'=>$id, "job"=>$job, 'p'=>$p, 'pc'=>$pc, 'vj'=>$vj, 'dp'=>$dp]);
+        return view('layouts.jobs.orcamento', ['id'=>$id, "job"=>$job, 'p'=>$p, 'pc'=>$pc, 'vj'=>$vj, 'dp'=>$dp]);
     }
 
     public function financeiro($id)
