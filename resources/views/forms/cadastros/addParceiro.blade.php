@@ -20,7 +20,7 @@
         </div>
         {!! Form::close() !!}
     </div>
-</div>
+</div>\
 @section('script')
 <script type="text/javascript">
     function addparceiro() {

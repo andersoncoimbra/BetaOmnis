@@ -2,7 +2,7 @@
 @section('breadcrumbs')
     >>{!! Html::linkRoute('lista.jobs', 'Todos os Jobs') !!}
 @endsection
-
+@include('modal.jobs.editarjob')
 @section('content')
         <div class="row">
             <div class="col-md-12">
@@ -14,7 +14,7 @@
                                 <dt>Nome do Job</dt>
                                 <dd>{{$job->nomeJob}}</dd>
                                 <dt>Parceiro</dt>
-                                <dd>{{$dp[$job->parceiro]}}</dd>
+                                <dd>{{$job->parceiros->nome}}</dd>
                                 <dt>Praça</dt>
                                 <dd>{{$p[$job->praca]}}</dd>
                                 <dt>Coordenador Parceiro</dt>
@@ -78,7 +78,7 @@
                         </div>
 
                         <div class="col-md-12 clearfix">
-                            <button class="btn btn-danger ">Editar</button>
+                            <button class="btn btn-danger " onclick="editarjob({{$job->id}});">Editar</button>
                             <a href="{{URL::route('jobs.sp', $job->id)}}"> <button class="btn btn-default ">Solicitações de pessoal</button></a>
                             <button class="btn btn-info ">Solicitações</button>
                             <button class="btn btn-success ">Informaçoes do Job</button>

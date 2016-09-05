@@ -76,6 +76,19 @@ class JobController extends Controller
         return redirect('/jobs/');
     }
 
+    public function editar($id)
+    {
+        $parceiros = Parceiro::all();
+        $ds     = $this->status;
+        $dp     = $this->parceiro;
+        $p      = Praca::all();
+        $job    = Job::find($id);
+
+
+        return view('forms.job.editarjob', ['job'=>$job,'ds'=> $ds, 'parceiros'=>$parceiros, 'p'=>$p, 'estados'=>$this->estados]);
+
+    }
+
     public function detalhesjob($id)
     {
         $dp = $this->cargo;
@@ -89,7 +102,7 @@ class JobController extends Controller
 
         $vj= $job->vagaJobs;
 
-        return view('layouts.detalhesjob', ['job' => Job::find($id), 'tipo'=>$tipo, 'dp'=> $dp, 'ds'=>$ds, 'p'=>$p, 'vj' => $vj]);
+        return view('layouts.detalhesjob', ['job' => $job, 'tipo'=>$tipo, 'dp'=> $dp, 'ds'=>$ds, 'p'=>$p, 'vj' => $vj]);
 
     }
 
