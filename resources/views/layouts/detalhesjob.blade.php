@@ -16,7 +16,7 @@
                                 <dt>Parceiro</dt>
                                 <dd>{{$job->parceiros->nome}}</dd>
                                 <dt>Praça</dt>
-                                <dd>{{$p[$job->praca]}}</dd>
+                                <dd>{{$job->pracas->nome}}</dd>
                                 <dt>Coordenador Parceiro</dt>
                                 <dd>{{$job->codnome}}</dd>
                                 <dt>E-mail coordenador</dt>

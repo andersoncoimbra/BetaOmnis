@@ -17,7 +17,7 @@ class Job extends Model
         return $this->hasMany(VagasJob::class, 'id_job');
     }
 
-    public function praca()
+    public function pracas()
     {
         return $this->belongsTo(Praca::class, 'praca');
     }

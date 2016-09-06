@@ -76,7 +76,7 @@ class JobController extends Controller
         return redirect('/jobs/');
     }
 
-    public function editar($id)
+    public function geteditar($id)
     {
         $parceiros = Parceiro::all();
         $ds     = $this->status;
@@ -88,6 +88,32 @@ class JobController extends Controller
         return view('forms.job.editarjob', ['job'=>$job,'ds'=> $ds, 'parceiros'=>$parceiros, 'p'=>$p, 'estados'=>$this->estados]);
 
     }
+    public function posteditar($id,Request $request){
+
+        //dd($request);
+        $job = Job::find($id);
+
+        $job->nomeJob = $request->nomeJob;
+        $job->parceiro = $request->parceiro;
+        $job->praca = $request->praca;
+        $job->codnome = $request->codnome;
+        $job->codemail = $request->codemail;
+        $job->nf = $request->nf;
+        $job->codtele = $request->codtele;
+        $job->inicio = date('Y-m-d', strtotime(str_replace('/','-',$request->inicio)));
+        $job->fim = date('Y-m-d', strtotime(str_replace('/','-',$request->fim)));
+
+        if( $request->status > 0) {
+            $job->status = $request->status;
+        }
+        $job->valor = $request->valor;
+        $job->custo = $request->custo;
+
+        $job->save();
+
+        return redirect()->route('detalhes.job', $id);
+    }
+
 
     public function detalhesjob($id)
     {
