@@ -331,18 +331,6 @@
                     <!-- second-level-items -->
                 </li>
 
-                <li class="active">
-                    <a href="#"><i class="fa fa-sliders fa-fw"></i>Configurações<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li class="selected">
-                            <a href="#">Sistema</a>
-                        </li>
-                        <li>
-                            <a href="#">Status do sistema</a>
-                        </li>
-                    </ul>
-                    <!-- second-level-items -->
-                </li>
             </ul>
             <!-- end side-menu -->
         </div>

@@ -91,7 +91,4 @@ Route::group(['prefix'=>'parceiros'], function (){
 
 });
 
-Route::group(['prefix'=>'pracas'], function (){
-    Route::get('/{id}/jobs', ['uses'=> 'CadastroController@praca']);
 
-});
