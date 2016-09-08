@@ -78,6 +78,12 @@ Route::group(['prefix'=>'cadastros'], function (){
 
     Route::get('/cadastros/{id}/jobs', ['uses'=>'CadastroController@jobs']);
 
+    Route::get('/usuarios', ['uses'=>'CadastroController@usuarios','as'=>'user']);
+    Route::get('/usuarios/new', ['uses'=>'CadastroController@newUser','as'=>'new.user']);
+
+
+
+
 });
 
 Route::group(['prefix'=>'parceiros'], function (){

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Job;
 use App\Praca;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -75,5 +76,20 @@ class CadastroController extends Controller
     {
         $jobs = Parceiro::find($id)->jobs()->get();
         return view('list.cadastros.listJobParceiro', ['jobs'=>$jobs]);
+    }
+
+    public function usuarios()
+    {
+        $users = User::all();
+
+        return view('usuarios', ['users'=>$users]);
+
+    }
+
+    public function newUser()
+    {
+        $users = User::all();
+
+        return view('forms.cadastros.addUser', ['users'=>$users]);
     }
 }

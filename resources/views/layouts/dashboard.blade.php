@@ -311,6 +311,9 @@
                         <li>
                             <a href="/cadastros/pracas">Praças</a>
                         </li>
+                        <li>
+                            <a href="/cadastros/usuarios">Usuarios</a>
+                        </li>
 
 
                     </ul>
