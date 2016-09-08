@@ -9,6 +9,7 @@
     Relatório Financeiro
     @endsection
 @section('content')
+    @include('modal.jobs.addreembolso')
     @include('forms.job.modal.faturamento')
     @include('forms.faturamento.modal.detalhes')
 
@@ -26,4 +27,36 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h4>Reembolso</h4></div>
+                <div class="panel-body">
+
+                    <input type="button" class="btn btn-success pull-right" value="Novo Reembolso" onclick="newreembolso()" style="margin-bottom: 10px;">
+                    Sem reembolso registrado
+
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+
+@section('script')
+    <script type="text/javascript">
+        function newreembolso() {
+            $('#new-reembolso').html("Carregando...");
+            $(document).ready(function () {
+                $.ajax({
+                    url: '{{URL::to('/reembolso/new/job/'.$job->id)}}'
+                }).done(function (html) {
+
+                    $('#new-reembolso').html(html);
+
+                })
+                $('#modal-reembolso').modal('show');
+
+            });
+        }
+    </script>
 @endsection

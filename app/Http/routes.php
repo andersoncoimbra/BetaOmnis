@@ -65,6 +65,10 @@ Route::group(['prefix'=>'reembolso'], function (){
 
     Route::get('/lista', ['uses'=>'ReembolsoController@lista', 'as'=>'reembolso.lista']);
 
+    Route::post('/job', ['uses'=>'ReembolsoController@postrembjob']);
+    Route::get('/new/job/{id}', ['uses'=>'ReembolsoController@rembjob', 'as'=>'reembolso.job']);
+
+
 });
 
 Route::group(['prefix'=>'cadastros'], function (){

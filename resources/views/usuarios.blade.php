@@ -10,18 +10,18 @@
 @section('script')
     <script type="text/javascript">
         function newUser() {
-    $('#new-usuario').html("Carregando...");
-    $(document).ready(function () {
-    $.ajax({
-    url: '{{URL::to('/cadastros/usuarios/new')}}'
-    }).done(function (html) {
+            $('#new-usuario').html("Carregando...");
+            $(document).ready(function () {
+                $.ajax({
+                    url: '{{URL::to('/cadastros/usuarios/new')}}'
+                }).done(function (html) {
 
-    $('#new-usuario').html(html);
+                    $('#new-usuario').html(html);
 
-    })
-    $('#modal-usuarios').modal('show');
+                })
+                $('#modal-usuarios').modal('show');
 
-    });
-    }
+            });
+        }
     </script>
-    @endsection
+@endsection

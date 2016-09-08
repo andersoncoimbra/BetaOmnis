@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Job;
 use App\Reembolso;
 use Illuminate\Http\Request;
 
@@ -22,10 +23,8 @@ class ReembolsoController extends Controller
         $reembolsos = Reembolso::all();
 
         return view('reembolso', ['reembolsos'=>$reembolsos]);
-
-
-
     }
+
 
     public function postIndex(Request $request)
     {
@@ -55,6 +54,26 @@ class ReembolsoController extends Controller
         $reembolsos = Reembolso::all();
 
         return view('list.listreembolso', ['reembolsos'=>$reembolsos]);
+    }
+
+    public function rembjob($id)
+    {
+        $job = Job::find($id);
+
+        return view('forms.reembolso.addReembolsoJob', ['job'=>$job]);
+    }
+
+    public function postrembjob(Request $request)
+    {
+        $reembolso = new Reembolso();
+        $reembolso->job  = $request->job;
+        $reembolso->job_id  = $request->job_id;
+        $reembolso->valor  = $request->valor;
+        $reembolso->data  = $request->data;
+        $reembolso->obs  = $request->obs;
+        $reembolso->save();
+
+        return redirect()->route('reembolso.job', $request->job_id);
     }
 
 
