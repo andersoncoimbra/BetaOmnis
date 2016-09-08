@@ -1,4 +1,9 @@
 @extends('layouts.dashboard')
+@section('breadcrumbs')
+    >>{!! Html::linkRoute('lista.jobs', 'Todos os Jobs') !!}
+    >>{!! Html::linkRoute('detalhes.job', 'Detalhes do Job', $id) !!}
+
+@endsection
 
 @section('title')
     Relatório Financeiro
