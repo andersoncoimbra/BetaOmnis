@@ -28,22 +28,16 @@ class ReembolsoController extends Controller
 
     public function postIndex(Request $request)
     {
-
-       
-
         $reembolso = new Reembolso();
         $reembolso->parceiro  = $request->parceiro;
         $reembolso->job  = $request->job;
         $reembolso->valor  = $request->valor;
-        $reembolso->data  = $request->data;
+        $reembolso->data  =  date('Y-m-d', strtotime(str_replace('/','-',$request->data)));
         $reembolso->fornecedor  = $request->fornecedor;
         $reembolso->identificador  = $request->identificador;
         $reembolso->data_envio  = $request->dataenvio;
 
         $reembolso->save();
-
-
-
 
         return redirect()->route('reembolso.index');
     }
@@ -54,6 +48,11 @@ class ReembolsoController extends Controller
         $reembolsos = Reembolso::all();
 
         return view('list.listreembolso', ['reembolsos'=>$reembolsos]);
+    }
+
+    public function novo()
+    {
+        return view('forms.reembolso.addReembolso');
     }
 
     public function rembjob($id)

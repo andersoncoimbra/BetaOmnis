@@ -63,6 +63,9 @@ Route::group(['prefix'=>'reembolso'], function (){
 
     Route::post('/', ['uses'=>'ReembolsoController@postIndex', 'as'=>'reembolso.index']);
 
+    Route::get('/novo', ['uses'=>'ReembolsoController@novo', 'as'=>'reembolso.novo']);
+
+
     Route::get('/lista', ['uses'=>'ReembolsoController@lista', 'as'=>'reembolso.lista']);
 
     Route::post('/job', ['uses'=>'ReembolsoController@postrembjob']);

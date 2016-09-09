@@ -3,14 +3,14 @@
 <div class="form-group">
     {!! Form::label('parceiro', 'Nome do Parceiro', array('class' => 'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
-        {!! Form::text('job',$job->parceiros->nome , array('class' => 'col-sm-2 form-control')) !!}
+        {!! Form::text('parceiro',$job->parceiros->nome , array('class' => 'col-sm-2 form-control')) !!}
 
     </div>
 </div>
 <div class="form-group">
     {!! Form::label('job', 'Nome do Job', array('class' => 'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
-        {!! Form::text('job',$job->nomeJob , array('class' => 'col-sm-2 form-control')) !!}
+        {!! Form::text('job',$job->nomeJob, array('class' => 'col-sm-2 form-control')) !!}
         <input name="job_id"  class="form-control" type="hidden" value="{{$job->id}}">
 
     </div>
