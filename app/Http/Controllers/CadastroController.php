@@ -89,7 +89,17 @@ class CadastroController extends Controller
     public function newUser()
     {
         $users = User::all();
-
         return view('forms.cadastros.addUser', ['users'=>$users]);
+    }
+
+    public function candidato()
+    {
+        $canditato = [];
+        return view('candidato',['candidatos'=>$canditato]);
+    }
+
+    public function formnewcandidato()
+    {
+        return  view('forms.cadastros.cadcandidato');
     }
 }

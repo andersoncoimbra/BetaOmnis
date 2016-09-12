@@ -306,6 +306,9 @@
                     <a href="/jobs"><i class="fa fa-briefcase fa-fw"></i>Cadastros<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
+                            <a href="/cadastros/candidato">Candidatos</a>
+                        </li>
+                        <li>
                             <a href="/cadastros/parceiros">Parceiros</a>
                         </li>
                         <li>

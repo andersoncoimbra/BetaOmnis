@@ -77,6 +77,12 @@ Route::group(['prefix'=>'reembolso'], function (){
 Route::group(['prefix'=>'cadastros'], function (){
     Route::get('/', function (){return redirect()->route('cadastros.index');});
 
+    Route::get('/candidato', ['uses'=>'CadastroController@candidato', 'as'=>'cadastros.candidato']);
+    Route::get('/candidato/new', ['uses'=>'CadastroController@formnewcandidato','as'=>'form.candidato']);
+    Route::post('/candidato/new', ['uses'=>'CadastroController@newcandidato','as'=>'new.candidato']);
+
+
+
     Route::get('/parceiros', ['uses'=>'CadastroController@index', 'as'=>'cadastros.index']);
     Route::post('/parceiros', ['uses'=> 'CadastroController@addParceiro', 'as'=>'cadastro.parceiro']);
 
@@ -87,6 +93,7 @@ Route::group(['prefix'=>'cadastros'], function (){
 
     Route::get('/usuarios', ['uses'=>'CadastroController@usuarios','as'=>'user']);
     Route::get('/usuarios/new', ['uses'=>'CadastroController@newUser','as'=>'new.user']);
+
 
 
 
