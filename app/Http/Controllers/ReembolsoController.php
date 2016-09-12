@@ -67,12 +67,13 @@ class ReembolsoController extends Controller
         $reembolso = new Reembolso();
         $reembolso->job  = $request->job;
         $reembolso->job_id  = $request->job_id;
+        $reembolso->parceiro  = $request->parceiro;
         $reembolso->valor  = $request->valor;
-        $reembolso->data  = $request->data;
+        $reembolso->data  = date('Y-m-d', strtotime(str_replace('/','-',$request->data)));
         $reembolso->obs  = $request->obs;
         $reembolso->save();
 
-        return redirect()->route('reembolso.job', $request->job_id);
+        return redirect()->route('jobs.financeiro', $request->job_id);
     }
 
 

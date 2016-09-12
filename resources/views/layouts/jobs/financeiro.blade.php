@@ -34,10 +34,7 @@
                 <div class="panel-body">
 
                     <input type="button" class="btn btn-success pull-right" value="Novo Reembolso" onclick="newreembolso()" style="margin-bottom: 10px;">
-                    Sem reembolso registrado
-
                     @include('list.listreembolso', ['reembolsos'=> $job->reembolsos])
-
                 </div>
             </div>
         </div>
