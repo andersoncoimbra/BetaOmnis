@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Candidato;
 use App\Job;
 use App\Praca;
 use App\User;
@@ -94,12 +95,28 @@ class CadastroController extends Controller
 
     public function candidato()
     {
-        $canditato = [];
+        $canditato = Candidato::all();
         return view('candidato',['candidatos'=>$canditato]);
     }
 
     public function formnewcandidato()
     {
         return  view('forms.cadastros.cadcandidato');
+    }
+
+    public function newcandidato(Request $request)
+    {
+        $candidato = new Candidato();
+        $candidato->nome = $request->nome;
+        $candidato->email = $request->email;
+        $candidato->datanascimento = date('Y-m-d', strtotime(str_replace('/','-',$request->datanascimento)));
+        $candidato->telefone = $request->telefone;
+        $candidato->sexo = $request->sexo;
+
+        $candidato->save();
+
+        return redirect()->route('cadastros.candidato');
+
+
     }
 }

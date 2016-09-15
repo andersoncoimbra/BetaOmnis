@@ -4,7 +4,6 @@ Cadastro de Candidatos
 @endsection
 @section('content')
     <button class="btn btn-info pull-right" onclick="newcandidato();">Novo Candidato</button>
-    Lista de cadastro de pessoal<br>
     @include('list.cadastros.listcandidatos')
 @endsection
 @include('modal.cadastros.cadastrodecandidato')
