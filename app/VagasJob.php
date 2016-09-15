@@ -15,4 +15,5 @@ class VagasJob extends Model
     {
         return $this->hasMany(ExtrasVagasJob::class, 'id_vaga_job');
     }
+
 }

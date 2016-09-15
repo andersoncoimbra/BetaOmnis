@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Candidato;
+use App\Funcoes;
 use App\Job;
 use App\Praca;
 use App\User;
@@ -118,5 +119,25 @@ class CadastroController extends Controller
         return redirect()->route('cadastros.candidato');
 
 
+    }
+
+    public function funcoesjob()
+    {
+        $funcoes = Funcoes::all();
+        return view('funcoes',['funcoes'=>$funcoes]);
+    }
+
+    public function newfuncoesjob()
+    {
+        return view('forms.cadastros.formaddfuncao');
+    }
+
+    public function postfuncoesjob(Request $request)
+    {
+       $funcao = new Funcoes();
+        $funcao->nome = $request->nome;
+        $funcao->save();
+
+        return redirect()->route('funcoes.job');
     }
 }
