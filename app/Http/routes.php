@@ -28,6 +28,10 @@ Route::group(['prefix'=>'jobs'], function () {
     Route::get('/{id}/sp/{evg}',['as'=>'get.extras','uses'=>'JobController@detalhesVaga']);
     Route::post('/{id}/sp/{evg}',['uses'=>'JobController@postExtraVaga']);
 
+    //Alocarção de candidatos
+    Route::get('/{id}/sp/vaga/{idvaga}',['uses'=>'JobController@candidatos', 'as'=>'jobs.sp.candidato']);
+
+
     //Editar Job
     Route::get('/editar/{id}',['uses'=>'JobController@geteditar']);
     Route::post('/editar/{id}',['uses'=>'JobController@posteditar', 'as'=>'post.editar.job']);

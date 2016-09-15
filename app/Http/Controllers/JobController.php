@@ -266,4 +266,11 @@ class JobController extends Controller
 
         $job->save();
     }
+
+    public function candidatos($id, $idvaga)
+    {
+        $vaga = Job::find($id)->vagajobs->find($idvaga);
+        dd($vaga);
+        return view('layouts.jobs.alocarcandidatos', ['id'=>$id, 'idvaga'=>$idvaga, 'vagajob'=>$vaga]);
+    }
 }
