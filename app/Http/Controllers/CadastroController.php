@@ -127,12 +127,12 @@ class CadastroController extends Controller
         return view('funcoes',['funcoes'=>$funcoes]);
     }
 
-    public function newfuncoesjob()
+    public function newcargo()
     {
         return view('forms.cadastros.formaddfuncao');
     }
 
-    public function postfuncoesjob(Request $request)
+    public function postnewcargo(Request $request)
     {
        $funcao = new Funcoes();
         $funcao->nome = $request->nome;

@@ -98,9 +98,9 @@ Route::group(['prefix'=>'cadastros'], function (){
     Route::get('/usuarios', ['uses'=>'CadastroController@usuarios','as'=>'user']);
     Route::get('/usuarios/new', ['uses'=>'CadastroController@newUser','as'=>'new.user']);
 
-    Route::get('/funcoesjob', ['uses'=>'CadastroController@funcoesjob','as'=>'funcoes.job']);
-    Route::get('/funcoesjob/new', ['uses'=>'CadastroController@newfuncoesjob','as'=>'new.funcoes.job']);
-    Route::post('/funcoesjob/new', ['uses'=>'CadastroController@postfuncoesjob','as'=>'new.funcoes.job']);
+    Route::get('/funcoes', ['uses'=>'CadastroController@funcoesjob','as'=>'funcoes.job']);
+    Route::get('/funcoes/newcargo', ['uses'=>'CadastroController@newcargo','as'=>'new.funcoes.job']);
+    Route::post('/funcoes/newcargo', ['uses'=>'CadastroController@postnewcargo','as'=>'new.funcoes.job']);
 
 
 

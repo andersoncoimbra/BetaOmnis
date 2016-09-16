@@ -5,11 +5,11 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-6">
             <div id="print" class="panel panel-default">
                 <div class="panel-heading">
                     Lista de Cagos de Job
-                    <button class="btn btn-info pull-right" onclick="addfuncao();">Novo Cargo</button>
+                    <button class="btn btn-info pull-right" onclick="addcargo();">Novo Cargo</button>
                 </div>
                 <div class="panel-body">
                     <table class="table">
@@ -32,11 +32,11 @@
 @section('script')
 
     <script type="text/javascript">
-        function addfuncao() {
+        function addcargo() {
             $('#new-funcao').html("Carregando...");
             $(document).ready(function () {
                 $.ajax({
-                    url: '{{URL::to('/cadastros/funcoesjob/new')}}'
+                    url: '{{URL::to('/cadastros/funcoes/newcargo')}}'
                 }).done(function (html) {
 
                     $('#new-funcao').html(html);

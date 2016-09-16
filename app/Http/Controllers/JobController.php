@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ExtrasVagasJob;
 use App\Faturamento;
+use App\Funcoes;
 use App\Job;
 use App\Parceiro;
 use App\Praca;
@@ -135,13 +136,14 @@ class JobController extends Controller
     public function solicitapessoal($idjob)
     {
         $job = Job::find($idjob);
+        $cargos = Funcoes::all();
         $nomejob = $job->nomeJob;
-        $vj = $job->vagajobs;
+        $vj = $job->vagaJobs;
         $c  = $this->cargo;
         $r = $this->regime;
         $ct = $this->contratante;
         $per = $this->periodo;
-        return view('layouts.vagasjob', ['id'=> $idjob, 'per'=>$per, 'vj'=>$vj, 'nomejob'=>$nomejob, 'c'=>$c, 'r'=>$r, 'ct'=>$ct]);
+        return view('layouts.vagasjob', ['job'=>$job, 'cargos'=>$cargos,'id'=> $idjob, 'per'=>$per, 'vj'=>$vj, 'nomejob'=>$nomejob, 'c'=>$c, 'r'=>$r, 'ct'=>$ct]);
     }
 
     public function postsolicitapessoal(Request $request, $idjob)
@@ -270,7 +272,6 @@ class JobController extends Controller
     public function candidatos($id, $idvaga)
     {
         $vaga = Job::find($id)->vagajobs->find($idvaga);
-        dd($vaga);
         return view('layouts.jobs.alocarcandidatos', ['id'=>$id, 'idvaga'=>$idvaga, 'vagajob'=>$vaga]);
     }
 }
