@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ExtrasVagasJob;
 use App\Faturamento;
+use App\Candidato;
 use App\Funcoes;
 use App\Job;
 use App\Parceiro;
@@ -20,7 +21,7 @@ class JobController extends Controller
     private $status = ['','Orçamento', 'Stand by', 'Exercução'];
     private $praca;
     private $cargo = ['','cargo 1','cargo 2','cargo 3','cargo 4','cargo 5','cargo 6','cargo 7','cargo 8','cargo 9','cargo 2','cargo 3','cargo 4','cargo 5','cargo 6','cargo 7','cargo 8','cargo 9','cargo 2','cargo 3','cargo 4','cargo 5','cargo 6','cargo 7','cargo 8','cargo 9'];
-    private $regime = ['','Regime 1', 'Regime 2', 'Regime 3', 'Regime 4', 'Regime 5'];
+    private $regime = ['','Temporario', 'Prazo Inderteminado', 'Menor Aprendiz', 'CLT', 'Outros'];
     private $contratante = ['','Omnis', 'Parceiro', 'Outro'];
     private $periodo = ['', 'Diario', 'Mensal','Unico'];
     private $tipoajuda = ['','Ajuda de custo', 'Pacote de dados', 'Vale transporte'];
@@ -269,9 +270,25 @@ class JobController extends Controller
         $job->save();
     }
 
-    public function candidatos($id, $idvaga)
+    public function alocarCandidatos($id, $idvaga)
     {
-        $vaga = Job::find($id)->vagajobs->find($idvaga);
-        return view('layouts.jobs.alocarcandidatos', ['id'=>$id, 'idvaga'=>$idvaga, 'vagajob'=>$vaga]);
+        $job = Job::find($id);
+        $vaga = $job->vagajobs->find($idvaga);
+        $cargo = Funcoes::all();
+        $candidatos = Candidato::all();
+
+        return view('layouts.jobs.alocarcandidatos',
+            [
+
+                'nomejob'=> $job->nomeJob,
+                'id'=>$id,
+                'idvaga'=>$idvaga,
+                'vagajob'=>$vaga,
+                'cargo'=>$cargo,
+                'r'=> $this->regime,
+                'ct'=>$this->contratante,
+                'per'=>$this->periodo,
+                'candidatos'=>$candidatos,
+            ]);
     }
 }

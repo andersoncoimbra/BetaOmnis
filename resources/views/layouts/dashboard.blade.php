@@ -13,6 +13,7 @@
     {!! Html::style('/assets/css/main-style.css') !!}
 
 
+
 </head>
 
 <body>
@@ -371,7 +372,6 @@
 
 {!! Html::script('/assets/scripts/siminta.js') !!}
 {!! Html::script('/assets/plugins/pace/pace.js') !!}
-
 <script type="text/javascript">
     function formModal(tipo,id,nivel) {
         $("#"+nivel+'-'+tipo).html("Carregando...");

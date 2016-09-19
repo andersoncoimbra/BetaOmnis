@@ -16,7 +16,7 @@
             <div id="print" class="panel panel-default">
                 <div class="panel-heading">
                     Candidatos alocado a essa vaga
-                    <button class="btn btn-info pull-right">Alocar novo candidato</button>
+                    <button type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#alocarcandidato">Alocar candidato</button>
                 </div>
                 <div class="panel-body">
                 </div>
@@ -62,3 +62,6 @@
     </div>
 
 @endsection
+
+@include('modal.jobs.alocarcandidato')
+
