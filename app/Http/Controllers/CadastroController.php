@@ -8,13 +8,15 @@ use App\Job;
 use App\Praca;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+
 
 use App\Http\Requests;
 use App\Parceiro;
 
 class CadastroController extends Controller
 {
-    public function __destruct()
+    public function __construct()
     {
         $this->middleware('auth');
     }
@@ -90,8 +92,26 @@ class CadastroController extends Controller
 
     public function newUser()
     {
-        $users = User::all();
-        return view('forms.cadastros.addUser', ['users'=>$users]);
+        return view('forms.cadastros.addUser');
+    }
+    public function postNewUser(Request $request)
+    {
+       // dd($request);
+        $user = new User();
+        $user->name = $request->name;
+        $user->email= $request->email;
+
+        if($request->password == $request->password_confirmation)
+        {
+            $user->password = Hash::make($request->password);
+        }else
+        {
+            return 'Algo deu muito errado';
+        }
+
+        $user->save();
+
+        return redirect()->route('user');
     }
 
     public function candidato()
