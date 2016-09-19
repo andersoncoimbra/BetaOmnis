@@ -19,7 +19,7 @@
                     <button class="btn btn-info pull-right">Alocar novo candidato</button>
                 </div>
                 <div class="panel-body">
-                    </div>
+                </div>
             </div>
         </div>
 
@@ -29,6 +29,32 @@
                         Descrição da vaga
                 </div>
                 <div class="panel-body">
+                    <dl class="dl-horizontal">
+
+                        <dt>Job:</dt>
+                        <dd>{{$nomejob}}</dd>
+
+                        <dt>Vaga:</dt>
+                        <dd>{{$cargo->find($vagajob->cargo)->nome}}</dd>
+
+
+                        <dt>Regime:</dt>
+                        <dd>{{$r[$vagajob->regime]}}</dd>
+                        <dt>Contratante:</dt>
+                        <dd>{{$ct[$vagajob->contratante]}}</dd>
+                        <dt>Quantidade:</dt>
+                        <dd>{{$vagajob->quantidade}}</dd>
+                        <dt>Periodo:</dt>
+                        <dd>{{$per[$vagajob->periodo]}}</dd>
+                        <dt>Valor:</dt>
+                        <dd>{{$vagajob->valor}}</dd>
+                        <dt>Custo Efetivo:</dt>
+                        <dd>{{$vagajob->custo}}</dd>
+
+
+
+
+                    </dl>
 
                 </div>
             </div>
