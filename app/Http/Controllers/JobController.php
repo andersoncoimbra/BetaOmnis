@@ -271,8 +271,10 @@ class JobController extends Controller
 
     public function alocarCandidatos($id, $idvaga)
     {
+
         $job = Job::find($id);
         $vaga = $job->vagajobs->find($idvaga);
+        $candidatosjob = $job->vagaJobs()->find($idvaga)->candidatos()->get();
         $cargo = Funcoes::all();
         $candidatos = Candidato::all();
 
@@ -288,6 +290,14 @@ class JobController extends Controller
                 'ct'=>$this->contratante,
                 'per'=>$this->periodo,
                 'candidatos'=>$candidatos,
+                'candidatosjob'=>$candidatosjob
             ]);
+    }
+
+    public function alocarNewCandidatos($id, $idvaga, $idcandidato)
+    {
+        $job = Job::find($id);
+        $job->vagaJobs()->find($idvaga)->candidatos()->attach($idcandidato);
+        return redirect()->route('jobs.sp.candidato', ['id'=>$id, 'idvaga'=>$idvaga]);
     }
 }

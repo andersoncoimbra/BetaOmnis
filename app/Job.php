@@ -31,4 +31,5 @@ class Job extends Model
     {
         return $this->hasMany(Reembolso::class, "job_id");
     }
+
 }

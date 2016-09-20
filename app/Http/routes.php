@@ -30,6 +30,8 @@ Route::group(['prefix'=>'jobs'], function () {
 
     //Alocarção de candidatos
     Route::get('/{id}/sp/vaga/{idvaga}',['uses'=>'JobController@alocarCandidatos', 'as'=>'jobs.sp.candidato']);
+    Route::get('/{id}/sp/vaga/{idvaga}/alocar/{idcandidato}',['uses'=>'JobController@alocarNewCandidatos', 'as'=>'jobs.sp.candidato.alocar']);
+
 
 
     //Editar Job

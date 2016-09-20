@@ -22,4 +22,10 @@ class VagasJob extends Model
         return $this->hasOne(Funcoes::class, 'id');
     }
 
+
+    public function candidatos()
+    {
+        return $this->belongsToMany('App\Candidato', 'vagasjobs_candidatos', 'candidatos_id', 'vagasjobs_id');
+    }
+
 }
