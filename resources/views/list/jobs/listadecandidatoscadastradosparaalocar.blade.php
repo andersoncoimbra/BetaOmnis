@@ -10,7 +10,6 @@
 @endsection
 
 <table class="table" id="listacandidatos">
-
     <tr><th>#ID</th><th>Nome</th><th>Telefone</th><th>Ações</th></tr>
     @forelse($candidatos as $candidato)
         <tr><td>{{$candidato->id}}</td><td>{{$candidato->nome}}</td><td>{{$candidato->telefone}}</td><td><button class="btn btn-info">Alocar ao Job</button></td></tr>

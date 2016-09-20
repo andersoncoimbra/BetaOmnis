@@ -141,10 +141,9 @@ class JobController extends Controller
         $nomejob = $job->nomeJob;
         $vj = $job->vagaJobs;
         $c  = $this->cargo;
-        $r = $this->regime;
         $ct = $this->contratante;
         $per = $this->periodo;
-        return view('layouts.vagasjob', ['job'=>$job, 'cargos'=>$cargos,'id'=> $idjob, 'per'=>$per, 'vj'=>$vj, 'nomejob'=>$nomejob, 'c'=>$c, 'r'=>$r, 'ct'=>$ct]);
+        return view('layouts.vagasjob', ['job'=>$job, 'cargos'=>$cargos,'id'=> $idjob, 'per'=>$per, 'vj'=>$vj, 'nomejob'=>$nomejob, 'c'=>$c, 'ct'=>$ct, 'r'=>$this->regime]);
     }
 
     public function postsolicitapessoal(Request $request, $idjob)

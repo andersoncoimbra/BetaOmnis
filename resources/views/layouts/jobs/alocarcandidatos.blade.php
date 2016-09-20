@@ -48,20 +48,11 @@
                         <dd>{{$per[$vagajob->periodo]}}</dd>
                         <dt>Valor:</dt>
                         <dd>{{$vagajob->valor}}</dd>
-                        <dt>Custo Efetivo:</dt>
-                        <dd>{{$vagajob->custo}}</dd>
-
-
-
-
                     </dl>
-
                 </div>
             </div>
         </div>
     </div>
-
 @endsection
-
 @include('modal.jobs.alocarcandidato')
 

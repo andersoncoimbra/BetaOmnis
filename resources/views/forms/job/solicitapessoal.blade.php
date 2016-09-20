@@ -13,10 +13,12 @@
 <div class="col-md-2">
     {!! Form::label('regime', 'Regime', array('class' => 'control-label')) !!}
     <select name="regime" class="form-control selectpicker" style="margin: 3px;">
-        <option value="1">Regime 1</option>
-        <option value="2">Regime 2</option>
-        <option value="3">Regime 3</option>
-        <option value="4">Regime 4</option>
+
+        @forelse($r as $key => $value)
+            <option value="{{$key}}">{{$value}}</option>
+        @empty
+            <p>Sem tipos de ajuda</p>
+        @endforelse
     </select>
 </div>
 
