@@ -12,7 +12,7 @@
 
 <div class="col-md-2">
     {!! Form::label('regime', 'Regime', array('class' => 'control-label')) !!}
-    <select name="regime" class="form-control selectpicker" style="margin: 3px;">
+    <select name="regime" class="form-control selectpicker" style="margin: 3px;" required>
 
         @forelse($r as $key => $value)
             <option value="{{$key}}">{{$value}}</option>
@@ -32,7 +32,7 @@
 
 <div class="col-md-2">
     {!! Form::label('qtd', 'Quantidade', array('class' => 'control-label')) !!}
-    <input name="qtd" class="form-control" type="text" placeholder="Qtd">
+    <input name="qtd" class="form-control" type="text" placeholder="Qtd" required>
 
 </div>
 <div class="col-md-2">
@@ -46,13 +46,13 @@
 
 <div class="col-md-2">
     {!! Form::label('valor', 'Valor', array('class' => 'control-label')) !!}
-    <input name="valor" class="form-control" type="text" placeholder="Valor">
+    <input name="valor" class="form-control" type="text" placeholder="Valor" requireds>
 
 </div>
 
 <div class="col-md-2">
     {!! Form::label('custo', 'Custo', array('class' => 'control-label')) !!}
-    <input name="custo" class="form-control" type="text" placeholder="Custo efetivo">
+    <input name="custo" class="form-control" type="text" placeholder="Custo efetivo" required>
 </div>
 <div class="col-md-12">
     <button type="submit" class="btn btn-primary pull-left">Adicionar</button>
