@@ -7,6 +7,7 @@
             </div>
             <div id="novo-reembolso">
                 <h1>Detalhes</h1>
+
             </div>
         </div>
     </div>

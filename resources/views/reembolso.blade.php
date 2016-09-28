@@ -39,5 +39,21 @@
             });
         }
     </script>
+    <script type="text/javascript">
+        function detalhesreembolso(id) {
+            $('#detalhes-reembolso').html("Carregando...");
+            $(document).ready(function () {
+                $.ajax({
+                    url: '{{URL::to('/reembolso/novo')}}/'+id
+                }).done(function (html) {
+
+                    $('#detalhes-reembolso').html(html);
+
+                })
+                $('#modal-reembolso').modal('show');
+
+            });
+        }
+    </script>
 
 @endsection

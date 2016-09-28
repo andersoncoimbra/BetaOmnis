@@ -42,6 +42,12 @@ class ReembolsoController extends Controller
         return redirect()->route('reembolso.index');
     }
 
+    public function detalhesreembolso($id)
+    {
+        $remb = Reembolso::find($id);
+        //dd($remb);
+    }
+
     public function lista()
     {
 
@@ -52,7 +58,8 @@ class ReembolsoController extends Controller
 
     public function novo()
     {
-        return view('forms.reembolso.addReembolso');
+
+       return view('forms.reembolso.addReembolso');
     }
 
     public function rembjob($id)

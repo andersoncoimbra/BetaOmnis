@@ -30,7 +30,7 @@ Route::group(['prefix'=>'jobs'], function () {
 
     //Alocarção de candidatos
     Route::get('/{id}/sp/vaga/{idvaga}',['uses'=>'JobController@alocarCandidatos', 'as'=>'jobs.sp.candidato']);
-    Route::get('/{id}/sp/vaga/{idvaga}/alocar/{idcandidato}',['uses'=>'JobController@alocarNewCandidatos', 'as'=>'jobs.sp.candidato.alocar']);
+            Route::get('/{id}/sp/vaga/{idvaga}/alocar/{idcandidato}',['uses'=>'JobController@alocarNewCandidatos', 'as'=>'jobs.sp.candidato.alocar']);
 
 
 
@@ -68,6 +68,8 @@ Route::group(['prefix'=>'reembolso'], function (){
     Route::get('/', ['uses'=>'ReembolsoController@getIndex', 'as'=>'reembolso.index']);
 
     Route::post('/', ['uses'=>'ReembolsoController@postIndex', 'as'=>'reembolso.index']);
+
+    Route::get('/{id}/detalhes', ['uses'=>'ReembolsoController@detalhesreembolso', 'as'=>'reembolso.detalhes']);
 
     Route::get('/novo', ['uses'=>'ReembolsoController@novo', 'as'=>'reembolso.novo']);
 

@@ -5,6 +5,10 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4>Detalhes</h4>
             </div>
+            <div class="detalhes-reembolso">
+
+            </div>
+
 
             {!! Form::open(array('url' => '/reembolso', 'class'=>'form-horizontal')) !!}
             <div class="form-group">
