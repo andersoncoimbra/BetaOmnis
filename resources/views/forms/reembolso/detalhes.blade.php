@@ -9,13 +9,13 @@
         <th>Ultimo usuário</th><td>{{$reembolso->atualizador}}</td>
     </tr>
     <tr>
-        <th>Data de Atualização</th><td>{{date('d/m/y H:m', strtotime(str_replace('-','/',$reembolso->updated_at)))}}</td>
+        <th>Data de Atualização</th><td>{{date('d/m/y H:i', strtotime(str_replace('-','/',$reembolso->updated_at)))}}</td>
     </tr>
 
 </table>
 
 
-{!! Form::model($reembolso, array( 'class'=>'form-horizontal', 'route'=> array('reembolso.update', $reembolso->id))) !!}
+{!! Form::model($reembolso, array( 'class'=>'form-horizontal', 'route'=> array('reembolso.update.detalhes', $reembolso->id))) !!}
             <div class="form-group">
                 {!! Form::label('parceiro', 'Nome do Parceiros', array('class' => 'col-sm-2 control-label')) !!}
                 <div class="col-sm-10">

@@ -10,7 +10,7 @@
                         <input type="button" class="btn btn-success pull-right" value="Novo Reembolso" onclick="newreembolso();" style="margin-bottom: 10px;">
                         @include('modal.reembolso.addReembolso')
                         @include('modal.reembolso.detalhes')
-                        @include('forms.reembolso.checkin')
+                        @include('modal.reembolso.checkin')
                         @include('forms.reembolso.compensar')
                         @include('list.listreembolso')
                     </div>
@@ -55,5 +55,23 @@
             });
         }
     </script>
+
+    <script type="text/javascript">
+        function checkinreembolso(id) {
+            $('#detalhes-reembolso').html("Carregando...");
+            $(document).ready(function () {
+                $.ajax({
+                    url: '{{URL::to('/reembolso/')}}/'+id+'/checkin'
+                }).done(function (html) {
+
+                    $('#checkin-reembolso').html(html);
+
+                })
+                $('#checkin').modal('show');
+
+            });
+        }
+    </script>
+
 
 @endsection

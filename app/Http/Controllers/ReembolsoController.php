@@ -70,6 +70,28 @@ class ReembolsoController extends Controller
         $update->save();
 
         return redirect()->route('reembolso.index');
+
+    }
+
+    public function checkinreembolso($id)
+    {
+        $reembolso = Reembolso::find($id);
+
+        return view('forms.reembolso.checkin', ['reembolso'=> $reembolso]);
+    }
+
+    public function updatecheckin(Request $request, $id)
+    {
+        $reembolso = Reembolso::find($id);
+        $reembolso->data_envio = $request->data_envio;
+        $reembolso->identificador = $request->identificador;
+        $reembolso->fornecedor = $request->fornecedor;
+        $reembolso->obs = $request->obs;
+        $reembolso->atualizador = \Auth::user()->name;
+
+        $reembolso->save();
+
+        return redirect()->route('reembolso.index');
     }
 
     public function novo()
