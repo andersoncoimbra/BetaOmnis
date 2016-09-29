@@ -6,7 +6,7 @@
                 <h4>Check-in</h4>
             </div>
 
-            {!! Form::open(array('url' => '/reembolso', 'class'=>'form-horizontal')) !!}
+            {!! Form::model($reembolso, array( 'class'=>'form-horizontal', 'route'=> array('reembolso.update', $reembolso->id))) !!}
             <div class="form-group">
                 {!! Form::label('parceiro', 'Nome do Parceiro', array('class' => 'col-sm-2 control-label')) !!}
                 <div class="col-sm-10">

@@ -57,9 +57,19 @@ class ReembolsoController extends Controller
         return view('list.listreembolso', ['reembolsos'=>$reembolsos]);
     }
 
-    public function update($id)
+    public function updateDetalhes(Request $request, $id)
     {
-        return $id;
+        $update = Reembolso::find($id);
+        $update->parceiro  = $request->parceiro;
+        $update->job = $request->job;
+        $update->valor = $request->valor;
+        $update->data = date('Y-m-d', strtotime(str_replace('/','-',$request->data)));
+        $update->obs = $request->obs;
+        $update->atualizador = \Auth::user()->name;
+
+        $update->save();
+
+        return redirect()->route('reembolso.index');
     }
 
     public function novo()

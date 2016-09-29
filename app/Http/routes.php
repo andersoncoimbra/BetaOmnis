@@ -70,7 +70,10 @@ Route::group(['prefix'=>'reembolso'], function (){
     Route::post('/', ['uses'=>'ReembolsoController@postIndex', 'as'=>'reembolso.index']);
 
     Route::get('/{id}/detalhes', ['uses'=>'ReembolsoController@detalhesreembolso', 'as'=>'reembolso.detalhes']);
-    Route::post('/update', ['uses'=>'ReembolsoController@update', 'as'=>'reembolso.update']);
+    Route::post('/{id}/detalhes/update', ['uses'=>'ReembolsoController@updateDetalhes', 'as'=>'reembolso.update']);
+
+    Route::get('/{id}/checkin', ['uses'=>'ReembolsoController@checkinreembolso', 'as'=>'reembolso.checkin']);
+
 
 
     Route::get('/novo', ['uses'=>'ReembolsoController@novo', 'as'=>'reembolso.novo']);
