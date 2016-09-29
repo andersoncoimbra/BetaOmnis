@@ -36,6 +36,7 @@ class ReembolsoController extends Controller
         $reembolso->fornecedor  = $request->fornecedor;
         $reembolso->identificador  = $request->identificador;
         $reembolso->data_envio  = $request->dataenvio;
+        $reembolso->criador = \Auth::user()->name;
 
         $reembolso->save();
 
@@ -45,7 +46,7 @@ class ReembolsoController extends Controller
     public function detalhesreembolso($id)
     {
         $remb = Reembolso::find($id);
-        //dd($remb);
+        return view('forms.reembolso.detalhes',['reembolso'=> $remb]);
     }
 
     public function lista()
@@ -54,6 +55,11 @@ class ReembolsoController extends Controller
         $reembolsos = Reembolso::all();
 
         return view('list.listreembolso', ['reembolsos'=>$reembolsos]);
+    }
+
+    public function update($id)
+    {
+        return $id;
     }
 
     public function novo()

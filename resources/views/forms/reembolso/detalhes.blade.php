@@ -1,37 +1,42 @@
-<div id="form_add_detalhes" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content col-md-10 ">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4>Detalhes</h4>
-            </div>
-            <div class="detalhes-reembolso">
+<table class="table">
+    <tr>
+        <th>Registrador Por</th><td>{{$reembolso->criador}}</td>
+    </tr>
+    <tr>
+        <th>Data de Criação</th><td>{{date('d/m/y', strtotime(str_replace('-','/',$reembolso->created_at)))}}</td>
+    </tr>
+    <tr>
+        <th>Ultimo usuário</th><td>{{$reembolso->atualizador}}</td>
+    </tr>
+    <tr>
+        <th>Data de Atualização</th><td>{{date('d/m/y', strtotime(str_replace('-','/',$reembolso->updatet_at)))}}</td>
+    </tr>
 
-            </div>
+</table>
 
 
-            {!! Form::open(array('url' => '/reembolso', 'class'=>'form-horizontal')) !!}
+{!! Form::model($reembolso, array( 'url' => '/reembolso/update', 'class'=>'form-horizontal', 'route'=> array('reembolso.update', $reembolso->id))) !!}
             <div class="form-group">
-                {!! Form::label('parceiro', 'Nome do Parceiro', array('class' => 'col-sm-2 control-label')) !!}
+                {!! Form::label('parceiro', 'Nome do Parceiros', array('class' => 'col-sm-2 control-label')) !!}
                 <div class="col-sm-10">
-                    <input name="parceiro" class="form-control" type="text" placeholder="Escreva o nome do Parceiro">
+                    {!! Form::text('parceiro', null,array('class'=>'form-control')) !!}
                 </div>
             </div>
             <div class="form-group">
                 {!! Form::label('job', 'Nome do Job', array('class' => 'col-sm-2 control-label')) !!}
                 <div class="col-sm-10">
-                    <input name="job" class="form-control" type="text" placeholder="Escreva o nome do Job">
+                    {!! Form::text('job', null,array('class'=>'form-control')) !!}
                 </div>
             </div>
 
             <div class="form-group">
                 {!! Form::label('valor', 'Valor:', array('class' => 'col-sm-2 control-label')) !!}
                 <div class="col-sm-4">
-                    <input name="valor"  class="form-control" type="text" placeholder="9999,99">
+                    {!! Form::text('valor', null,array('class'=>'form-control')) !!}
                 </div>
                 {!! Form::label('data', 'Data', array('class' => 'col-sm-2 control-label')) !!}
                 <div class="col-sm-4">
-                    <input name="data"  class="form-control" type="date" placeholder="Data 12 / 07 / 2016">
+                    <input name="data"  class="form-control" type="date" value="{{date('d/m/y', strtotime(str_replace('-','/',$reembolso->data)))}}">
                 </div>
             </div>
 
@@ -62,7 +67,8 @@
             <div class="form-group">
                 {!! Form::label('obs', 'Observações', array('class' => 'col-sm-2 control-label')) !!}
                 <div class="col-sm-10">
-                    <textarea name="obs" class="form-control" placeholder="Escreva o Observações"></textarea>
+                    {!! Form::textArea('obs', null,array('class'=>'form-control')) !!}
+
                 </div>
             </div>
 
@@ -71,9 +77,6 @@
 
             </div>
             {!! Form::close() !!}
-        </div>
-    </div>
-</div>
 
 
 

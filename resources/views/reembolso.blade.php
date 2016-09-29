@@ -9,7 +9,7 @@
                     <div class="panel-body">
                         <input type="button" class="btn btn-success pull-right" value="Novo Reembolso" onclick="newreembolso();" style="margin-bottom: 10px;">
                         @include('modal.reembolso.addReembolso')
-                        @include('forms.reembolso.detalhes')
+                        @include('modal.reembolso.detalhes')
                         @include('forms.reembolso.checkin')
                         @include('forms.reembolso.compensar')
                         @include('list.listreembolso')
@@ -44,13 +44,13 @@
             $('#detalhes-reembolso').html("Carregando...");
             $(document).ready(function () {
                 $.ajax({
-                    url: '{{URL::to('/reembolso/novo')}}/'+id
+                    url: '{{URL::to('/reembolso/')}}/'+id+'/detalhes'
                 }).done(function (html) {
 
                     $('#detalhes-reembolso').html(html);
 
                 })
-                $('#modal-reembolso').modal('show');
+                $('#detalhes').modal('show');
 
             });
         }

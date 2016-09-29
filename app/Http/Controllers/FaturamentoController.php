@@ -41,6 +41,7 @@ class FaturamentoController extends Controller
         $faturamento->job_id = $request->id_job;
         $faturamento->status = "Aberto";
         $faturamento->lastuser = \Auth::user()->name;
+        $faturamento->atualizador= \Auth::user()->name;
 
 
         //$faturamento->obs = $request->obs ;
