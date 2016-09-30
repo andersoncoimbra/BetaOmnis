@@ -73,7 +73,7 @@
             </div>
 
             <div class="modal-footer">
-                <input type="submit" class="btn btn-success" value="Registrar">
+                <input type="submit" class="btn btn-success" value="Atualizar">
 
             </div>
             {!! Form::close() !!}
