@@ -94,6 +94,13 @@ class ReembolsoController extends Controller
         return redirect()->route('reembolso.index');
     }
 
+    public function quitacaoreembolso($id)
+    {
+        $reembolso = Reembolso::find($id);
+
+        return view('forms.reembolso.compensar', ['reembolso'=> $reembolso]);
+    }
+
     public function novo()
     {
 

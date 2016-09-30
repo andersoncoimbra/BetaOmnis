@@ -75,7 +75,8 @@ Route::group(['prefix'=>'reembolso'], function (){
     Route::get('/{id}/checkin', ['uses'=>'ReembolsoController@checkinreembolso', 'as'=>'reembolso.checkin']);
     Route::post('/{id}/checkin/update', ['uses'=>'ReembolsoController@updatecheckin', 'as'=>'reembolso.update.checkin']);
 
-
+    Route::get('/{id}/quitacao', ['uses'=>'ReembolsoController@quitacaoreembolso', 'as'=>'reembolso.quitacao']);
+    //Route::post('/{id}/quitacao/update', ['uses'=>'ReembolsoController@updatecheckin', 'as'=>'reembolso.update.quita']);
 
     Route::get('/novo', ['uses'=>'ReembolsoController@novo', 'as'=>'reembolso.novo']);
 

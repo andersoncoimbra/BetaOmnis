@@ -11,7 +11,7 @@
                         @include('modal.reembolso.addReembolso')
                         @include('modal.reembolso.detalhes')
                         @include('modal.reembolso.checkin')
-                        @include('forms.reembolso.compensar')
+                        @include('modal.reembolso.quitacao')
                         @include('list.listreembolso')
                     </div>
                 </div>
@@ -68,6 +68,23 @@
 
                 })
                 $('#checkin').modal('show');
+
+            });
+        }
+    </script>
+
+    <script type="text/javascript">
+        function quitacaoreembolso(id) {
+            $('#quitacao-reembolso').html("Carregando...");
+            $(document).ready(function () {
+                $.ajax({
+                    url: '{{URL::to('/reembolso/')}}/'+id+'/quitacao'
+                }).done(function (html) {
+
+                    $('#quitacao-reembolso').html(html);
+
+                })
+                $('#quitacao').modal('show');
 
             });
         }

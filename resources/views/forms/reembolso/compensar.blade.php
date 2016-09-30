@@ -1,59 +1,47 @@
-<div id="form_add_compensar" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content col-md-10 ">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4>Compensar reembolso</h4>
-            </div>
+<table class="table">
+    <tr>
+        <th>Registrador Por</th><td>{{$reembolso->criador}}</td>
+    </tr>
+    <tr>
+        <th>Data de Criação</th><td>{{date('d/m/y', strtotime(str_replace('-','/',$reembolso->created_at)))}}</td>
+    </tr>
+    <tr>
+        <th>Ultimo usuário</th><td>{{$reembolso->atualizador}}</td>
+    </tr>
+    <tr>
+        <th>Data de Atualização</th><td>{{date('d/m/y H:i', strtotime(str_replace('-','/',$reembolso->updated_at)))}}</td>
+    </tr>
+    <tr>
+        <th>Job</th><td>{{$reembolso->job}}</td>
+    </tr>
+    <tr>
+        <th>Valor</th><td>{{$reembolso->valor}}</td>
+    </tr>
 
-            {!! Form::open(array('url' => '/reembolso', 'class'=>'form-horizontal')) !!}
+    <tr>
+        <th>Identificador</th><td>{{$reembolso->identificador}}</td>
+    </tr>
+
+</table>
+
+
+{!! Form::model($reembolso, array( 'class'=>'form-horizontal', 'route'=> array('reembolso.update.checkin', $reembolso->id))) !!}
             <div class="form-group">
-                {!! Form::label('parceiro', 'Nome do Parceiro', array('class' => 'col-sm-2 control-label')) !!}
-                <div class="col-sm-10">
+                {!! Form::label('recebido', 'Valor Recebido', array('class' => 'col-sm-4 control-label')) !!}
+                <div class="col-sm-8">
                     <input name="parceiro" class="form-control" type="text" placeholder="Escreva o nome do Parceiro">
                 </div>
             </div>
             <div class="form-group">
-                {!! Form::label('job', 'Nome do Job', array('class' => 'col-sm-2 control-label')) !!}
-                <div class="col-sm-10">
-                    <input name="job" class="form-control" type="text" placeholder="Escreva o nome do Job">
-                </div>
+
             </div>
 
             <div class="form-group">
-                {!! Form::label('valor', 'Valor:', array('class' => 'col-sm-2 control-label')) !!}
+                {!! Form::label('data_pagamento', 'Data de Pagamento:', array('class' => 'col-sm-5 control-label')) !!}
                 <div class="col-sm-4">
-                    <input name="valor"  class="form-control" type="text" placeholder="9999,99">
-                </div>
-                {!! Form::label('data', 'Data', array('class' => 'col-sm-2 control-label')) !!}
-                <div class="col-sm-4">
-                    <input name="data"  class="form-control" type="date" placeholder="Data 12 / 07 / 2016">
+                    <input name="data_pagamento"  class="form-control" type="date" >
                 </div>
             </div>
-
-
-        <!--
-    <div class="form-group">
-        {!! Form::label('fornecedor', 'Nome do Fornecedor', array('class' => 'col-sm-2 control-label')) !!}
-                <div class="col-sm-10">
-                    <input name="fornecedor" class="form-control" type="text" placeholder="Escreva o nome fornecedor">
-                </div>
-            </div>
-
-            <div class="form-group">
-                {!! Form::label('identificador', 'Identidficador', array('class' => 'col-sm-2 control-label')) !!}
-                <div class="col-sm-10">
-                    <input name="identificador" class="form-control" type="text" placeholder="Escreva o Identificador">
-                </div>
-            </div>
-
-            <div class="form-group">
-                {!! Form::label('dataenvio', 'Data de Envio', array('class' => 'col-sm-2 control-label')) !!}
-                <div class="col-sm-4">
-                    <input name="dataenvio"  class="form-control" type="date" placeholder="12 / 07 / 2016">
-                </div>
-            </div>
-            -->
 
             <div class="form-group">
                 {!! Form::label('obs', 'Observações', array('class' => 'col-sm-2 control-label')) !!}
@@ -63,7 +51,7 @@
             </div>
 
             <div class="modal-footer">
-                <input type="submit" class="btn btn-success" value="Registrar">
+                <input type="submit" class="btn btn-success" value="Atualizador">
 
             </div>
             {!! Form::close() !!}
