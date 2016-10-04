@@ -31,6 +31,7 @@
                                 <dd>{{date('d / m / Y', strtotime($job->fim))}}</dd>
                                 <dt>Status</dt>
                                 <dd>{{$ds[$job->status]}}</dd>
+
                             </dl>
                         </div>
                         <div class="col-md-6 ">
@@ -41,6 +42,8 @@
                                 $custototal = null;
                                 $valortotal = null;
                                 $custoextra = null;
+
+                                $reembtotal = null;
                                 ?>
                                 @forelse($vj as $v)
                                     <tr class="active"><td>{{$v->quantidade}}</td><td>Descrição</td><td>{{$dp[$v->cargo]}}</td><td>{{$v->valor}}</td><td>{{$v->custo}}</td></tr>
@@ -61,7 +64,19 @@
                                 @empty
                                     <tr><td>Sem cargos adicionados</td></tr>
                                 @endforelse
-                            </table>
+                            </table><p></p>
+                            <p>Reembolsos</p>
+                            <table class="table">
+                                <tr><th>#ID</th><th>Descrição</th><th>Valor</th></tr>
+
+                                @forelse($job->reembolsos as $reemb)
+                                    {!! $reembtotal += $reemb->valor !!}
+                                    <tr><td>{{$reemb->id}}</td><td>{{$reemb->obs}}</td><td>{{$reemb->valor}}</td></tr>
+                                    @empty
+                                @endforelse
+
+
+                                </table>
                             @if($custototal && $valortotal)
                                 <p class="bg-warning" style="padding: 10px; text-align: right">{{$custoextra?"Extras Custo total:": "Sem custo Extra" }}<strong>{{$custoextra}}</strong></p>
                                 <p class="bg-warning" style="padding: 10px; text-align: right">Contrações Custo total: <strong>{{$custototal+$custoextra}}</strong></p>
@@ -75,6 +90,8 @@
                             @else
                                 <p class="bg-info" style="padding: 10px; text-align: right">Saldo: <strong>R$ {{$job->valor-$custototal}}</strong></p>
                             @endif
+                            <p class="bg-danger" style="padding: 10px; text-align: right">Total de Reembolsos: R$ {{$reembtotal}}</p>
+
                         </div>
 
                         <div class="col-md-12 clearfix">

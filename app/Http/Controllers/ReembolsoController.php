@@ -101,6 +101,24 @@ class ReembolsoController extends Controller
         return view('forms.reembolso.compensar', ['reembolso'=> $reembolso]);
     }
 
+    public function updatequitacao(Request $request, $id)
+    {
+        $reembolso = Reembolso::find($id);
+        $reembolso->recibo = $request->recibo;
+        $reembolso->data_pagamento = date('Y-m-d', strtotime(str_replace('/','-',$request->data_pagamento)));
+
+        $reembolso->obs = $request->obs;
+        if($request->recibo >= $reembolso->valor){
+            $reembolso->status = 'Quitado';
+        }
+        $reembolso->atualizador = \Auth::user()->name;
+
+        $reembolso->save();
+
+        return redirect()->route('reembolso.index');
+
+    }
+
     public function novo()
     {
 
@@ -123,6 +141,10 @@ class ReembolsoController extends Controller
         $reembolso->valor  = $request->valor;
         $reembolso->data  = date('Y-m-d', strtotime(str_replace('/','-',$request->data)));
         $reembolso->obs  = $request->obs;
+        $reembolso->criador = \Auth::user()->name;
+
+        $reembolso->atualizador = \Auth::user()->name;
+
         $reembolso->save();
 
         return redirect()->route('jobs.financeiro', $request->job_id);

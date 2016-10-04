@@ -25,7 +25,8 @@
 <div class="form-group">
     {!! Form::label('data_envio', 'Data de Envio', array('class' => 'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
-        {!! Form::text('data_envio', null,array('class'=>'form-control')) !!}
+        <input name="data_envio"  class="form-control" type="date" value="{{date('d/m/y', strtotime(str_replace('-','/',$reembolso->data)))}}">
+
     </div>
 </div>
 <div class="form-group">

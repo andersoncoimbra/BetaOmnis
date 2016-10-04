@@ -10,6 +10,11 @@
     @endsection
 @section('content')
     @include('modal.reembolso.addReembolso')
+    @include('modal.reembolso.detalhes')
+    @include('modal.reembolso.checkin')
+    @include('modal.reembolso.quitacao')
+
+
     @include('forms.job.modal.faturamento')
     @include('forms.faturamento.modal.detalhes')
 
@@ -58,4 +63,55 @@
             });
         }
     </script>
+    <script type="text/javascript">
+        function detalhesreembolso(id) {
+            $('#detalhes-reembolso').html("Carregando...");
+            $(document).ready(function () {
+                $.ajax({
+                    url: '{{URL::to('/reembolso/')}}/'+id+'/detalhes'
+                }).done(function (html) {
+
+                    $('#detalhes-reembolso').html(html);
+
+                })
+                $('#detalhes').modal('show');
+
+            });
+        }
+    </script>
+
+    <script type="text/javascript">
+        function checkinreembolso(id) {
+            $('#detalhes-reembolso').html("Carregando...");
+            $(document).ready(function () {
+                $.ajax({
+                    url: '{{URL::to('/reembolso/')}}/'+id+'/checkin'
+                }).done(function (html) {
+
+                    $('#checkin-reembolso').html(html);
+
+                })
+                $('#checkin').modal('show');
+
+            });
+        }
+    </script>
+
+    <script type="text/javascript">
+        function quitacaoreembolso(id) {
+            $('#quitacao-reembolso').html("Carregando...");
+            $(document).ready(function () {
+                $.ajax({
+                    url: '{{URL::to('/reembolso/')}}/'+id+'/quitacao'
+                }).done(function (html) {
+
+                    $('#quitacao-reembolso').html(html);
+
+                })
+                $('#quitacao').modal('show');
+
+            });
+        }
+    </script>
+
 @endsection
