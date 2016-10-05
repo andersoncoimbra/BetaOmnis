@@ -37,7 +37,7 @@
                         <div class="col-md-6 ">
                             <p>Vagas do Job</p>
                             <table class="table">
-                                <tr><th>Qtd</th><th>Descrição</th><th>Cargo</th><th>Valor</th><th>Custo</th></tr>
+                                <tr><th>Qtd</th><<th>Cargo</th><th>Valor</th><th>Custo</th></tr>
                                 <?php
                                 $custototal = null;
                                 $valortotal = null;
@@ -46,7 +46,7 @@
                                 $reembtotal = null;
                                 ?>
                                 @forelse($vj as $v)
-                                    <tr class="active"><td>{{$v->quantidade}}</td><td>Descrição</td><td>{{$dp[$v->cargo]}}</td><td>{{$v->valor}}</td><td>{{$v->custo}}</td></tr>
+                                    <tr class="active"><td>{{$v->quantidade}}</td><td>{{$v->cargos->nome}}</td><td>{{$v->valor}}</td><td>{{$v->custo}}</td></tr>
                                     @forelse($v->extras as $e)
                                     <!--
                                     Troca parametro tipo por um relacionamento
@@ -97,8 +97,8 @@
                         <div class="col-md-12 clearfix">
                             <button class="btn btn-danger " onclick="editarjob({{$job->id}});">Editar</button>
                             <a href="{{URL::route('jobs.sp', $job->id)}}"> <button class="btn btn-default ">Solicitações de pessoal</button></a>
-                            <button class="btn btn-info ">Solicitações</button>
-                            <button class="btn btn-success ">Informaçoes do Job</button>
+                            <button class="btn btn-info " style="display: none">Solicitações</button>
+                            <button class="btn btn-success " style="display: none">Informaçoes do Job</button>
                             <a href="{{url()->current()}}/o"><button class="btn btn-warning ">Gerar Orçamento</button></a>
                             <a href="{{URL::route('jobs.financeiro', $job->id)}}"><button class="btn btn-primary ">Financeiro</button></a>
                         </div>

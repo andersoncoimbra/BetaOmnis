@@ -19,7 +19,7 @@ class VagasJob extends Model
 
     public function cargos()
     {
-        return $this->hasOne(Funcoes::class, 'id');
+        return $this->belongsTo(Funcoes::class, 'cargo');
     }
 
 
