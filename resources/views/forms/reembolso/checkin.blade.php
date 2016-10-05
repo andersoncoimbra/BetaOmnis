@@ -37,7 +37,7 @@
 </div>
 
 <div class="form-group">
-    {!! Form::label('fornecedor', 'Fornecedor', array('class' => 'col-sm-2 control-label')) !!}
+    {!! Form::label('fornecedor', 'Tipo', array('class' => 'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
         {!! Form::text('fornecedor', null,array('class'=>'form-control')) !!}
     </div>

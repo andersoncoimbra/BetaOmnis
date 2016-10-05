@@ -22,7 +22,7 @@ class ReembolsoController extends Controller
         //dd($rembolso);
         $reembolsos = Reembolso::orderBy('id','DESC')->get();;
 
-        return view('reembolso', ['reembolsos'=>$reembolsos]);
+        return view('list.reembolso.index', ['reembolsos'=>$reembolsos]);
     }
 
 
