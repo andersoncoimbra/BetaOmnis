@@ -3,6 +3,16 @@
 Cadastro de Candidatos
 @endsection
 @section('content')
+    @if(count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <button class="btn btn-info pull-right" onclick="newcandidato();">Novo Candidato</button>
     Lista de cadastro de pessoal<br>
     @include('list.cadastros.listcandidatos')

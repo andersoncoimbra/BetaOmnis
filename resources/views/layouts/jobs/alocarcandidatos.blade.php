@@ -16,6 +16,7 @@
             <div id="print" class="panel panel-default">
                 <div class="panel-heading">
                     Candidatos alocado a essa vaga
+
                     <button type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#alocarcandidato">Alocar candidato</button>
                 </div>
                 <div class="panel-body">
@@ -30,7 +31,7 @@
                         Descrição da vaga
                 </div>
                 <div class="panel-body">
-                    <dl class="dl-horizontal">
+                    <dl class="dl-vertical">
 
                         <dt>Job:</dt>
                         <dd>{{$nomejob}}</dd>

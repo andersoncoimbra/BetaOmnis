@@ -21,7 +21,7 @@ class JobController extends Controller
     private $status = ['','Orçamento', 'Stand by', 'Exercução'];
     private $praca;
     private $cargo = ['','cargo 1','cargo 2','cargo 3','cargo 4','cargo 5','cargo 6','cargo 7','cargo 8','cargo 9','cargo 2','cargo 3','cargo 4','cargo 5','cargo 6','cargo 7','cargo 8','cargo 9','cargo 2','cargo 3','cargo 4','cargo 5','cargo 6','cargo 7','cargo 8','cargo 9'];
-    private $regime = ['','Temporario', 'Prazo Inderteminado', 'Menor Aprendiz', 'CLT', 'Outros'];
+    private $regime = ['','Temporario', 'Prazo Inderteminado', 'Menor Aprendiz', 'CLT', 'Freelancer', 'Outros'];
     private $contratante = ['','Omnis', 'Parceiro', 'Outro'];
     private $periodo = ['', 'Diario', 'Mensal','Unico'];
     private $tipoajuda = ['','Ajuda de custo', 'Pacote de dados', 'Vale transporte'];
@@ -298,6 +298,15 @@ class JobController extends Controller
     {
         $job = Job::find($id);
         $job->vagaJobs()->find($idvaga)->candidatos()->attach($idcandidato);
+        return redirect()->route('jobs.sp.candidato', ['id'=>$id, 'idvaga'=>$idvaga]);
+    }
+
+    public function desalocarCandidato($id, $idvaga, $idcandidato)
+    {
+        $job = Job::find($id);
+        $job->vagaJobs()->find($idvaga)->candidatos()->detach($idcandidato);
+        //dd($job->vagaJobs()->find($idvaga)->candidatos()->get);
+
         return redirect()->route('jobs.sp.candidato', ['id'=>$id, 'idvaga'=>$idvaga]);
     }
 }

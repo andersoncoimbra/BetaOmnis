@@ -127,6 +127,12 @@ class CadastroController extends Controller
 
     public function newcandidato(Request $request)
     {
+        $this->validate($request, [
+            'nome' => 'required|min:3',
+            'email' => 'required|unique:candidatos'
+        ]);
+
+
         $candidato = new Candidato();
         $candidato->nome = $request->nome;
         $candidato->email = $request->email;
