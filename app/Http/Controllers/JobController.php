@@ -309,4 +309,24 @@ class JobController extends Controller
 
         return redirect()->route('jobs.sp.candidato', ['id'=>$id, 'idvaga'=>$idvaga]);
     }
+
+    public function jobfaturamento(Request $request)
+    {
+        $faturamento = new Faturamento();
+        $faturamento->parceiro = $request->parceiro;
+        $faturamento->job = $request->job;
+        $faturamento->valor = $request->valor;
+        $faturamento->job_id = $request->id_job;
+        $faturamento->status = "Aberto";
+        $faturamento->lastuser = \Auth::user()->name;
+        //$faturamento->atualizador= \Auth::user()->name;
+
+
+        $faturamento->obs = $request->obs ;
+        // dd($faturamento);
+        $faturamento->save();
+
+        return redirect()->route('jobs.financeiro', ['id'=>$request->id_job]);
+
+    }
 }

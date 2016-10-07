@@ -6,7 +6,7 @@
                 <h4>Novo Faturamento</h4>
             </div>
 
-            {!! Form::open(array('url' => '/faturamento', 'class'=>'form-horizontal')) !!}
+            {!! Form::open(array('route' => 'jobs.faturamento', 'class'=>'form-horizontal')) !!}
             <div class="form-group">
                 {!! Form::label('parceiro', 'Nome do Parceiro', array('class' => 'col-sm-2 control-label')) !!}
                 <div class="col-sm-10">

@@ -38,13 +38,13 @@ class FaturamentoController extends Controller
         $faturamento->parceiro = $request->parceiro;
         $faturamento->job = $request->job;
         $faturamento->valor = $request->valor;
-        $faturamento->job_id = $request->id_job;
+        $faturamento->job_id = 0;
         $faturamento->status = "Aberto";
         $faturamento->lastuser = \Auth::user()->name;
-        $faturamento->atualizador= \Auth::user()->name;
+        //$faturamento->atualizador= \Auth::user()->name;
 
 
-        //$faturamento->obs = $request->obs ;
+        $faturamento->obs = $request->obs ;
         // dd($faturamento);
         $faturamento->save();
 
