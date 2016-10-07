@@ -14,6 +14,7 @@
     @include('modal.reembolso.checkin')
     @include('modal.reembolso.quitacao')
 
+    @include('forms.faturamento.modal.nf')
 
     @include('forms.job.modal.faturamento')
     @include('forms.faturamento.modal.detalhes')
@@ -112,6 +113,24 @@
 
             });
         }
+    </script>
+
+    <script>
+
+    function jobnf(id) {
+    $("#faturamento-nf").html("Carregando...");
+    $(document).ready(function () {
+    $.ajax({
+    url: '{{URL::to('/jobs/')}}/'+id+'/financeiro/formnf'
+    }).done(function (html) {
+
+    $("#faturamento-nf").html(html);
+
+    })
+    $('#form_add_nf').modal('show');
+
+    });
+    }
     </script>
 
 @endsection

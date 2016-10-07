@@ -46,6 +46,10 @@ Route::group(['prefix'=>'jobs'], function () {
     //Relatorio Financeiro
     Route::get('/{id}/financeiro',['as'=>'jobs.financeiro','uses'=>'JobController@financeiro']);
     Route::post('/financeiro',['as'=>'jobs.faturamento','uses'=>'JobController@jobfaturamento']);
+    Route::get('/{id}/financeiro/formnf',['as'=>'jobs.financeiro.formnf','uses'=>'JobController@formjobnf']);
+    Route::post('/financeiro/formnf',['as'=>'jobs.nfform','uses'=>'JobController@postjobnf']);
+
+
 
 
 });

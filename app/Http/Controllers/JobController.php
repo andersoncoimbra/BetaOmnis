@@ -329,4 +329,39 @@ class JobController extends Controller
         return redirect()->route('jobs.financeiro', ['id'=>$request->id_job]);
 
     }
+
+    public function formjobnf($id)
+    {
+        $faturamento = Faturamento::find($id);
+        return view('forms.job.formnfjob',['faturamento'=>$faturamento]);
+
+    }
+
+    public function postjobnf(Request $request)
+    {
+        //dd($request);
+
+        $faturamento = Faturamento::find($request->id);
+
+        $faturamento->nf = $request->nf;
+        $faturamento->valorfaturado = $request->valorfaturado;
+        $faturamento->valorliquido = $request->valorliquido;
+        $faturamento->data = date('Y-m-d', strtotime(str_replace('/','-',$request->data)));
+        $faturamento->obs = $request->obs;
+        $faturamento->lastuser = \Auth::user()->name;
+        $faturamento->status = "Faturado";
+        $faturamento->iss = $request->iss;
+        $faturamento->inss = $request->inss;
+        $faturamento->ir = $request->ir;
+        $faturamento->csll = $request->csll;
+        $faturamento->pis = $request->pis;
+        $faturamento->cofins = $request->cofins;
+
+        $faturamento->save();
+
+        return redirect()->route('jobs.financeiro', ['id'=>$request->job_id]);
+
+    }
+
+
 }

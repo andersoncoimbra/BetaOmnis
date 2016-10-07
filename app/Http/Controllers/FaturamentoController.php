@@ -15,7 +15,7 @@ class FaturamentoController extends Controller
     }
     public function getIndex()
     {
-        $faturamentos = Faturamento::all();
+        $faturamentos = Faturamento::orderBy('id','DESC')->get();
 
         //Dashboard //////////
         $totalquitacao = Faturamento::Where('status','=','Quitado')->sum('valorrecebido');
