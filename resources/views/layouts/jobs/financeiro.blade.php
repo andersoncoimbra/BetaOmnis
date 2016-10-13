@@ -15,7 +15,7 @@
     @include('modal.reembolso.quitacao')
 
     @include('forms.faturamento.modal.nf')
-
+    @include('forms.faturamento.modal.quitacao')
     @include('forms.job.modal.faturamento')
     @include('forms.faturamento.modal.detalhes')
 

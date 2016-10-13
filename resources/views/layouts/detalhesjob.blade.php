@@ -37,7 +37,7 @@
                         <div class="col-md-6 ">
                             <p>Vagas do Job</p>
                             <table class="table">
-                                <tr><th>Qtd</th><<th>Cargo</th><th>Valor</th><th>Custo</th></tr>
+                                <tr><th>Qtd</th><th>Cargo</th><th>Valor</th><th>Custo</th></tr>
                                 <?php
                                 $custototal = null;
                                 $valortotal = null;
