@@ -118,7 +118,20 @@
             </select>
         </div>
     </div>
+    
+    <div class="form-group col-sm-12">
+    <div id="taxacoligada" style="display: none">
+        <p>Calcular taxa da coligada</p>
+            {!! Form::label('taxacoligada', 'Taxa Coligada', array('class' => 'col-sm-4 control-label')) !!}
+            <div class="col-sm-8">
+
+                {!! Form::text('taxacoligada', null, array('class'=>'form-control')) !!}
+            </div>
+        </div>
+    </div>
+
 <div class="modal-footer">
+    <input type="button" class="btn btn-info pull-left" onclick="showDiv('taxacoligada')" value="Calcular Taxa da Coligada">
     <input type="submit" class="btn btn-success" value="Atualizar">
     <input type="button" class="btn btn-danger" value="Cancelar" data-dismiss="modal">
 </div>
