@@ -107,4 +107,11 @@
             </div>
         </div>
 
+
+
 @endsection
+    <script type="text/javascript">
+      function valorglobal() {
+            return {{$job->valor}}
+        }
+    </script>

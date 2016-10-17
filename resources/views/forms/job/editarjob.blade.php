@@ -118,14 +118,28 @@
             </select>
         </div>
     </div>
-    
-    <div class="form-group col-sm-12">
+
+
+
     <div id="taxacoligada" style="display: none">
-        <p>Calcular taxa da coligada</p>
-            {!! Form::label('taxacoligada', 'Taxa Coligada', array('class' => 'col-sm-4 control-label')) !!}
+    <div class="form-group col-lg-12">
+
+
+        <div class="form-group">
+        {!! Form::label('', 'Calcular taxa da coligada', array('class' => 'col-sm-12 control-label')) !!}
+        {!! Form::label('percentual', 'Pecentual %', array('class' => 'col-sm-4 control-label')) !!}
+            <div class="col-sm-8">
+        {!! Form::text('percentual', null, array('class'=>'form-control')) !!}
+                </div>
+        </div>
+
+        Valor total: <input type="checkbox" name="total" value="Valor total"><br>
+        Valor Total de contratações: <input type="checkbox" name="newsletter" value="Contratações"><br>
+        Valor Total contratações e extras <input type="checkbox" name="extras" value="Extras"> <br>
+            {!! Form::label('taxacoligada', 'Valor Taxa Coligada', array('class' => 'col-sm-4 control-label')) !!}
             <div class="col-sm-8">
 
-                {!! Form::text('taxacoligada', null, array('class'=>'form-control')) !!}
+                {!! Form::text('valortaxacoligada', null, array('class'=>'form-control')) !!}
             </div>
         </div>
     </div>
@@ -137,3 +151,18 @@
 </div>
     {!! Form::close() !!}
 </div>
+
+<script type="text/javascript">
+    var countChecked = function() {
+
+        var i = function (id) { return document.getElementsByName(id)[0]}
+
+        console.log(valorglobal());
+        console.log(i('valortaxacoligada').value);
+
+        i('valortaxacoligada').value = parseFloat(valorglobal())*(i('percentual').value/10);
+    };
+    countChecked();
+
+    $("input[type=checkbox]" ).on( "click", countChecked );
+</script>

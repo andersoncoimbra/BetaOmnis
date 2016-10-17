@@ -12,8 +12,8 @@
 */
 
 Route::auth();
-
-Route::get('/', 'Homecontroller@index');
+//Home
+Route::get('/', ['uses'=>'Homecontroller@index', 'as'=>'index']);
 
 //Rotas para os Jobs
 Route::group(['prefix'=>'jobs'], function () {

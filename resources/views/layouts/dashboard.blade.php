@@ -30,7 +30,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{{URL::route('index')}}"  >
                 <img src="/assets/img/logo.png" alt="" />
             </a>
         </div>
@@ -269,6 +269,7 @@
                         <div class="user-info">
                             <div>{{Auth::user()->name}}</div>
                             <div class="user-text-online">
+
                                 <span class="user-circle-online btn btn-success btn-circle "></span>&nbsp;Online
                             </div>
                         </div>
