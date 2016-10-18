@@ -51,7 +51,7 @@
                                     <!--
                                     Troca parametro tipo por um relacionamento
                                     -->
-                                        <tr><td></td><td class="info">{{$e->quantidade." ".$tipo[$e->tipo]}}</td><td class="info"></td><td class="info">{{$e->valor}}</td><td class="info">{{$e->quantidade*$e->custo}}</td></tr>
+                                        <tr><td></td><td class="info">{{$e->quantidade." ".$tipo[$e->tipo]}}</td><td class="info">{{$e->valor}}</td><td class="info">{{$e->quantidade*$e->custo}}</td></tr>
                                         <?php
                                         $custoextra += $e->quantidade*$e->custo*$v->quantidade
                                         ?>
@@ -70,7 +70,7 @@
                                 <tr><th>#ID</th><th>Descrição</th><th>Valor</th></tr>
 
                                 @forelse($job->reembolsos as $reemb)
-                                    {!! $reembtotal += $reemb->valor !!}
+                                    <?php $reembtotal += $reemb->valor ?>
                                     <tr><td>{{$reemb->id}}</td><td>{{$reemb->obs}}</td><td>{{$reemb->valor}}</td></tr>
                                     @empty
                                 @endforelse
@@ -96,7 +96,7 @@
 
                         <div class="col-md-12 clearfix">
                             <button class="btn btn-danger " onclick="editarjob({{$job->id}});">Editar</button>
-                            <a href="{{URL::route('jobs.sp', $job->id)}}"> <button class="btn btn-default ">Solicitações de pessoal</button></a>
+                            <a href="{{URL::route('jobs.sp', $job->id)}}"> <button class="btn btn-default ">Equipe</button></a>
                             <button class="btn btn-info " style="display: none">Solicitações</button>
                             <button class="btn btn-success " style="display: none">Informaçoes do Job</button>
                             <a href="{{url()->current()}}/o"><button class="btn btn-warning ">Gerar Orçamento</button></a>
@@ -114,4 +114,10 @@
       function valorglobal() {
             return {{$job->valor}}
         }
+      function contratacoes() {
+          return {{$valortotal}}
+      }
+      function extras() {
+          return {{$custoextra}}
+      }
     </script>

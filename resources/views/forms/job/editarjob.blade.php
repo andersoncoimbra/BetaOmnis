@@ -133,9 +133,9 @@
                 </div>
         </div>
 
-        Valor total: <input type="checkbox" name="total" value="Valor total"><br>
-        Valor Total de contratações: <input type="checkbox" name="newsletter" value="Contratações"><br>
-        Valor Total contratações e extras <input type="checkbox" name="extras" value="Extras"> <br>
+        Valor total: <input type="radio" name="total" value="Valor total"><br>
+        Valor Total de contratações: <input type="radio" name="total" value="Contratações"><br>
+        Valor Total contratações e extras <input type="radio" name="total" value="Extras"> <br>
             {!! Form::label('taxacoligada', 'Valor Taxa Coligada', array('class' => 'col-sm-4 control-label')) !!}
             <div class="col-sm-8">
 
@@ -156,13 +156,27 @@
     var countChecked = function() {
 
         var i = function (id) { return document.getElementsByName(id)[0]}
+        var a = function (id) { return document.getElementsByName(id)}
 
+
+        //O valor globlal esta sento registrado na view de
+        // detalhesJob como um metodo javascript no final do codigo
         console.log(valorglobal());
         console.log(i('valortaxacoligada').value);
+        console.log(contratacoes());
+        if(a('total')[0].checked) {
+            i('valortaxacoligada').value = valorglobal() * (i('percentual').value / 100);
+        }
+        if(a('total')[1].checked) {
+            i('valortaxacoligada').value = contratacoes() * (i('percentual').value / 100);
+        }
+        if(a('total')[2].checked) {
+            i('valortaxacoligada').value =  (contratacoes()+ extras()) * (i('percentual').value / 100);;
+        }
 
-        i('valortaxacoligada').value = parseFloat(valorglobal())*(i('percentual').value/10);
+
     };
     countChecked();
 
-    $("input[type=checkbox]" ).on( "click", countChecked );
+    $("input[type=radio]" ).on( "click", countChecked );
 </script>
