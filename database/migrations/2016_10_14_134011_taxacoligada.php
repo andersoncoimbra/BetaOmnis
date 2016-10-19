@@ -12,7 +12,7 @@ class Taxacoligada extends Migration
      */
     public function up()
     {
-        Schema::table('faturamentos', function (Blueprint $table) {
+        Schema::table('jobs', function (Blueprint $table) {
             //
             $table->decimal('taxacoligada', 7,2);
 
@@ -26,7 +26,7 @@ class Taxacoligada extends Migration
      */
     public function down()
     {
-        Schema::table('faturamentos', function (Blueprint $table) {
+        Schema::table('jobs', function (Blueprint $table) {
             //
             $table->dropColumn('taxacoligada');
 

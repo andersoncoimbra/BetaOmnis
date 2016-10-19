@@ -159,8 +159,8 @@
         var a = function (id) { return document.getElementsByName(id)}
 
 
-        //O valor globlal esta sento registrado na view de
-        // detalhesJob como um metodo javascript no final do codigo
+        // O valor globlal esta sento registrado na view de
+        // DetalhesJob como um metodo javascript no final do codigo
         console.log(valorglobal());
         console.log(i('valortaxacoligada').value);
         console.log(contratacoes());
