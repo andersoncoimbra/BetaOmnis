@@ -26,8 +26,8 @@ class CreateJobsTable extends Migration
             $table->dateTime('fim');
             $table->integer('status')->unsigned();
 
-            $table->decimal('valor', 7, 2)->nullable;
-            $table->decimal('custo',7,2)->nullable;
+            $table->decimal('valor', 7, 2);
+            $table->decimal('custo',7,2);
 
             $table->timestamps();
         });

@@ -84,7 +84,7 @@
                             @endif
                         </div>
                         <div class="col-md-3 clearfix">
-                            <p class="bg-success" style="padding: 10px; text-align: right">Valor global: <strong>R$ {{$job->valor}}</strong></p>
+                            <p class="bg-success" style="padding: 10px; text-align: right">Valor: <strong>R$ {{$job->valor}}</strong></p>
                             @if($custototal > $job->valor)
                                 <p class="bg-danger" style="padding: 10px; text-align: right">Atenção prejuizo em <strong>R$ {{$custototal-$job->valor }}</strong></p>
                             @else

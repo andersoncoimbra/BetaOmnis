@@ -8,7 +8,7 @@
     <div class="form-group">
         {!! Form::label('nomejob', 'Nome do Job', array('class' => 'col-sm-2 control-label')) !!}
         <div class="col-sm-10">
-            <input name="nomejob" class="form-control" type="text" placeholder="Escreva o nome do Job">
+            <input name="nomejob" class="form-control" type="text" placeholder="Escreva o nome do Job" required>
         </div>
     </div>
     <div class="form-group">
@@ -37,7 +37,7 @@
     <div class="form-group">
         {!! Form::label('codpar', 'Coordenador Parceiro', array('class' => 'col-sm-2 control-label')) !!}
         <div class="col-sm-10">
-            <input name="codpar" class="form-control" type="text" placeholder="Nome do Coordenador Parceiro">
+            <input name="codpar" class="form-control" type="text" placeholder="Nome do Coordenador Parceiro" required >
         </div>
     </div>
 
@@ -78,7 +78,7 @@
             <input name="fim" class="form-control"  type="date" placeholder="Fim 12 / 07 / 2016">
         </div>
     </div>
-
+<!--
     <div class="form-group">
         {!! Form::label('valor', 'Valor global R$:', array('class' => 'col-sm-2 control-label')) !!}
         <div class="col-sm-4">
@@ -91,6 +91,7 @@
         </div>
     </div>
 
+--!>
 
     <div class="form-group">
         {!! Form::label('praca', 'Status', array('class' => 'col-sm-2 control-label')) !!}
