@@ -1,4 +1,6 @@
 @extends('layouts.dashboard')
+
+
 @section('breadcrumbs')
     >>{!! Html::linkRoute('lista.jobs', 'Todos os Jobs') !!}
     >>{!! Html::linkRoute('detalhes.job', 'Detalhes do Job', $id) !!}
@@ -7,7 +9,7 @@
 
 @section('title')
     Relatório Financeiro
-    @endsection
+@endsection
 @section('content')
     @include('modal.reembolso.addReembolso')
     @include('modal.reembolso.detalhes')
@@ -30,6 +32,20 @@
                     @include('list.jobs.faturamentodeJob', ['jobs'=> $job->faturas])
                 </div>
             </div>
+        </div>
+        <div class="col-lg-6">
+            <!-- pie chart-->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Relatorio Gráfico
+                </div>
+                <div class="panel-body">
+                    <div id="legendPlaceholder" style="display: block; float: right" >
+                        Faturamentos: R${{$job->faturas->sum('valor')}}<br>Reembolsos: R${{$job->reembolsos->sum('valor')}}
+                    </div>
+                    <div id="relatoriografico" style="width: 250px; height: 200px; text-align: left;"> </div>
+
+                </div>
         </div>
     </div>
 
@@ -117,20 +133,36 @@
 
     <script>
 
-    function jobnf(id) {
-    $("#faturamento-nf").html("Carregando...");
-    $(document).ready(function () {
-    $.ajax({
-    url: '{{URL::to('/jobs/')}}/'+id+'/financeiro/formnf'
-    }).done(function (html) {
+        function jobnf(id) {
+            $("#faturamento-nf").html("Carregando...");
+            $(document).ready(function () {
+                $.ajax({
+                    url: '{{URL::to('/jobs/')}}/'+id+'/financeiro/formnf'
+                }).done(function (html) {
 
-    $("#faturamento-nf").html(html);
+                    $("#faturamento-nf").html(html);
 
-    })
-    $('#form_add_nf').modal('show');
+                })
+                $('#form_add_nf').modal('show');
 
-    });
-    }
+            });
+        }
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            var data = [
+                {label:"Faturamento", data:{{$job->faturas->sum('valor')}}},
+                {label:"Reembolso", data:{{$job->reembolsos->sum("valor")}}}
+            ];
+            var options = {
+                series:{
+                    pie:{show: true}
+                },
+                legend:{show:false}
+            };
+            $.plot($('#relatoriografico'),data,options)
+        })
+
     </script>
 
 @endsection

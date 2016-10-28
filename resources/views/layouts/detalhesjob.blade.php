@@ -26,12 +26,11 @@
                                 <dt>Nota Fiscal</dt>
                                 <dd>{{$job->nf? 'Sim': 'Não'}}</dd>
                                 <dt>Data de Inicio</dt>
-                                <dd>{{date('d / m / Y', strtotime($job->inicio))}}</dd>
+                                <dd>{{date('d/m/Y', strtotime($job->inicio))}}</dd>
                                 <dt>Data de Finalização </dt>
-                                <dd>{{date('d / m / Y', strtotime($job->fim))}}</dd>
+                                <dd>{{date('d/m/ Y', strtotime($job->fim))}}</dd>
                                 <dt>Status</dt>
                                 <dd>{{$ds[$job->status]}}</dd>
-
                             </dl>
                         </div>
                         <div class="col-md-6 ">
@@ -106,9 +105,6 @@
                 </div>
             </div>
         </div>
-
-
-
 @endsection
     <script type="text/javascript">
       function valorglobal() {
