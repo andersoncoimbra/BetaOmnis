@@ -41,7 +41,28 @@
                 </div>
                 <div class="panel-body">
                     <div id="legendPlaceholder" style="display: block; float: right" >
-                        Faturamentos: R${{$job->faturas->sum('valor')}}<br>Reembolsos: R${{$job->reembolsos->sum('valor')}}
+
+                        <div class="panel panel-primary text-center no-boder">
+                            <div class="panel-body yellow">
+                                <i class="fa fa-bar-chart-o fa"></i>
+                                <h5>R${{$job->faturas->sum('valor')}}</h5>
+                            </div>
+                            <div class="panel-footer">
+                            <span class="panel-eyecandy-title">Faturamento
+                            </span>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-primary text-center no-boder">
+                            <div class="panel-body red">
+                                <i class="fa fa-mail-reply fa"></i>
+                                <h5>R${{$job->reembolsos->sum('valor')}}</h5>
+                            </div>
+                            <div class="panel-footer">
+                            <span class="panel-eyecandy-title">Reembolso
+                            </span>
+                            </div>
+                        </div>
                     </div>
                     <div id="relatoriografico" style="width: 250px; height: 200px; text-align: left;"> </div>
 
@@ -49,7 +70,6 @@
         </div>
     </div>
 
-    <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading"><h4>Reembolso</h4></div>
@@ -60,11 +80,17 @@
                 </div>
             </div>
         </div>
-    </div>
+
 @endsection
 
 @section('script')
-    <script type="text/javascript">
+
+    <!-- Plugin de grafico  -->
+        <script src="http://static.pureexample.com/js/flot/excanvas.min.js"></script>
+        <script src="http://static.pureexample.com/js/flot/jquery.flot.min.js"></script>
+        <script src="http://static.pureexample.com/js/flot/jquery.flot.pie.min.js"></script>
+
+        <script type="text/javascript">
         function newreembolso() {
             $('#novo-reembolso').html("Carregando...");
             $(document).ready(function () {

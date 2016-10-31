@@ -1,4 +1,16 @@
-<table class="table table-striped">
+@section('script')
+    {!! Html::style('/assets/css/jquery.bdt.css') !!}
+    {!! Html::script('/assets/js/jquery.sortelements.js') !!}
+    {!! Html::script('/assets/js/jquery.bdt.js') !!}
+    <script>
+        $(document).ready( function () {
+            $('#listajobs').bdt({
+                pageFieldText: 'Registros por Pagina '
+            });
+        });
+    </script>
+@endsection
+<table class="table table-striped" id="listajobs">
     <tr><th>ID</th> <th>Job</th> <th>Parceiro</th> <th>Inicio</th> <th>Fim</th>  <th>Status</th> <th>Ações</th></tr>
     @forelse($jobs as $job)
         <tr><td>{{$job->id}}</td> <td>{{$job->nomeJob}}</td>

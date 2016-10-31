@@ -374,12 +374,6 @@
 {!! Html::script('/assets/scripts/siminta.js') !!}
 {!! Html::script('/assets/plugins/pace/pace.js') !!}
 
-<!-- Plugin de grafico  -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script src="http://static.pureexample.com/js/flot/excanvas.min.js"></script>
-<script src="http://static.pureexample.com/js/flot/jquery.flot.min.js"></script>
-<script src="http://static.pureexample.com/js/flot/jquery.flot.pie.min.js"></script>
-
 <script type="text/javascript">
     function formModal(tipo,id,nivel) {
         $("#"+nivel+'-'+tipo).html("Carregando...");
