@@ -177,8 +177,9 @@
     <script type="text/javascript">
         $(function () {
             var data = [
-                {label:"Faturamento", data:{{$job->faturas->sum('valor')}}},
-                {label:"Reembolso", data:{{$job->reembolsos->sum("valor")}}}
+                {label:"Faturamento", data:{{$job->faturas->sum('valor')? $job->faturas->sum('valor') :0.001}}},
+                {label:"Reembolso", data:{{$job->reembolsos->sum("valor")? $job->reembolsos->sum("valor"): 0.001}}}
+
             ];
             var options = {
                 series:{
