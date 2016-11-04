@@ -32,7 +32,6 @@ class CadastroController extends Controller
     {
         $this->validate($request, [
             'nome' => 'required|min:3',
-            'cnpj' => 'required|min:14|max:18'
         ]);
 
         $parceiro = new Parceiro();

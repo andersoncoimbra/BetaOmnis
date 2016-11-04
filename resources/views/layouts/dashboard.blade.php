@@ -132,10 +132,14 @@
                         <li>
                             <a href="/cadastros/usuarios">Usuarios</a>
                         </li>
+                        <li>
+                            <a href="/cadastros/funcoes">Funçoes e Cargos</a>
+                        </li>
 
 
                     </ul>
                 </li>
+
                 <li>
                     <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Financeiro<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
@@ -148,7 +152,9 @@
                     </ul>
                     <!-- second-level-items -->
                 </li>
-
+                <li class="">
+                    <a href="http://omnis.tk/info/"><i class="fa fa-info fa-fw"></i>Instruções</a>
+                </li>
             </ul>
             <!-- end side-menu -->
         </div>
