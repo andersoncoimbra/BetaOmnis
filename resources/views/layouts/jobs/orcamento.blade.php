@@ -25,10 +25,10 @@
                     <div class="panel-body">
                         <div class="col-md-6" style="border: 1px solid #dddddd; border-right: none;">
                             <table class="table" style="margin-top: 3px; border: 1px solid #dddddd; margin: 10px">
-                                <tr><th class="active">Parceiro:</th> <td>{{$p[$job->parceiro]}}</td></tr>
+                                <tr><th class="active">Parceiro:</th> <td>{{$job->parceiros->nome}}</td></tr>
                             </table>
                             <table  class="table" style="margin-top: 3px; border: 1px solid #dddddd; margin: 10px">
-                                <tr><th class="active">Praça:</th> <td>{{$pc[$job->praca]}}</td></tr>
+                                <tr><th class="active">Praça:</th> <td>{{$job->pracas->nome}}</td></tr>
                             </table>
                             <table  class="table" style="margin-top: 3px; border: 1px solid #dddddd; margin: 10px">
                                 <tr><th class="active">Atendimento:</th> <td></td></tr>
@@ -36,7 +36,7 @@
                         </div>
                         <div class="col-md-6" style="border: 1px solid #dddddd">
                             <table class="table" style="margin-top: 3px; border: 1px solid #dddddd; margin: 10px">
-                                <tr><th class="active">Cordenador:</th> <td>{{$job->codnome}}</td></tr>
+                                <tr><th class="active">Coordenador:</th> <td>{{$job->codnome}}</td></tr>
                             </table>
                             <table  class="table" style="margin-top: 3px; border: 1px solid #dddddd; margin: 10px">
                                 <tr><th class="active">Período da Ação:</th> <td>De {{date('d / m ', strtotime($job->inicio))}} A {{date('d / m / Y', strtotime($job->fim))}}</td></tr>
@@ -56,7 +56,7 @@
                             $valortotal = null;
                             ?>
                             @forelse($vj as $v)
-                                <tr><td>{{$v->quantidade}}</td><td>{{$dp[$v->cargo]}}</td><td>{{$v->valor}}</td><td>{{$v->custo}}</td></tr>
+                                <tr><td>{{$v->quantidade}}</td><td>{{$v->cargos->nome}}</td><td>{{$v->valor}}</td><td>{{$v->custo}}</td></tr>
                                 <?php
                                 $custototal += $v->quantidade*$v->custo;
                                 $valortotal += $v->quantidade*$v->valor;
@@ -66,7 +66,8 @@
                             @endforelse
                         </table>
                         @if($custototal && $valortotal)
-                            <p class="bg-info" style="padding: 10px; text-align: right">Valor do Serviço: <strong>{{$valortotal}}</strong></p>
+                            <p class="bg-info" style="padding: 10px; text-align: right">Taxa da coligada: <strong>{{$job->taxacoligada}}</strong></p>
+                            <p class="bg-info" style="padding: 10px; text-align: right">Valor do Serviço: <strong>{{$valortotal + $job->taxacoligada}}</strong></p>
                             <p class="bg-info" style="padding: 10px; text-align: right">Imposto: <strong>...</strong></p>
                             <p class="bg-info" style="padding: 10px; text-align: right">Valor para emissão da NF: <strong>...</strong></p>
                         @endif
@@ -78,7 +79,9 @@
             <div class="col-md-10 col-md-offset-1">
                 <div id="print" class="panel panel-default">
                     <div class="panel-heading">
-                        <button id="btn">Imprimir</button>
+                        <button id="btn btn-default">Imprimir</button>
+                        <button class="btn btn-info">Fecha Orçamento</button>
+
                     </div>
                 </div>
             </div>

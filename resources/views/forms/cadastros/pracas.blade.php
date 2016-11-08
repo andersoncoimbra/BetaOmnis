@@ -76,7 +76,7 @@
 <div class="col-md-12">
     <table class="table-responsive table table-striped">
         <caption>Lista de pracas</caption>
-        <tr><th>#ID</th><th>Nome do pracas</th><th>CNPJ</th><th>Jobs</th></tr>
+        <tr><th>#ID</th><th>Nome do pracas</th><th>UF</th><th>Jobs</th></tr>
         @forelse($pracas as $praca)
             <tr><td>{{$praca->id}}</td><td>{{$praca->nome}}</td><td>{{$praca->estado}}</td><td><button class="btn btn-info" onclick="formModal('jobs','{{$praca->id}}','pracas')">Jobs</button></td></tr>
         @empty

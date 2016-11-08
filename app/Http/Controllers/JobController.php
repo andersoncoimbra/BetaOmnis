@@ -109,6 +109,8 @@ class JobController extends Controller
         $job->valor = $request->valor;
         $job->custo = $request->custo;
 
+        $job->taxacoligada = $request->valortaxacoligada;
+
         $job->save();
 
         return redirect()->route('detalhes.job', $id);

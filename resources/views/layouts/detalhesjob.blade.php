@@ -31,6 +31,10 @@
                                 <dd>{{date('d/m/ Y', strtotime($job->fim))}}</dd>
                                 <dt>Status</dt>
                                 <dd>{{$ds[$job->status]}}</dd>
+                                @if($job->taxacoligada != "0.00")
+                                    <dt>Taxa Coligada</dt>
+                                    <dd>{{$job->taxacoligada}}</dd>
+                                @endif
                             </dl>
                         </div>
                         <div class="col-md-6 ">
@@ -41,7 +45,7 @@
                                 $custototal = null;
                                 $valortotal = null;
                                 $custoextra = null;
-
+                                $custoomnis = null;
                                 $reembtotal = null;
                                 ?>
                                 @forelse($vj as $v)
@@ -54,12 +58,22 @@
                                         <?php
                                         $custoextra += $e->quantidade*$e->custo*$v->quantidade
                                         ?>
+                                        @if($v->contratante == '1')
+                                            <?php
+                                                $custoomnis += $e->quantidade*$e->custo*$v->quantidade
+                                            ?>
+                                            @endif
                                     @empty
                                     @endforelse
                                     <?php
                                     $custototal += $v->quantidade*$v->custo;
                                     $valortotal += $v->quantidade*$v->valor;
                                     ?>
+                                    @if($v->contratante == '1')
+                                        <?php
+                                        $custoomnis += $v->quantidade*$v->custo;
+                                        ?>
+                                    @endif
                                 @empty
                                     <tr><td>Sem cargos adicionados</td></tr>
                                 @endforelse
@@ -90,6 +104,8 @@
                                 <p class="bg-info" style="padding: 10px; text-align: right">Saldo: <strong>R$ {{$job->valor-$custototal}}</strong></p>
                             @endif
                             <p class="bg-danger" style="padding: 10px; text-align: right">Total de Reembolsos: R$ {{$reembtotal}}</p>
+                            <p class="bg-info" style="padding: 10px; text-align: right">Custo para Omnis: R$ {{$custoomnis}}</p>
+
 
                         </div>
 

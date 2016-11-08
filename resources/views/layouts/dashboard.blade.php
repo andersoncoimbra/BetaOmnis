@@ -153,7 +153,7 @@
                     <!-- second-level-items -->
                 </li>
                 <li class="">
-                    <a href="http://omnis.tk/info/"><i class="fa fa-info fa-fw"></i>Instruções</a>
+                    <a href="http://omnis.tk/info/"><i class="fa fa-info fa-fw"></i>Instruções de uso</a>
                 </li>
             </ul>
             <!-- end side-menu -->

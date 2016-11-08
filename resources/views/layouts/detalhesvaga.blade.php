@@ -15,7 +15,7 @@
                         <div class="col-md-5">
                             <dl class="dl-horizontal">
                                 <dt>Vaga:</dt>
-                                <dd>{{$dp[$vj->cargo]}}</dd>
+                                <dd>{{$vj->cargos->nome}}</dd>
                                 <dt>Regime:</dt>
                                 <dd>{{$r[$vj->regime]}}</dd>
                                 <dt>Contratante:</dt>
@@ -25,7 +25,7 @@
                                 <dt>Periodo:</dt>
                                 <dd>{{$per[$vj->periodo]}}</dd>
                                 <dt>Praça:</dt>
-                                <dd>{{$p[$job->praca]}}</dd>
+                                <dd>{{$job->pracas->nome}}</dd>
                                 <dt>Valor:</dt>
                                 <dd>{{$vj->valor}}</dd>
                                 <dt>Custo Efetivo:</dt>
