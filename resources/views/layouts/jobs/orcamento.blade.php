@@ -54,20 +54,42 @@
                             <?php
                             $custototal = null;
                             $valortotal = null;
+                            $valoromnis = null;
+                            $custoextra = null;
                             ?>
                             @forelse($vj as $v)
                                 <tr><td>{{$v->quantidade}}</td><td>{{$v->cargos->nome}}</td><td>{{$v->valor}}</td><td>{{$v->custo}}</td></tr>
+                                @forelse($v->extras as $e)
+                                <!--
+                                    Troca parametro tipo por um relacionamento
+                                    -->
+                                    <tr><td></td><td class="info">{{$e->quantidade." ".$tipo[$e->tipo]}}</td><td class="info">{{$e->valor}}</td><td class="info">{{$e->quantidade*$e->custo}}</td></tr>
+                                    <?php
+                                    $custoextra += $e->quantidade*$e->custo*$v->quantidade
+                                    ?>
+                                    @if($v->contratante == '1')
+                                        <?php
+                                        $valoromnis += $e->quantidade*$e->valor*$v->quantidade
+                                        ?>
+                                    @endif
+                                @empty
+                                @endforelse
                                 <?php
                                 $custototal += $v->quantidade*$v->custo;
                                 $valortotal += $v->quantidade*$v->valor;
                                 ?>
+                                @if($v->contratante == '1')
+                                    <?php
+                                    $valoromnis += $v->quantidade*$v->valor;
+                                    ?>
+                                @endif
                             @empty
                                 <tr><td>Sem cargos adicionados</td></tr>
                             @endforelse
                         </table>
-                        @if($custototal && $valortotal)
+                        @if($valoromnis)
                             <p class="bg-info" style="padding: 10px; text-align: right">Taxa da coligada: <strong>{{$job->taxacoligada}}</strong></p>
-                            <p class="bg-info" style="padding: 10px; text-align: right">Valor do Serviço: <strong>{{$valortotal + $job->taxacoligada}}</strong></p>
+                            <p class="bg-info" style="padding: 10px; text-align: right">Valor do Serviço: <strong>{{$valoromnis + $job->taxacoligada}}</strong></p>
                             <p class="bg-info" style="padding: 10px; text-align: right">Imposto: <strong>...</strong></p>
                             <p class="bg-info" style="padding: 10px; text-align: right">Valor para emissão da NF: <strong>...</strong></p>
                         @endif

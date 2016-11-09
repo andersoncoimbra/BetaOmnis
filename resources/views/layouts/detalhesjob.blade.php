@@ -98,13 +98,12 @@
                         </div>
                         <div class="col-md-3 clearfix">
                             <p class="bg-success" style="padding: 10px; text-align: right">Valor: <strong>R$ {{$job->valor}}</strong></p>
-                            @if($custototal > $job->valor)
-                                <p class="bg-danger" style="padding: 10px; text-align: right">Atenção prejuizo em <strong>R$ {{$custototal-$job->valor }}</strong></p>
+                            @if($custoomnis > $job->valor)
+                                <p class="bg-danger" style="padding: 10px; text-align: right">Atenção prejuizo em <strong>R$ {{$custoomnis-$job->valor }}</strong></p>
                             @else
                                 <p class="bg-info" style="padding: 10px; text-align: right">Saldo: <strong>R$ {{$job->valor-$custototal}}</strong></p>
                             @endif
                             <p class="bg-danger" style="padding: 10px; text-align: right">Total de Reembolsos: R$ {{$reembtotal}}</p>
-                            <p class="bg-info" style="padding: 10px; text-align: right">Custo para Omnis: R$ {{$custoomnis}}</p>
 
 
                         </div>

@@ -23,7 +23,7 @@ class JobController extends Controller
     private $cargo = ['','cargo 1','cargo 2','cargo 3','cargo 4','cargo 5','cargo 6','cargo 7','cargo 8','cargo 9','cargo 2','cargo 3','cargo 4','cargo 5','cargo 6','cargo 7','cargo 8','cargo 9','cargo 2','cargo 3','cargo 4','cargo 5','cargo 6','cargo 7','cargo 8','cargo 9'];
     private $regime = ['','Temporario', 'Prazo Inderteminado', 'Menor Aprendiz', 'CLT', 'Freelancer', 'Outros'];
     private $contratante = ['','Omnis', 'Parceiro', 'Outro'];
-    private $periodo = ['', 'Diario', 'Mensal','Unico'];
+    private $periodo = ['', 'Mensal', 'Diario','Unico'];
     private $tipoajuda = ['','Ajuda de custo', 'Pacote de dados', 'Vale transporte'];
     private $estados = array("AC"=>"Acre", "AL"=>"Alagoas", "AM"=>"Amazonas", "AP"=>"Amapá","BA"=>"Bahia","CE"=>"Ceará","DF"=>"Distrito Federal","ES"=>"Espírito Santo","GO"=>"Goiás","MA"=>"Maranhão","MT"=>"Mato Grosso","MS"=>"Mato Grosso do Sul","MG"=>"Minas Gerais","PA"=>"Pará","PB"=>"Paraíba","PR"=>"Paraná","PE"=>"Pernambuco","PI"=>"Piauí","RJ"=>"Rio de Janeiro","RN"=>"Rio Grande do Norte","RO"=>"Rondônia","RS"=>"Rio Grande do Sul","RR"=>"Roraima","SC"=>"Santa Catarina","SE"=>"Sergipe","SP"=>"São Paulo","TO"=>"Tocantins");
 
@@ -239,7 +239,7 @@ class JobController extends Controller
         // $vj = VagasJob::all()->where('id_job', $id)->sum('valor');
         $vj = VagasJob::all()->where('id_job', $id);
 
-        return view('layouts.jobs.orcamento', ['id'=>$id, "job"=>$job, 'p'=>$p, 'pc'=>$pc, 'vj'=>$vj, 'dp'=>$dp]);
+        return view('layouts.jobs.orcamento', ['id'=>$id, "job"=>$job, 'p'=>$p, 'pc'=>$pc, 'vj'=>$vj, 'dp'=>$dp, 'tipo'=>$this->tipoajuda]);
     }
 
     public function financeiro($id)
