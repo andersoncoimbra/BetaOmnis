@@ -101,7 +101,7 @@
                             @if($custoomnis > $job->valor)
                                 <p class="bg-danger" style="padding: 10px; text-align: right">Atenção prejuizo em <strong>R$ {{$custoomnis-$job->valor }}</strong></p>
                             @else
-                                <p class="bg-info" style="padding: 10px; text-align: right">Saldo: <strong>R$ {{$job->valor-$custototal}}</strong></p>
+                                <p class="bg-info" style="padding: 10px; text-align: right">Saldo: <strong>R$ {{$job->valor-$custoomnis}}</strong></p>
                             @endif
                             <p class="bg-danger" style="padding: 10px; text-align: right">Total de Reembolsos: R$ {{$reembtotal}}</p>
 

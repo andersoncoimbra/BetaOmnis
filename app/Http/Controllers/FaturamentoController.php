@@ -20,7 +20,7 @@ class FaturamentoController extends Controller
         //Dashboard //////////
         $totalquitacao = Faturamento::Where('status','=','Quitado')->sum('valorrecebido');
         $totalfaturado = Faturamento::Where('status','=','Faturado')->sum('valorfaturado');
-        $totalreceber = Faturamento::sum('valor');
+        $totalreceber = Faturamento::Where('status','=','Aberto')->sum('valor') + $totalfaturado ;
 
 
         //Tabela de vencimentos nos ultimos 5 dias//////////

@@ -71,7 +71,7 @@
         {!! Form::close() !!}
     </div>
 </div>
-<button type="button" onclick="addpracas()" class="btn btn-primary pull-right" >Novo Praça</button>
+<button type="button" onclick="addpracas()" class="btn btn-primary pull-right">Novo Praça</button>
 
 <div class="col-md-12">
     <table class="table-responsive table table-striped">

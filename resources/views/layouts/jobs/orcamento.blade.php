@@ -30,9 +30,11 @@
                             <table  class="table" style="margin-top: 3px; border: 1px solid #dddddd; margin: 10px">
                                 <tr><th class="active">Praça:</th> <td>{{$job->pracas->nome}}</td></tr>
                             </table>
+                            @if($job->valor)
                             <table  class="table" style="margin-top: 3px; border: 1px solid #dddddd; margin: 10px">
-                                <tr><th class="active">Atendimento:</th> <td></td></tr>
+                                <tr><th class="danger">Valor Fechado:</th> <td>R$ {{$job->valor}}</td></tr>
                             </table>
+                                @endif
                         </div>
                         <div class="col-md-6" style="border: 1px solid #dddddd">
                             <table class="table" style="margin-top: 3px; border: 1px solid #dddddd; margin: 10px">
@@ -102,8 +104,9 @@
                 <div id="print" class="panel panel-default">
                     <div class="panel-heading">
                         <button id="btn btn-default">Imprimir</button>
-                        <button class="btn btn-info">Fecha Orçamento</button>
-
+                        @if(!$job->valor)
+                        <a href="{{URL::current()}}/{{$valoromnis + $job->taxacoligada}}/closed"><button class="btn btn-info">Fecha Orçamento</button></a>
+                            @endif
                     </div>
                 </div>
             </div>

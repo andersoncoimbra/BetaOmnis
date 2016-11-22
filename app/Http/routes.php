@@ -42,6 +42,7 @@ Route::group(['prefix'=>'jobs'], function () {
 
     //Gera orçamento
     Route::get('/{id}/o','JobController@orcamento');
+    Route::get('/{id}/o/{valor}/closed','JobController@closedorcamento');
 
     //Relatorio Financeiro
     Route::get('/{id}/financeiro',['as'=>'jobs.financeiro','uses'=>'JobController@financeiro']);
@@ -108,7 +109,7 @@ Route::group(['prefix'=>'cadastros'], function (){
     Route::get('/parceiros', ['uses'=>'CadastroController@index', 'as'=>'cadastros.index']);
     Route::post('/parceiros', ['uses'=> 'CadastroController@addParceiro', 'as'=>'cadastro.parceiro']);
 
-    Route::get('/pracas', ['uses'=>'CadastroController@pracas', 'as'=>'pracas']);
+    Route::get('/pracas', ['uses'=>'CadastroController@prfacas', 'as'=>'pracas']);
     Route::post('/pracas', ['uses'=> 'CadastroController@addPracas', 'as'=>'cadastro.pracas']);
 
     Route::get('/cadastros/{id}/jobs', ['uses'=>'CadastroController@jobs']);

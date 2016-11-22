@@ -242,6 +242,14 @@ class JobController extends Controller
         return view('layouts.jobs.orcamento', ['id'=>$id, "job"=>$job, 'p'=>$p, 'pc'=>$pc, 'vj'=>$vj, 'dp'=>$dp, 'tipo'=>$this->tipoajuda]);
     }
 
+    public function closedorcamento($id, $valor)
+    {
+        $job = Job::find($id);
+        $job->valor = $valor;
+        $job->save();
+        return  redirect()->route('detalhes.job', ['id'=>$id]);
+    }
+
     public function financeiro($id)
     {
         $job = Job::find($id);
