@@ -208,6 +208,11 @@
 
         });
     }
+    function showModal(id) {
+
+            $(id).modal('show');
+
+    }
     function showDiv(div)
     {
         document.getElementById(div).style.display = 'block';
