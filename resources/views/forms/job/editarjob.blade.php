@@ -92,19 +92,6 @@
         </div>
     </div>
 
-    <div class="form-group">
-        {!! Form::label('valor', 'Valor global R$:', array('class' => 'col-sm-2 control-label')) !!}
-        <div class="col-sm-4">
-            {!! Form::text('valor', null, array('class'=>'form-control')) !!}
-
-        </div>
-
-        {!! Form::label('custo', 'Custo Previsto R$:', array('class' => 'col-sm-2 control-label')) !!}
-        <div class="col-sm-4">
-            {!! Form::text('custo', null, array('class'=>'form-control')) !!}
-
-        </div>
-    </div>
 
 
     <div class="form-group">
@@ -121,62 +108,12 @@
 
 
 
-    <div id="taxacoligada" style="display: none">
-    <div class="form-group col-lg-12">
 
-
-        <div class="form-group">
-        {!! Form::label('', 'Calcular taxa da coligada', array('class' => 'col-sm-12 control-label')) !!}
-        {!! Form::label('percentual', 'Pecentual %', array('class' => 'col-sm-4 control-label')) !!}
-            <div class="col-sm-8">
-        {!! Form::text('percentual', null, array('class'=>'form-control')) !!}
-                </div>
-        </div>
-
-        Valor total: <input type="radio" name="total" value="Valor total"><br>
-        Valor Total de contratações: <input type="radio" name="total" value="Contratações"><br>
-        Valor Total contratações e extras <input type="radio" name="total" value="Extras"> <br>
-            {!! Form::label('taxacoligada', 'Valor Taxa Coligada', array('class' => 'col-sm-4 control-label')) !!}
-            <div class="col-sm-8">
-
-                {!! Form::text('valortaxacoligada', null, array('class'=>'form-control')) !!}
-            </div>
-        </div>
-    </div>
 
 <div class="modal-footer">
-    <input type="button" class="btn btn-info pull-left" onclick="showDiv('taxacoligada')" value="Calcular Taxa da Coligada">
     <input type="submit" class="btn btn-success" value="Atualizar">
     <input type="button" class="btn btn-danger" value="Cancelar" data-dismiss="modal">
 </div>
     {!! Form::close() !!}
 </div>
 
-<script type="text/javascript">
-    var countChecked = function() {
-
-        var i = function (id) { return document.getElementsByName(id)[0]}
-        var a = function (id) { return document.getElementsByName(id)}
-
-
-        // O valor globlal esta sento registrado na view de
-        // DetalhesJob como um metodo javascript no final do codigo
-        console.log(valorglobal());
-        console.log(i('valortaxacoligada').value);
-        console.log(contratacoes());
-        if(a('total')[0].checked) {
-            i('valortaxacoligada').value = valorglobal() * (i('percentual').value / 100);
-        }
-        if(a('total')[1].checked) {
-            i('valortaxacoligada').value = contratacoes() * (i('percentual').value / 100);
-        }
-        if(a('total')[2].checked) {
-            i('valortaxacoligada').value =  (contratacoes()+ extras()) * (i('percentual').value / 100);;
-        }
-
-
-    };
-    countChecked();
-
-    $("input[type=radio]" ).on( "click", countChecked );
-</script>

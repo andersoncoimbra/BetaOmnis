@@ -103,9 +103,12 @@
             <div class="col-md-10 col-md-offset-1">
                 <div id="print" class="panel panel-default">
                     <div class="panel-heading">
-                        <button id="btn btn-default">Imprimir</button>
-                        @if(!$job->valor)
-                        <a href="{{URL::current()}}/{{$valoromnis + $job->taxacoligada}}/closed"><button class="btn btn-info">Fecha Orçamento</button></a>
+                        @if($job->status = "Orçamento")
+                            <button class="btn btn-info" onclick="showModal('#taxacoligada');">Calcular taxa</button>
+
+                            <a href="{{URL::current()}}/{{$valoromnis + $job->taxacoligada}}/closed"><button class="btn btn-info">Calcular Imposto</button></a>
+
+                            <a href="{{URL::current()}}/{{$valoromnis + $job->taxacoligada}}/closed"><button class="btn btn-info">Fecha Orçamento</button></a>
                             @endif
                     </div>
                 </div>
@@ -113,3 +116,52 @@
         </div>
 @endsection
 
+<script type="text/javascript">
+
+    ///////////////////////////////////
+    //// Algoritmos para auxiliar no calculo de Taxa de coligada
+    /////////////////////////////////
+
+    function valorglobal() {
+
+        return {{$job->valor}}
+    }
+    function contratacoes() {
+        return {{$valortotal}}
+    }
+    function extras() {
+        return {{$custoextra}}
+    }
+
+
+
+    var countChecked = function() {
+
+        var i = function (id) { return document.getElementsByName(id)[0]}
+        var a = function (id) { return document.getElementsByName(id)}
+
+
+        // O valor globlal esta sento registrado na view de
+        // Orçamento como um metodo javascript no final do codigo
+        console.log(valorglobal());
+        console.log(i('valortaxacoligada').value);
+        console.log(contratacoes());
+        if(a('total')[0].checked) {
+            i('valortaxacoligada').value = valorglobal() * (i('percentual').value / 100);
+        }
+        if(a('total')[1].checked) {
+            i('valortaxacoligada').value = contratacoes() * (i('percentual').value / 100);
+        }
+        if(a('total')[2].checked) {
+            i('valortaxacoligada').value =  (contratacoes()+ extras()) * (i('percentual').value / 100);;
+        }
+
+
+    };
+    countChecked();
+
+    $("input[type=radio]" ).on( "click", countChecked );
+
+</script>
+
+@include('modal.jobs.formTaxaColigada')

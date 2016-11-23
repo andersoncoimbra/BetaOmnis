@@ -106,10 +106,7 @@ class JobController extends Controller
         if( $request->status > 0) {
             $job->status = $request->status;
         }
-        $job->valor = $request->valor;
-        $job->custo = $request->custo;
 
-        $job->taxacoligada = $request->valortaxacoligada;
 
         $job->save();
 
@@ -240,6 +237,17 @@ class JobController extends Controller
         $vj = VagasJob::all()->where('id_job', $id);
 
         return view('layouts.jobs.orcamento', ['id'=>$id, "job"=>$job, 'p'=>$p, 'pc'=>$pc, 'vj'=>$vj, 'dp'=>$dp, 'tipo'=>$this->tipoajuda]);
+    }
+
+    public function taxacoligada(Request $request, $id)
+    {
+        $job = Job::find($id);
+      // $job->valor = $request->valor;
+       // $job->custo = $request->custo;
+        $job->taxacoligada = $request->valortaxacoligada;
+        $job->save();
+
+        return redirect()->route('orcamentojob', ['id'=>$id]);
     }
 
     public function closedorcamento($id, $valor)

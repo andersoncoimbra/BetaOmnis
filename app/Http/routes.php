@@ -41,8 +41,11 @@ Route::group(['prefix'=>'jobs'], function () {
 
 
     //Gera orçamento
-    Route::get('/{id}/o','JobController@orcamento');
+    Route::get('/{id}/o',['uses'=>'JobController@orcamento', 'as'=>'orcamentojob']);
     Route::get('/{id}/o/{valor}/closed','JobController@closedorcamento');
+
+    //Gera Taxa de coligada
+    Route::post('/{id}/o/taxacoligada',['uses'=>'JobController@taxacoligada', 'as'=>'taxacoligada']);
 
     //Relatorio Financeiro
     Route::get('/{id}/financeiro',['as'=>'jobs.financeiro','uses'=>'JobController@financeiro']);

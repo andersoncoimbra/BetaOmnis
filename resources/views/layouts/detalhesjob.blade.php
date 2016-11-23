@@ -121,14 +121,4 @@
             </div>
         </div>
 @endsection
-    <script type="text/javascript">
-      function valorglobal() {
-            return {{$job->valor}}
-        }
-      function contratacoes() {
-          return {{$valortotal}}
-      }
-      function extras() {
-          return {{$custoextra}}
-      }
-    </script>
+
