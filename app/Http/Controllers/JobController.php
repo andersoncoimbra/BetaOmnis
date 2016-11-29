@@ -250,6 +250,18 @@ class JobController extends Controller
         return redirect()->route('orcamentojob', ['id'=>$id]);
     }
 
+    public function imposto(Request $request, $id)
+    {
+
+        $job = Job::find($id);
+        // $job->valor = $request->valor;
+        // $job->custo = $request->custo;
+        $job->imposto = $request->inputimposto;
+        $job->save();
+
+        return redirect()->route('orcamentojob', ['id'=>$id]);
+    }
+
     public function closedorcamento($id, $valor)
     {
         $job = Job::find($id);

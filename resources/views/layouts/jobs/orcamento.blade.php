@@ -92,8 +92,8 @@
                         @if($valoromnis)
                             <p class="bg-info" style="padding: 10px; text-align: right">Taxa da coligada: <strong>{{$job->taxacoligada}}</strong></p>
                             <p class="bg-info" style="padding: 10px; text-align: right">Valor do Serviço: <strong>{{$valoromnis + $job->taxacoligada}}</strong></p>
-                            <p class="bg-info" style="padding: 10px; text-align: right">Imposto: <strong>...</strong></p>
-                            <p class="bg-info" style="padding: 10px; text-align: right">Valor para emissão da NF: <strong>...</strong></p>
+                            <p class="bg-info" style="padding: 10px; text-align: right">Imposto: <strong>{{$job->imposto}}</strong></p>
+                            <p class="bg-info" style="padding: 10px; text-align: right">Valor para emissão da NF: <strong>R$ {{$valoromnis + $job->taxacoligada + $job->imposto}}</strong></p>
                         @endif
                     </div>
                 </div>
@@ -106,9 +106,9 @@
                         @if($job->status = "Orçamento")
                             <button class="btn btn-info" onclick="showModal('#taxacoligada');">Calcular taxa</button>
 
-                            <a href="{{URL::current()}}/{{$valoromnis + $job->taxacoligada}}/closed"><button class="btn btn-info">Calcular Imposto</button></a>
+                            <button class="btn btn-info" onclick="showModal('#imposto');">Calcular Imposto</button>
 
-                            <a href="{{URL::current()}}/{{$valoromnis + $job->taxacoligada}}/closed"><button class="btn btn-info">Fecha Orçamento</button></a>
+                            <a href="{{URL::current()}}/{{$valoromnis + $job->taxacoligada + $job->imposto}}/closed"><button class="btn btn-info">Fecha Orçamento</button></a>
                             @endif
                     </div>
                 </div>
@@ -124,7 +124,7 @@
 
     function valorglobal() {
 
-        return {{$job->valor}}
+        return {{$valoromnis}}
     }
     function contratacoes() {
         return {{$valortotal}}
@@ -133,12 +133,15 @@
         return {{$custoextra}}
     }
 
+    var i = function (id) { return document.getElementsByName(id)[0]}
+    var a = function (id) { return document.getElementsByName(id)}
+
+
 
 
     var countChecked = function() {
 
-        var i = function (id) { return document.getElementsByName(id)[0]}
-        var a = function (id) { return document.getElementsByName(id)}
+
 
 
         // O valor globlal esta sento registrado na view de
@@ -156,12 +159,15 @@
             i('valortaxacoligada').value =  (contratacoes()+ extras()) * (i('percentual').value / 100);;
         }
 
-
     };
+
+
+
     countChecked();
 
-    $("input[type=radio]" ).on( "click", countChecked );
+
 
 </script>
 
 @include('modal.jobs.formTaxaColigada')
+@include('modal.jobs.formImposto')

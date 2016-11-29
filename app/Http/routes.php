@@ -47,6 +47,9 @@ Route::group(['prefix'=>'jobs'], function () {
     //Gera Taxa de coligada
     Route::post('/{id}/o/taxacoligada',['uses'=>'JobController@taxacoligada', 'as'=>'taxacoligada']);
 
+    //Gera Imposto
+    Route::post('/{id}/o/imposto',['uses'=>'JobController@imposto', 'as'=>'imposto']);
+
     //Relatorio Financeiro
     Route::get('/{id}/financeiro',['as'=>'jobs.financeiro','uses'=>'JobController@financeiro']);
     Route::post('/financeiro',['as'=>'jobs.faturamento','uses'=>'JobController@jobfaturamento']);
