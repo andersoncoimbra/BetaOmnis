@@ -103,7 +103,9 @@
                             @else
                                 <p class="bg-info" style="padding: 10px; text-align: right">Saldo: <strong>R$ {{$job->valor-$custoomnis}}</strong></p>
                             @endif
+                            <p class="bg-danger" style="padding: 10px; text-align: right">Total de Recebido: R$ {{$job->faturas->sum('valorrecebido')}}</p>
                             <p class="bg-danger" style="padding: 10px; text-align: right">Total de Reembolsos: R$ {{$reembtotal}}</p>
+                            {{$job->faturas->sum('valorrecebido')}}
 
 
                         </div>
