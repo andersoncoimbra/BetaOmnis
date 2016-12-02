@@ -62,17 +62,21 @@
     </div>
 
     <div class="form-group">
-        {!! Form::label('nf', 'Nota fiscal', array('class' => 'col-sm-2 control-label')) !!}
+        {!! Form::label('tipofaturamento', 'Nota fiscal', array('class' => 'col-sm-2 control-label')) !!}
         <div class="col-sm-10">
-            <select name="nf" class="form-control" >
-                @if($job->nf)
-                    <option value="">Nota Fiscal</option>
-                    <option value="1" selected="selected">Sim</option>
-                    <option value="0">Não</option>
+            <select name="tipofaturamento" class="form-control" >
+                @if($job->tipofaturamento == "Nota Fiscal")
+                    <option value="Nota de Debito">Nota de Debito</option>
+                    <option value="Nota Fiscal" selected="selected">Nota Fiscal</option>
+                    <option value="Deposito">Deposito</option>
+                    @elseif($job->tipofaturamento == "Nota de Debito")
+                    <option value="Nota de Debito" selected="selected">Nota de Debito</option>
+                    <option value="Nota Fiscal" >Nota Fiscal</option>
+                    <option value="Deposito">Deposito</option>
                     @else
-                    <option value="">Nota Fiscal</option>
-                    <option value="1" >Sim</option>
-                    <option value="0" selected="selected">Não</option>
+                    <option value="Nota de Debito">Nota de Debito</option>
+                    <option value="Nota Fiscal" >Nota Fiscal</option>
+                    <option value="Deposito" selected="selected">Deposito</option>
                     @endif
             </select>
         </div>

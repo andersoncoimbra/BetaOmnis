@@ -63,7 +63,7 @@ class JobController extends Controller
             $request->codnome,
             $request->codpar,
             $request->codemail,
-            $request->nf,
+            $request->tipofaturamento,
             $request->codetele,
             $request->inicio,
             $request->fim,
@@ -98,7 +98,7 @@ class JobController extends Controller
         $job->praca = $request->praca;
         $job->codnome = $request->codnome;
         $job->codemail = $request->codemail;
-        $job->nf = $request->nf;
+        $job->tipofaturamento = $request->tipofaturamento;
         $job->codtele = $request->codtele;
         $job->inicio = date('Y-m-d', strtotime(str_replace('/','-',$request->inicio)));
         $job->fim = date('Y-m-d', strtotime(str_replace('/','-',$request->fim)));
@@ -277,7 +277,7 @@ class JobController extends Controller
         return view('layouts.jobs.financeiro', ['id'=>$id,'job'=>$job]);
     }
 
-    protected function gravar($nomejob, $parceiro, $praca, $codnome, $codnome, $codmail, $nf, $codtele, $inicio, $fim, $status, $valor, $custo)
+    protected function gravar($nomejob, $parceiro, $praca, $codnome, $codnome, $codmail, $tipofaturamento, $codtele, $inicio, $fim, $status, $valor, $custo)
     {
         $job = new Job();
 
@@ -286,7 +286,7 @@ class JobController extends Controller
         $job->praca = $praca;
         $job->codnome = $codnome;
         $job->codemail = $codmail;
-        $job->nf = $nf;
+        $job->tipofaturamento = $tipofaturamento;
         $job->codtele = $codtele;
         $job->inicio = date('Y-m-d', strtotime(str_replace('/','-',$inicio)));
         $job->fim = date('Y-m-d', strtotime(str_replace('/','-',$fim)));

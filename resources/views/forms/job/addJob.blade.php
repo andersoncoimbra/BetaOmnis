@@ -58,11 +58,13 @@
     </div>
 
     <div class="form-group">
-        {!! Form::label('nf', 'Nota fiscal', array('class' => 'col-sm-2 control-label')) !!}
+        {!! Form::label('tipofaturamento', 'Tipo Faturamento', array('class' => 'col-sm-2 control-label')) !!}
         <div class="col-sm-10">
-            <select name="nf" class="form-control" >
-                <option selected="selected" value="">Nota Fiscal</option>
-                <option value="true">Sim</option><option value="false">Não</option>
+            <select name="tipofaturamento" class="form-control" required >
+                <option value="" selected disabled hidden>Selecione o tipo de faturamento</option>
+                <option  value="Nota Fiscal">Nota Fiscal</option>
+                <option value="Deposito">Deposito</option>
+                <option value="Nota de Debito">Nota de Debito</option>
             </select>
         </div>
     </div>

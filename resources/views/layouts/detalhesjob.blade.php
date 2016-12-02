@@ -23,8 +23,8 @@
                                 <dd>{{$job->codemail}}</dd>
                                 <dt>Telefone</dt>
                                 <dd>{{$job->codtele}}</dd>
-                                <dt>Nota Fiscal</dt>
-                                <dd>{{$job->nf? 'Sim': 'Não'}}</dd>
+                                <dt>Tipo de Faturamento</dt>
+                                <dd>{{$job->tipofaturamento}}</dd>
                                 <dt>Data de Inicio</dt>
                                 <dd>{{date('d/m/Y', strtotime($job->inicio))}}</dd>
                                 <dt>Data de Finalização </dt>
@@ -103,7 +103,7 @@
                             @else
                                 <p class="bg-info" style="padding: 10px; text-align: right">Saldo: <strong>R$ {{$job->valor-$custoomnis}}</strong></p>
                             @endif
-                            <p class="bg-danger" style="padding: 10px; text-align: right">Total de Recebido: R$ {{$job->faturas->sum('valorrecebido')}}</p>
+                            <p class="bg-info" style="padding: 10px; text-align: right">Total de Recebido: R$ {{$job->faturas->sum('valorrecebido')}}</p>
                             <p class="bg-danger" style="padding: 10px; text-align: right">Total de Reembolsos: R$ {{$reembtotal}}</p>
                             {{$job->faturas->sum('valorrecebido')}}
 
