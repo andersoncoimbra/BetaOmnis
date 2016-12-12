@@ -2,12 +2,25 @@
 @section('breadcrumbs')
     >>{!! Html::linkRoute('lista.jobs', 'Todos os Jobs') !!}
 @endsection
+@section('title')
+
+    @endsection
 @include('modal.jobs.editarjob')
 @section('content')
+
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
+                    <div class="pull-right" style="margin-top: 3px; margin-right: 3px">
+                        <button class="btn btn-danger " onclick="editarjob({{$job->id}});">Editar</button>
+                        <a href="{{URL::route('jobs.sp', $job->id)}}"> <button class="btn btn-default ">Equipe</button></a>
+                        <button class="btn btn-info " style="display: none">Solicitações</button>
+                        <button class="btn btn-success " style="display: none">Informaçoes do Job</button>
+                        <a href="{{url()->current()}}/o"><button class="btn btn-warning ">Gerar Orçamento</button></a>
+                        <a href="{{URL::route('jobs.financeiro', $job->id)}}"><button class="btn btn-primary ">Financeiro</button></a>
+                    </div>
                     <div class="panel-heading"><h3>Job - {{$job->nomeJob}}</h3></div>
+
                     <div class="panel-body">
                         <div class="col-md-3">
                             <dl>
@@ -110,14 +123,7 @@
 
                         </div>
 
-                        <div class="col-md-12 clearfix">
-                            <button class="btn btn-danger " onclick="editarjob({{$job->id}});">Editar</button>
-                            <a href="{{URL::route('jobs.sp', $job->id)}}"> <button class="btn btn-default ">Equipe</button></a>
-                            <button class="btn btn-info " style="display: none">Solicitações</button>
-                            <button class="btn btn-success " style="display: none">Informaçoes do Job</button>
-                            <a href="{{url()->current()}}/o"><button class="btn btn-warning ">Gerar Orçamento</button></a>
-                            <a href="{{URL::route('jobs.financeiro', $job->id)}}"><button class="btn btn-primary ">Financeiro</button></a>
-                        </div>
+
                     </div>
                 </div>
             </div>
