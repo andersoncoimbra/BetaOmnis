@@ -10,6 +10,10 @@
           <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
+                    <div class="pull-right" style="margin-top: 3px; margin-right: 3px">
+
+                        <a href="{{URL::route('detalhes.job', $job->id)}}"><button class="btn btn-success ">Concluir</button></a>
+                    </div>
                     <div class="panel-heading"><h3>Detalhes de vagas do job - {{$job->nomeJob}}</h3></div>
                     <div class="panel-body" style="padding-right: 5px; padding-left: 5px;">
                         <div class="col-md-5">
