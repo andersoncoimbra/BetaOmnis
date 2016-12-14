@@ -17,8 +17,9 @@ use App\Http\Requests;
 class JobController extends Controller
 {
     //
-    private $parceiro = ['','Parceiro 1','Parceiro 2','Parceiro 3','Parceiro 4','Parceiro 5','Parceiro 6','Parceiro 7','Parceiro 8','Parceiro 10','Parceiro 13','Parceiro 32','Parceiro 33','Parceiro 34','Parceiro 31','Parceiro 314','Parceiro 34','Parceiro 35','Parceiro 36','Parceiro 37','Parceiro 15','Parceiro 26','Parceiro 47','Parceiro 58','Parceiro 89'];
-    private $status = ['','Orçamento', 'Stand by', 'Exercução'];
+    //private $parceiro = ['','Parceiro 1','Parceiro 2','Parceiro 3','Parceiro 4','Parceiro 5','Parceiro 6','Parceiro 7','Parceiro 8','Parceiro 10','Parceiro 13','Parceiro 32','Parceiro 33','Parceiro 34','Parceiro 31','Parceiro 314','Parceiro 34','Parceiro 35','Parceiro 36','Parceiro 37','Parceiro 15','Parceiro 26','Parceiro 47','Parceiro 58','Parceiro 89'];
+    private $status = ['','Orçamento', 'Stand by', 'Execução'];
+    private $tipojob = ['Normal','Tipo Pai', 'Tipo Filho'];
     private $praca;
     private $cargo = ['','cargo 1','cargo 2','cargo 3','cargo 4','cargo 5','cargo 6','cargo 7','cargo 8','cargo 9','cargo 2','cargo 3','cargo 4','cargo 5','cargo 6','cargo 7','cargo 8','cargo 9','cargo 2','cargo 3','cargo 4','cargo 5','cargo 6','cargo 7','cargo 8','cargo 9'];
     private $regime = ['','Temporario', 'Prazo Inderteminado', 'Menor Aprendiz', 'CLT', 'Freelancer', 'Outros'];
@@ -37,7 +38,7 @@ class JobController extends Controller
         $jobs   = Job::orderBy('id','DESC')->get();
         $parceiros = Parceiro::all();
         $ds     = $this->status;
-        $dp     = $this->parceiro;
+
         $p      = Praca::all();
 
        return view('jobs', ['jobs'=> $jobs, 'ds'=> $ds, 'parceiros'=>$parceiros, 'p'=>$p]);
@@ -47,7 +48,6 @@ class JobController extends Controller
     {
         $parceiros = Parceiro::all();
         $ds     = $this->status;
-        $dp     = $this->parceiro;
         $p      = Praca::all();
 
         return view('forms.job.addJob', ['ds'=> $ds, 'parceiros'=>$parceiros, 'p'=>$p, 'estados'=>$this->estados]);
@@ -69,7 +69,8 @@ class JobController extends Controller
             $request->fim,
             $request->status,
             $request->valor,
-            $request->custo
+            $request->custo,
+            $request->tipodejob
         );
        // $jobs = Job::all();
 
@@ -127,7 +128,7 @@ class JobController extends Controller
 
         $vj= $job->vagaJobs;
 
-        return view('layouts.detalhesjob', ['job' => $job, 'tipo'=>$tipo, 'dp'=> $dp, 'ds'=>$ds, 'p'=>$p, 'vj' => $vj]);
+        return view('layouts.detalhesjob', ['job' => $job, 'tipo'=>$tipo, 'dp'=> $dp, 'ds'=>$ds, 'p'=>$p, 'vj' => $vj, 'tipodejob'=>$this->tipojob]);
 
     }
 
@@ -277,7 +278,7 @@ class JobController extends Controller
         return view('layouts.jobs.financeiro', ['id'=>$id,'job'=>$job]);
     }
 
-    protected function gravar($nomejob, $parceiro, $praca, $codnome, $codnome, $codmail, $tipofaturamento, $codtele, $inicio, $fim, $status, $valor, $custo)
+    protected function gravar($nomejob, $parceiro, $praca, $codnome, $codnome, $codmail, $tipofaturamento, $codtele, $inicio, $fim, $status, $valor, $custo, $tipodejob)
     {
         $job = new Job();
 
@@ -293,6 +294,7 @@ class JobController extends Controller
         $job->status = $status;
         $job->valor = $valor;
         $job->custo = $custo;
+        $job->tipodejob = $tipodejob;
 
         $job->save();
     }

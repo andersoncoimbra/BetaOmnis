@@ -80,20 +80,7 @@
             <input name="fim" class="form-control"  type="date" placeholder="Fim 12 / 07 / 2016">
         </div>
     </div>
-<!--
-    <div class="form-group">
-        {!! Form::label('valor', 'Valor global R$:', array('class' => 'col-sm-2 control-label')) !!}
-        <div class="col-sm-4">
-            <input name="valor"  class="form-control" type="number" placeholder="9999,99">
-        </div>
 
-        {!! Form::label('custo', 'Custo Previsto R$:', array('class' => 'col-sm-2 control-label')) !!}
-        <div class="col-sm-4">
-            <input name="custo" class="form-control"  type="number" placeholder="999,99">
-        </div>
-    </div>
-
---!>
 
     <div class="form-group">
         {!! Form::label('praca', 'Status', array('class' => 'col-sm-2 control-label')) !!}
@@ -106,6 +93,16 @@
             </select>
         </div>
     </div>
+
+    <div class="form-group">
+        {!! Form::label('tipodejob', 'Tipo de Job', array('class' => 'col-sm-2 control-label')) !!}
+        <div class="col-sm-10">
+            {{ Form::select('tipodejob', ['Normal', 'Tipo Pai'], 0, ['class' => 'col-sm-10 form-control']) }}
+        </div>
+    </div>
+
+
+
 
     <input type="submit" class="btn btn-success" value="Registrar">
     {!! Form::close() !!}

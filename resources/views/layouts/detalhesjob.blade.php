@@ -12,6 +12,9 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="pull-right" style="margin-top: 3px; margin-right: 3px">
+                        @if($job->tipodejob == 1)
+                            <button class="btn btn-success" onclick="">Novo Job Filho</button>
+                        @endif
                         <button class="btn btn-danger " onclick="editarjob({{$job->id}});">Editar</button>
                         <a href="{{URL::route('jobs.sp', $job->id)}}"> <button class="btn btn-default ">Equipe</button></a>
                         <button class="btn btn-info " style="display: none">Solicitações</button>
@@ -24,6 +27,10 @@
                     <div class="panel-body">
                         <div class="col-md-3">
                             <dl>
+                                @if($job->tipodejob)
+                                <dt>Tipo de Job</dt>
+                                <dd>{{$tipodejob[$job->tipodejob]}}
+                                @endif
                                 <dt>Nome do Job</dt>
                                 <dd>{{$job->nomeJob}}</dd>
                                 <dt>Parceiro</dt>
@@ -51,6 +58,11 @@
                             </dl>
                         </div>
                         <div class="col-md-6 ">
+                            <p>Job Filhos</p>
+                            <table class="table">
+                                <tr><th>Job</th><th>Detalhes</th></tr>
+                            </table>
+
                             <p>Vagas do Job</p>
                             <table class="table">
                                 <tr><th>Qtd</th><th>Cargo</th><th>Valor</th><th>Custo</th></tr>
