@@ -35,7 +35,7 @@ class JobController extends Controller
 
     public function index()
     {
-        $jobs   = Job::orderBy('id','DESC')->get();
+        $jobs   = Job::orderBy('id','DESC')->where('tipodejob','<>', 2)->get();
         $parceiros = Parceiro::all();
         $ds     = $this->status;
 
@@ -81,7 +81,6 @@ class JobController extends Controller
     {
         $parceiros = Parceiro::all();
         $ds     = $this->status;
-        $dp     = $this->parceiro;
         $p      = Praca::all();
         $job    = Job::find($id);
 
@@ -89,6 +88,7 @@ class JobController extends Controller
         return view('forms.job.editarjob', ['job'=>$job,'ds'=> $ds, 'parceiros'=>$parceiros, 'p'=>$p, 'estados'=>$this->estados]);
 
     }
+
     public function posteditar($id,Request $request){
 
         //dd($request);
@@ -114,6 +114,44 @@ class JobController extends Controller
         return redirect()->route('detalhes.job', $id);
     }
 
+    public function getnovojobfilho($id)
+    {
+        $parceiros = Parceiro::all();
+        $ds     = $this->status;
+        $p      = Praca::all();
+        $job    = Job::find($id);
+
+
+        return view('forms.job.modal.novojobfilho', ['job'=>$job,'ds'=> $ds, 'parceiros'=>$parceiros, 'p'=>$p, 'estados'=>$this->estados]);
+
+    }
+
+    public function postnovojobfilho($id, Request $request)
+    {
+        //dd($request);
+        $job = new Job();
+
+        $job->nomeJob = $request->nomeJob;
+        $job->parceiro = $request->parceiro;
+        $job->praca = $request->praca;
+        $job->codnome = $request->codnome;
+        $job->codemail = $request->codemail;
+        $job->tipofaturamento = $request->tipofaturamento;
+        $job->codtele = $request->codtele;
+        $job->inicio = date('Y-m-d', strtotime(str_replace('/','-',$request->inicio)));
+        $job->fim = date('Y-m-d', strtotime(str_replace('/','-',$request->fim)));
+
+        if( $request->status > 0) {
+            $job->status = $request->status;
+        }
+        $job->tipodejob = 2;
+        $job->jobpai = $id;
+
+        $job->save();
+
+        return redirect()->route('detalhes.job', $id);
+    }
+
 
     public function detalhesjob($id)
     {
@@ -121,6 +159,7 @@ class JobController extends Controller
         $ds = $this->status;
         $p  = $this->praca;
         $tipo   = $this->tipoajuda;
+        $jf = Job::where('jobpai',$id)->get();
 
         //$vagas = VagasJob::all();
 
@@ -128,7 +167,7 @@ class JobController extends Controller
 
         $vj= $job->vagaJobs;
 
-        return view('layouts.detalhesjob', ['job' => $job, 'tipo'=>$tipo, 'dp'=> $dp, 'ds'=>$ds, 'p'=>$p, 'vj' => $vj, 'tipodejob'=>$this->tipojob]);
+        return view('layouts.detalhesjob', ['jf'=> $jf, 'job' => $job, 'tipo'=>$tipo, 'dp'=> $dp, 'ds'=>$ds, 'p'=>$p, 'vj' => $vj, 'tipodejob'=>$this->tipojob]);
 
     }
 

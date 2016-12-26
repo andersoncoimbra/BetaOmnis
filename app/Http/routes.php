@@ -39,6 +39,10 @@ Route::group(['prefix'=>'jobs'], function () {
     Route::get('/editar/{id}',['uses'=>'JobController@geteditar']);
     Route::post('/editar/{id}',['uses'=>'JobController@posteditar', 'as'=>'post.editar.job']);
 
+    //Novo  Job Filho
+    Route::get('/novofilho/{id}',['uses'=>'JobController@getnovojobfilho']);
+    Route::post('/novofilho/{id}',['uses'=>'JobController@postnovojobfilho', 'as'=>'post.novo.jobfilho']);
+
 
     //Gera orçamento
     Route::get('/{id}/o',['uses'=>'JobController@orcamento', 'as'=>'orcamentojob']);

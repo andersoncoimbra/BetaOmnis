@@ -6,6 +6,7 @@
 
     @endsection
 @include('modal.jobs.editarjob')
+
 @section('content')
 
         <div class="row">
@@ -13,8 +14,11 @@
                 <div class="panel panel-default">
                     <div class="pull-right" style="margin-top: 3px; margin-right: 3px">
                         @if($job->tipodejob == 1)
-                            <button class="btn btn-success" onclick="">Novo Job Filho</button>
+                            <button class="btn btn-success" onclick="novojobfilho({{$job->id}});">Novo Job Filho</button>
                         @endif
+                            @if($job->tipodejob == 2)
+                               <a href="{{route('detalhes.job', ['id' => $job->jobpai])}}"> <button class="btn btn-success" >Job Pai</button></a>
+                            @endif
                         <button class="btn btn-danger " onclick="editarjob({{$job->id}});">Editar</button>
                         <a href="{{URL::route('jobs.sp', $job->id)}}"> <button class="btn btn-default ">Equipe</button></a>
                         <button class="btn btn-info " style="display: none">Solicitações</button>
@@ -60,7 +64,12 @@
                         <div class="col-md-6 ">
                             <p>Job Filhos</p>
                             <table class="table">
-                                <tr><th>Job</th><th>Detalhes</th></tr>
+                                <tr><th>Nome</th><th>Detalhes</th></tr>
+                                @forelse($jf as $j)
+                                    <tr><td>{{$j->nomeJob}}</td><td><a href="{{route('detalhes.job', ['id' => $j->id])}}">
+                                                <button type="button" class="btn btn-danger">Detalhes</button></a></td></tr>
+                                @empty
+                                @endforelse
                             </table>
 
                             <p>Vagas do Job</p>

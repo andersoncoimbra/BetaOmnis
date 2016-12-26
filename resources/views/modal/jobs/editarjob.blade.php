@@ -18,7 +18,7 @@
 @section('script')
     <script type="text/javascript">
         function editarjob(id) {
-
+            $("#editar_job").html("");
             $(document).ready(function () {
             $.ajax({
                 url: '{{URL::to('/jobs/editar')}}'+'/'+id
@@ -27,6 +27,22 @@
                 $("#editar_job").html(html);
 
             })
+            });
+            $(document).ready(function () {
+                $('#editar_jobs').modal('show');
+            })
+        }
+
+        function novojobfilho(id) {
+            $("#editar_job").html("");
+            $(document).ready(function () {
+                $.ajax({
+                    url: '{{URL::to('/jobs/novofilho')}}'+'/'+id
+                }).done(function (html) {
+
+                    $("#editar_job").html(html);
+
+                })
             });
             $(document).ready(function () {
                 $('#editar_jobs').modal('show');
