@@ -27,6 +27,8 @@ Route::group(['prefix'=>'jobs'], function () {
     Route::post('/{id}/sp','JobController@postsolicitapessoal');
     Route::get('/{id}/sp/{evg}',['as'=>'get.extras','uses'=>'JobController@detalhesVaga']);
     Route::post('/{id}/sp/{evg}',['uses'=>'JobController@postExtraVaga']);
+    Route::get('/{id}/sp/{evg}/editar',['uses'=>'JobController@geteditarvaga']);
+    Route::post('/{id}/sp/{evg}/editar',['uses'=>'JobController@posteditarvaga']);
 
     //Alocarção de candidatos
     Route::get('/{id}/sp/vaga/{idvaga}',['uses'=>'JobController@alocarCandidatos', 'as'=>'jobs.sp.candidato']);

@@ -265,6 +265,11 @@ class JobController extends Controller
 
     }
 
+    public function geteditarvaga($id)
+    {
+        return view('forms.job.editarvagajob', ['id'=>$id]);
+    }
+
     public function orcamento($id)
     {
         $job = Job::find($id);

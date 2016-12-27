@@ -6,6 +6,7 @@
 
 
 @endsection
+@include('modal.jobs.editarvagajob')
 @section('content')
           <div class="row">
             <div class="col-md-12">
@@ -17,6 +18,7 @@
                     <div class="panel-heading"><h3>Detalhes de vagas do job - {{$job->nomeJob}}</h3></div>
                     <div class="panel-body" style="padding-right: 5px; padding-left: 5px;">
                         <div class="col-md-5">
+                          <button class="btn btn-danger pull-right" onclick="editarvaga({{$job->id}},{{$vj->id}});">Editar</button>
                             <dl class="dl-horizontal">
                                 <dt>Vaga:</dt>
                                 <dd>{{$vj->cargos->nome}}</dd>
