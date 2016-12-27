@@ -62,6 +62,7 @@
                             </dl>
                         </div>
                         <div class="col-md-6 ">
+                            @if($job->tipodejob && $job->tipodejob != 2 )
                             <p>Job Filhos</p>
                             <table class="table">
                                 <tr><th>Nome</th><th>Detalhes</th></tr>
@@ -69,9 +70,10 @@
                                     <tr><td>{{$j->nomeJob}}</td><td><a href="{{route('detalhes.job', ['id' => $j->id])}}">
                                                 <button type="button" class="btn btn-danger">Detalhes</button></a></td></tr>
                                 @empty
+                                    <tr>Sem Jobs adicionados</tr>
                                 @endforelse
                             </table>
-
+                            @endif
                             <p>Vagas do Job</p>
                             <table class="table">
                                 <tr><th>Qtd</th><th>Cargo</th><th>Valor</th><th>Custo</th></tr>

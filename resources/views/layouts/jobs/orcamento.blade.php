@@ -165,7 +165,18 @@
 
     countChecked();
 
+    function imposto() {
 
+        console.log(i('percentualimposto').value);
+
+        if(a('totalimposto')[0].checked) {
+            i('inputimposto').value = valorglobal() * (i('percentualimposto').value / 100);
+        }
+        if(a('totalimposto')[1].checked) {
+            i('inputimposto').value = contratacoes() * (i('percentualimposto').value / 100);
+        }
+
+    }
 
 </script>
 

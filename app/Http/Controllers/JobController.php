@@ -16,8 +16,6 @@ use App\Http\Requests;
 
 class JobController extends Controller
 {
-    //
-    //private $parceiro = ['','Parceiro 1','Parceiro 2','Parceiro 3','Parceiro 4','Parceiro 5','Parceiro 6','Parceiro 7','Parceiro 8','Parceiro 10','Parceiro 13','Parceiro 32','Parceiro 33','Parceiro 34','Parceiro 31','Parceiro 314','Parceiro 34','Parceiro 35','Parceiro 36','Parceiro 37','Parceiro 15','Parceiro 26','Parceiro 47','Parceiro 58','Parceiro 89'];
     private $status = ['','Orçamento', 'Stand by', 'Execução'];
     private $tipojob = ['Normal','Tipo Pai', 'Tipo Filho'];
     private $praca;
@@ -270,13 +268,13 @@ class JobController extends Controller
     public function orcamento($id)
     {
         $job = Job::find($id);
-        $p = $this->parceiro;
+
         $pc = $this->praca;
         $dp = $this->cargo;
         // $vj = VagasJob::all()->where('id_job', $id)->sum('valor');
         $vj = VagasJob::all()->where('id_job', $id);
 
-        return view('layouts.jobs.orcamento', ['id'=>$id, "job"=>$job, 'p'=>$p, 'pc'=>$pc, 'vj'=>$vj, 'dp'=>$dp, 'tipo'=>$this->tipoajuda]);
+        return view('layouts.jobs.orcamento', ['id'=>$id, "job"=>$job, 'pc'=>$pc, 'vj'=>$vj, 'dp'=>$dp, 'tipo'=>$this->tipoajuda]);
     }
 
     public function taxacoligada(Request $request, $id)
