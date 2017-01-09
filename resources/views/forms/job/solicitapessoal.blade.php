@@ -4,9 +4,9 @@
     <select name="cargo" class="form-control selectpicker" style="margin: 3px;">
         @forelse($cargos as $cargo)
             <option value="{{$cargo->id}}">{{$cargo->nome}}</option>
-            @empty
-        <option>Sem cargo Cadastrado</option>
-            @endforelse
+        @empty
+            <option>Sem cargo Cadastrado</option>
+        @endforelse
     </select>
 </div>
 
@@ -96,7 +96,7 @@
         function calctotalvaga() {
 
             var formdias = document.getElementById('dias').value;
-             var formvalordiaria =  document.getElementById('valor_diaria').value;
+            var formvalordiaria =  document.getElementById('valor_diaria').value;
             console.log(formdias);
             console.log(formvalordiaria);
 
@@ -105,4 +105,4 @@
 
         }
     </script>
-    @endsection
+@endsection

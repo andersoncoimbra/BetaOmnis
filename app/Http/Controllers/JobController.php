@@ -265,9 +265,17 @@ class JobController extends Controller
 
     }
 
-    public function geteditarvaga($id)
+    public function geteditarvaga($id, $evg)
     {
-        return view('forms.job.editarvagajob', ['id'=>$id]);
+        $vagajob = VagasJob::find($evg);
+        $cargos = Funcoes::all();
+
+        return view('forms.job.editarvagajob', ['id'=>$id, 'vagajob'=>$vagajob, 'cargos'=>$cargos,'r'=>$this->regime]);
+    }
+
+    public function posteditarvaga(Request $request, $id, $evg)
+    {
+        dd($request);
     }
 
     public function orcamento($id)
