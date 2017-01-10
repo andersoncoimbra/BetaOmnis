@@ -87,8 +87,8 @@
     {!!Form::text('custo', null, array('class' => 'form-control', 'placeholder'=>'Valor', 'required' )) !!}
 
 </div>
-<div class="col-md-12">
-    <button type="submit" class="btn btn-primary pull-left">Adicionar</button>
+<div class="modal-footer col-md-12">
+    <button type="submit" class="btn btn-primary pull-right">Atualizar</button>
 </div>
 
 {!! Form::close() !!}

@@ -275,7 +275,21 @@ class JobController extends Controller
 
     public function posteditarvaga(Request $request, $id, $evg)
     {
-        dd($request);
+        $vagajob = VagasJob::find($evg);
+        $vagajob->cargo = $request->cargo;
+        $vagajob->regime = $request->regime;
+        $vagajob->contratante = $request->contratante;
+        $vagajob->quantidade = $request->quantidade;
+        $vagajob->periodo = $request->periodo;
+        $vagajob->valor = $request->valor;
+        $vagajob->custo = $request->custo;
+        $vagajob->id_job = $id;
+        $vagajob->save();
+
+
+        $param = ['id'=>$id,'evg'=>$evg];
+
+       return redirect()->route('get.extras',$param);
     }
 
     public function orcamento($id)
