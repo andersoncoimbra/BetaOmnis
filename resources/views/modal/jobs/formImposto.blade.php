@@ -12,10 +12,10 @@
                 <br>
                 {!! Form::label('percentualimposto', 'Percentual %', array('class' => 'col-sm-4 control-label')) !!}
                 <div class="col-sm-8">
-                {!! Form::text('percentualimposto', null, array('class'=>'form-control')) !!}
+                {!! Form::text('percentualimposto', null, array('class'=>'form-control', 'onchange'=>'imposto();', 'onkeyup'=>'imposto();')) !!}
                 </div>
-                Valor total: <input type="radio" name="totalimposto" value="Valor total" onclick="imposto();"><br>
-                Valor Total de contratações: <input type="radio" name="totalimposto" value="Contratações" onclick="imposto();"><br>
+                Valor total: <input type="radio" name="totalimposto" value="Valor total" onclick="imposto();" disabled ><br>
+                Valor Total de contratações: <input type="radio" name="totalimposto" value="Contratações" disabled onclick="imposto();"><br>
 
                 {!! Form::label('imposto', 'Valor do Imposto', array('class' => 'col-sm-4 control-label')) !!}
                 <div class="col-sm-8">
