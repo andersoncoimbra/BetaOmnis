@@ -169,11 +169,14 @@
 
         console.log(i('percentualimposto').value);
 
+        a('totalimposto')[0].disabled = false
+        a('totalimposto')[1].disabled = false
+
         if(a('totalimposto')[0].checked) {
-            i('inputimposto').value = valorglobal() * (i('percentualimposto').value / 100);
+            i('inputimposto').value = ((valorglobal(){{"+".$job->taxacoligada}}) * (i('percentualimposto').value.replace(',','.') / 100)).toFixed(2);
         }
         if(a('totalimposto')[1].checked) {
-            i('inputimposto').value = contratacoes() * (i('percentualimposto').value / 100);
+            i('inputimposto').value = (contratacoes() * (i('percentualimposto').value.replace(',','.') / 100)).toFixed(2);
         }
 
     }
