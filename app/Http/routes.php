@@ -37,7 +37,6 @@ Route::group(['prefix'=>'jobs'], function () {
    Route::get('/{id}/sp/vaga/{idvaga}/desalocar/{idcandidato}',['uses'=>'JobController@desalocarCandidato', 'as'=>'candidato.desalocar']);
 
 
-
     //Editar Job
     Route::get('/editar/{id}',['uses'=>'JobController@geteditar']);
     Route::post('/editar/{id}',['uses'=>'JobController@posteditar', 'as'=>'post.editar.job']);
@@ -45,7 +44,6 @@ Route::group(['prefix'=>'jobs'], function () {
     //Novo  Job Filho
     Route::get('/novofilho/{id}',['uses'=>'JobController@getnovojobfilho']);
     Route::post('/novofilho/{id}',['uses'=>'JobController@postnovojobfilho', 'as'=>'post.novo.jobfilho']);
-
 
     //Gera orçamento
     Route::get('/{id}/o',['uses'=>'JobController@orcamento', 'as'=>'orcamentojob']);
@@ -62,10 +60,6 @@ Route::group(['prefix'=>'jobs'], function () {
     Route::post('/financeiro',['as'=>'jobs.faturamento','uses'=>'JobController@jobfaturamento']);
     Route::get('/{id}/financeiro/formnf',['as'=>'jobs.financeiro.formnf','uses'=>'JobController@formjobnf']);
     Route::post('/financeiro/formnf',['as'=>'jobs.nfform','uses'=>'JobController@postjobnf']);
-
-
-
-
 });
 
 Route::group(['prefix'=>'/faturamento'], function (){
@@ -122,7 +116,7 @@ Route::group(['prefix'=>'cadastros'], function (){
     Route::get('/parceiros', ['uses'=>'CadastroController@index', 'as'=>'cadastros.index']);
     Route::post('/parceiros', ['uses'=> 'CadastroController@addParceiro', 'as'=>'cadastro.parceiro']);
 
-    Route::get('/pracas', ['uses'=>'CadastroController@prfacas', 'as'=>'pracas']);
+    Route::get('/pracas', ['uses'=>'CadastroController@pracas', 'as'=>'pracas']);
     Route::post('/pracas', ['uses'=> 'CadastroController@addPracas', 'as'=>'cadastro.pracas']);
 
     Route::get('/cadastros/{id}/jobs', ['uses'=>'CadastroController@jobs']);
