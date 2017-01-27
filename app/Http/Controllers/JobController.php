@@ -321,7 +321,7 @@ class JobController extends Controller
         $job = Job::find($id);
         // $job->valor = $request->valor;
         // $job->custo = $request->custo;
-        $job->imposto = $request->inputimposto;
+        $job->imposto = str_replace(',','.',$request->inputimposto);
         $job->save();
 
         return redirect()->route('orcamentojob', ['id'=>$id]);

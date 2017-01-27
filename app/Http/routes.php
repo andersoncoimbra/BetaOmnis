@@ -20,6 +20,7 @@ Route::group(['prefix'=>'jobs'], function () {
     Route::get('/', ['uses'=>'JobController@index', 'as'=>'lista.jobs']);
     Route::post('/', 'JobController@post');
     Route::get('/novo', 'JobController@novo');
+
     //Detalhes Job
     Route::get('/{id}', ['uses'=>'JobController@detalhesjob', 'as'=>'detalhes.job']);
 
