@@ -14,7 +14,7 @@
     <div class="form-group">
         {!! Form::label('parceiro', 'Selecione o parceiro', array('class' => 'col-sm-2 control-label')) !!}
         <div class="col-sm-3">
-            <select name="parceiro" class="form-control selectpicker" style="margin: 3px;">
+            <select name="parceiro" ID="parceiro" class="form-control selectpicker" style="margin: 3px;">
                 @forelse($parceiros as $parceiro)
                     <option value="{{$parceiro->id}}">{{$parceiro->nome}}</option>
 
@@ -39,7 +39,7 @@
             </select>
         </div>
         <div class="col-sm-1">
-            <button type="button" class="btn btn-info" onclick="ajaxaddpracas();"><i class="fa fa-plus" aria-hidden="true"></i></button>
+            <button type="button" class="btn btn-info" onclick="ajaxaddpracas();"> <i class="fa fa-plus" aria-hidden="true"></i></button>
         </div>
     </div>
     <div class="form-group">
@@ -129,6 +129,29 @@
             $(document).ready(function () {
                 $('#ajax_form_add_pracas').modal('show');
             })
+        }
+
+        function addajaxparceiro(){
+            var formdata = {
+                _token: document.formaddparceiro.elements['_token'].value,
+                nome: document.formaddparceiro.elements['nome'].value,
+                cnpj: document.formaddparceiro.elements['cnpj'].value
+            }
+            $.ajax({
+                url: "{{route('ajaxparceiro')}}",
+                type: "POST",
+                data: formdata,
+                success: function (result) {
+                    $("#parceiro").append(result)
+                },
+                error: function () {
+                    $('#ajax_form_add_parceiro').modal('toggle');
+                    $('#falha').modal('show');
+                }
+            });
+
+            $('#ajax_form_add_parceiro').modal('toggle');
+            $('#cadastrado').modal('show');
         }
     </script>
 @endsection

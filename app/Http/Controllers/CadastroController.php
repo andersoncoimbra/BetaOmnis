@@ -43,6 +43,15 @@ class CadastroController extends Controller
         return redirect()->route('cadastros.index');
     }
 
+    public function addPracasajax(Request $request)
+    {
+        $parceiro = new Parceiro();
+        $parceiro->nome = $request->nome;
+        $parceiro->cnpj = $request->cnpj;
+        $parceiro->save();
+
+        return "<option value={$parceiro->id}>{$parceiro->nome}</opttion>";
+    }
     public function pracas()
     {
         $pracas = Praca::all();

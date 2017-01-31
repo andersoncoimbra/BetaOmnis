@@ -119,6 +119,7 @@ Route::group(['prefix'=>'cadastros'], function (){
 
     Route::get('/pracas', ['uses'=>'CadastroController@pracas', 'as'=>'pracas']);
     Route::post('/pracas', ['uses'=> 'CadastroController@addPracas', 'as'=>'cadastro.pracas']);
+    Route::post('/pracas/ajax', ['uses'=> 'CadastroController@addPracasajax', 'as'=>'ajaxparceiro']);
 
     Route::get('/cadastros/{id}/jobs', ['uses'=>'CadastroController@jobs']);
 
