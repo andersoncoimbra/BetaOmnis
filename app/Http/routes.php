@@ -14,12 +14,18 @@
 Route::auth();
 //Home
 Route::get('/', ['uses'=>'Homecontroller@index', 'as'=>'index']);
+//Redirect da recuperação de senha
+Route::get('/home', function () {
+    return redirect()->route('lista.jobs');
+});
 
 //Rotas para os Jobs
 Route::group(['prefix'=>'jobs'], function () {
     Route::get('/', ['uses'=>'JobController@index', 'as'=>'lista.jobs']);
     Route::post('/', 'JobController@post');
     Route::get('/novo', 'JobController@novo');
+
+
 
     //Detalhes Job
     Route::get('/{id}', ['uses'=>'JobController@detalhesjob', 'as'=>'detalhes.job']);
