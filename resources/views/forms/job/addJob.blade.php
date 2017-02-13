@@ -29,7 +29,7 @@
         </div>
 
         {!! Form::label('praca', 'Selecione a praça', array('class' => 'col-sm-2 control-label')) !!}
-        <div class="col-sm-3">
+        <div class="col-sm-4">
             <select name="praca" class="form-control selectpicker" style="margin: 3px;">
                 @forelse($p as $value)
                     <option value="{{$value->id}}">{{$value->nome}}</option>
@@ -37,9 +37,6 @@
                     <option value="0" >Sem Praça</option>
                 @endforelse
             </select>
-        </div>
-        <div class="col-sm-1">
-            <button type="button" class="btn btn-info" onclick="ajaxaddpracas();"> <i class="fa fa-plus" aria-hidden="true"></i></button>
         </div>
     </div>
     <div class="form-group">
@@ -117,17 +114,12 @@
 </div>
 @endsection
 @include('modal.jobs.ajaxAddParceiro')
-@include('modal.jobs.AjaxAddPracas')
+
 @section('script')
     <script type="text/javascript">
         function ajaxaddparceiro() {
             $(document).ready(function () {
                 $('#ajax_form_add_parceiro').modal('show');
-            })
-        }
-        function ajaxaddpracas() {
-            $(document).ready(function () {
-                $('#ajax_form_add_pracas').modal('show');
             })
         }
 

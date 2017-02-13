@@ -1,3 +1,8 @@
+<!--
+////////////////////////////////////////////////////
+//Recursos não usado no sistema
+////////////////////////////////////////////////////
+-->
 <div id="ajax_form_add_pracas" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
