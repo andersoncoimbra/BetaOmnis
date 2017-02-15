@@ -5,115 +5,111 @@
 @endsection
 @section('title')
     Orçamento
-    @endsection
+@endsection
 @section('content')
-        <div class="row">
-            <div class="col-md-12">
-                <div id="print" class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="col-md-12">
-                            <div class="col-md-4">
-                                <img src="{{URL::to('assets/logo.png')}}" style="height: 80px; width: auto;">
-                            </div>
-                            <div class="col-md-8">
-                                <h3>{{$job->nomeJob}}</h3>
-                            </div>
-                        </div>
-                        <br>
-                        <hr>
-                    </div>
-                    <div class="panel-body">
-                        <div class="col-md-6" style="border: 1px solid #dddddd; border-right: none;">
-                            <table class="table" style="margin-top: 3px; border: 1px solid #dddddd; margin: 10px">
-                                <tr><th class="active">Parceiro:</th> <td>{{$job->parceiros->nome}}</td></tr>
-                            </table>
-                            <table  class="table" style="margin-top: 3px; border: 1px solid #dddddd; margin: 10px">
-                                <tr><th class="active">Praça:</th> <td>{{$job->pracas->nome}}</td></tr>
-                            </table>
-                            @if($job->valor)
-                            <table  class="table" style="margin-top: 3px; border: 1px solid #dddddd; margin: 10px">
-                                <tr><th class="danger">Valor Fechado:</th> <td>R$ {{$job->valor}}</td></tr>
-                            </table>
-                                @endif
-                        </div>
-                        <div class="col-md-6" style="border: 1px solid #dddddd">
-                            <table class="table" style="margin-top: 3px; border: 1px solid #dddddd; margin: 10px">
-                                <tr><th class="active">Coordenador:</th> <td>{{$job->codnome}}</td></tr>
-                            </table>
-                            <table  class="table" style="margin-top: 3px; border: 1px solid #dddddd; margin: 10px">
-                                <tr><th class="active">Período da Ação:</th> <td>De {{date('d / m ', strtotime($job->inicio))}} A {{date('d / m / Y', strtotime($job->fim))}}</td></tr>
-                            </table>
-                            <table  class="table" style="margin-top: 3px; border: 1px solid #dddddd; margin: 10px">
-                                <tr><th class="active">Data do Briefing:</th> <td>{{date('d / m / Y', strtotime($job->created_at))}}</td></tr>
-                            </table>
-                        </div>
-                    </div>
-                    <p class="bg-primary" style="padding: 13px; text-align: center; margin-left: 10px; margin-right: 10px;">Informações Financeira</p>
-                    <p class="bg-success" style="padding: 10px; text-align: center; margin-left: 10px; margin-right: 10px;">Pagamentos | Contratação</p>
-                    <div class="col-md-12">
-                        <table class="table">
-                            <tr><th>Qtd</th><th>Cargo</th><th>Valor</th><th>Custo</th></tr>
-                            <?php
-                            $custototal = null;
-                            $valortotal = null;
-                            $valoromnis = null;
-                            $custoextra = null;
-                            ?>
-                            @forelse($vj as $v)
-                                <tr><td>{{$v->quantidade}}</td><td>{{$v->cargos->nome}}</td><td>{{$v->valor}}</td><td>{{$v->custo}}</td></tr>
-                                @forelse($v->extras as $e)
-                                <!--
+    <div class="panel panel-default">
+        <div class="panel-heading">
+                <img src="{{URL::to('assets/logo.png')}}" style="height: 80px; width: auto;">
+
+        </div>
+        <div class="panel-body">
+
+            <table class="table" style="margin-top: 3px; border: 1px solid #dddddd; margin: 10px">
+
+                <tr><th class="active">Job:</th> <td>{{$job->nomeJob}}</td></tr>
+            </table>
+            <div class="col-md-6" style="border: 1px solid #dddddd; border-right: none;">
+
+                <table class="table" style="margin-top: 3px; border: 1px solid #dddddd; margin: 10px">
+
+                    <tr><th class="active">Parceiro:</th> <td>{{$job->parceiros->nome}}</td></tr>
+                </table>
+                <table  class="table" style="margin-top: 3px; border: 1px solid #dddddd; margin: 10px">
+                    <tr><th class="active">Praça:</th> <td>{{$job->pracas->nome}}</td></tr>
+                </table>
+                @if($job->valor)
+                    <table  class="table" style="margin-top: 3px; border: 1px solid #dddddd; margin: 10px">
+                        <tr><th class="danger">Valor Fechado:</th> <td>R$ {{$job->valor}}</td></tr>
+                    </table>
+                @endif
+            </div>
+            <div class="col-md-6" style="border: 1px solid #dddddd">
+                <table class="table" style="margin-top: 3px; border: 1px solid #dddddd; margin: 10px">
+                    <tr><th class="active">Coordenador:</th> <td>{{$job->codnome}}</td></tr>
+                </table>
+                <table  class="table" style="margin-top: 3px; border: 1px solid #dddddd; margin: 10px">
+                    <tr><th class="active">Período da Ação:</th> <td>De {{date('d / m ', strtotime($job->inicio))}} A {{date('d / m / Y', strtotime($job->fim))}}</td></tr>
+                </table>
+                <table  class="table" style="margin-top: 3px; border: 1px solid #dddddd; margin: 10px">
+                    <tr><th class="active">Data do Briefing:</th> <td>{{date('d / m / Y', strtotime($job->created_at))}}</td></tr>
+                </table>
+            </div>
+        </div>
+        <p class="bg-primary" style="padding: 13px; text-align: center; margin-left: 10px; margin-right: 10px;">Informações Financeira</p>
+        <p class="bg-success" style="padding: 10px; text-align: center; margin-left: 10px; margin-right: 10px;">Pagamentos | Contratação</p>
+        <table class="table">
+            <tr><th>Qtd</th><th>Cargo</th><th>Valor</th><th>Custo</th></tr>
+            <?php
+            $custototal = null;
+            $valortotal = null;
+            $valoromnis = null;
+            $custoextra = null;
+            ?>
+            @forelse($vj as $v)
+                <tr><td>{{$v->quantidade}}</td><td>{{$v->cargos->nome}}</td><td>{{$v->valor}}</td><td>{{$v->custo}}</td></tr>
+                @forelse($v->extras as $e)
+                <!--
                                     Troca parametro tipo por um relacionamento
                                     -->
-                                    <tr><td></td><td class="info">{{$e->quantidade." ".$tipo[$e->tipo]}}</td><td class="info">{{$e->valor}}</td><td class="info">{{$e->quantidade*$e->custo}}</td></tr>
-                                    <?php
-                                    $custoextra += $e->quantidade*$e->custo*$v->quantidade
-                                    ?>
-                                    @if($v->contratante == '1')
-                                        <?php
-                                        $valoromnis += $e->quantidade*$e->valor*$v->quantidade
-                                        ?>
-                                    @endif
-                                @empty
-                                @endforelse
-                                <?php
-                                $custototal += $v->quantidade*$v->custo;
-                                $valortotal += $v->quantidade*$v->valor;
-                                ?>
-                                @if($v->contratante == '1')
-                                    <?php
-                                    $valoromnis += $v->quantidade*$v->valor;
-                                    ?>
-                                @endif
-                            @empty
-                                <tr><td>Sem cargos adicionados</td></tr>
-                            @endforelse
-                        </table>
-                        @if($valoromnis)
-                            <p class="bg-info" style="padding: 10px; text-align: right">Taxa da coligada: <strong>{{$job->taxacoligada}}</strong></p>
-                            <p class="bg-info" style="padding: 10px; text-align: right">Valor do Serviço: <strong>{{$valoromnis + $job->taxacoligada}}</strong></p>
-                            <p class="bg-info" style="padding: 10px; text-align: right">Imposto: <strong>{{$job->imposto}}</strong></p>
-                            <p class="bg-info" style="padding: 10px; text-align: right">Valor para emissão da NF: <strong>R$ {{$valoromnis + $job->taxacoligada + $job->imposto}}</strong></p>
-                        @endif
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div id="print" class="panel panel-default">
-                    <div class="panel-heading">
-                        @if($job->status = "Orçamento")
-                            <button class="btn btn-info" onclick="showModal('#taxacoligada');">Calcular taxa</button>
+                    <tr><td></td><td class="info">{{$e->quantidade." ".$tipo[$e->tipo]}}</td><td class="info">{{$e->valor}}</td><td class="info">{{$e->quantidade*$e->custo}}</td></tr>
+                    <?php
+                    $custoextra += $e->quantidade*$e->custo*$v->quantidade
+                    ?>
+                    @if($v->contratante == '1')
+                        <?php
+                        $valoromnis += $e->quantidade*$e->valor*$v->quantidade
+                        ?>
+                    @endif
+                @empty
+                @endforelse
+                <?php
+                $custototal += $v->quantidade*$v->custo;
+                $valortotal += $v->quantidade*$v->valor;
+                ?>
+                @if($v->contratante == '1')
+                    <?php
+                    $valoromnis += $v->quantidade*$v->valor;
+                    ?>
+                @endif
+            @empty
+                <tr><td>Sem cargos adicionados</td></tr>
+            @endforelse
+        </table>
+        <p class="bg-success" style="padding: 10px; text-align: center; margin-left: 10px; margin-right: 10px;">Informações para pagamento</p>
 
-                            <button class="btn btn-info" onclick="showModal('#imposto');">Calcular Imposto</button>
+        @if($valoromnis)
+            <p class="bg-info" style="padding: 13px; text-align: right; margin-left: 10px; margin-right: 10px;">Valor do Serviço: <strong>R$ {{number_format($valoromnis, 2, ',', '.')}}</strong></p>
+            <p class="bg-info" style="padding: 13px; text-align: right; margin-left: 10px; margin-right: 10px;">Taxa da coligada: <strong>R$ {{number_format($job->taxacoligada, 2, ',', '.')}}</strong></p>
+            <p class="bg-info" style="padding: 13px; text-align: right; margin-left: 10px; margin-right: 10px;">Imposto: <strong>R$ {{number_format($job->imposto, 2, ',', '.')}}</strong></p>
+            <p class="bg-info" style="padding: 13px; text-align: right; margin-left: 10px; margin-right: 10px;">Valor para emissão da NF: <strong>R$ {{number_format($valoromnis + $job->taxacoligada + $job->imposto, 2, ',', '.')}}</strong></p>
+        @endif
 
-                            <a href="{{URL::current()}}/{{$valoromnis + $job->taxacoligada + $job->imposto}}/closed"><button class="btn btn-info">Fecha Orçamento</button></a>
-                            @endif
-                    </div>
-                </div>
-            </div>
-        </div>
+
+
+    </div>
+
+    @if($job->status = "Orçamento")
+        <button class="btn btn-info" onclick="showModal('#taxacoligada');">Calcular taxa</button>
+
+        <button class="btn btn-info" onclick="showModal('#imposto');">Calcular Imposto</button>
+
+        <a href="{{URL::current()}}/{{$valoromnis + $job->taxacoligada + $job->imposto}}/closed"><button class="btn btn-info">Fecha Orçamento</button></a>
+    @endif
+
+
+
+
+
 @endsection
 
 <script type="text/javascript">
