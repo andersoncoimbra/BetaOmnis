@@ -48,7 +48,7 @@
         <p class="bg-primary" style="padding: 13px; text-align: center; margin-left: 10px; margin-right: 10px;">Informações Financeira</p>
         <p class="bg-success" style="padding: 10px; text-align: center; margin-left: 10px; margin-right: 10px;">Pagamentos | Contratação</p>
         <table class="table">
-            <tr><th>Qtd</th><th>Cargo</th><th>Valor</th><th>Custo</th></tr>
+            <tr><th>Qtd</th><th>Cargo</th><th>Valor</th><th></th></tr>
             <?php
             $custototal = null;
             $valortotal = null;
@@ -56,12 +56,12 @@
             $custoextra = null;
             ?>
             @forelse($vj as $v)
-                <tr><td>{{$v->quantidade}}</td><td>{{$v->cargos->nome}}</td><td>{{$v->valor}}</td><td>{{$v->custo}}</td></tr>
+                <tr><td>{{$v->quantidade}}</td><td>{{$v->cargos->nome}}</td><td>{{$v->valor}}</td><td></td></tr>
                 @forelse($v->extras as $e)
                 <!--
                                     Troca parametro tipo por um relacionamento
                                     -->
-                    <tr><td></td><td class="info">{{$e->quantidade." ".$tipo[$e->tipo]}}</td><td class="info">{{$e->valor}}</td><td class="info">{{$e->quantidade*$e->custo}}</td></tr>
+                    <tr><td></td><td class="info">{{$e->quantidade." ".$tipo[$e->tipo]}}</td><td class="info">{{$e->valor}}</td><td class="info"></td></tr>
                     <?php
                     $custoextra += $e->quantidade*$e->custo*$v->quantidade
                     ?>
