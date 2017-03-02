@@ -95,7 +95,18 @@
 
         </div>
     </div>
+    @if($job->tipodejob == 2)
+    <div class="form-group">
+        {!! Form::label('finacomp', 'Financeiro compartilhado', array('class' => 'col-sm-3 control-label')) !!}
+        <div class="col-sm-9">
+            <select name="status"  class="form-control" >
+                <option selected="selected" value="1">Sim</option>
+                <option value="0">Não</option>
 
+            </select>
+        </div>
+    </div>
+    @endif
 
 
     <div class="form-group">
