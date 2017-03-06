@@ -99,6 +99,7 @@ class JobController extends Controller
         $job->codemail = $request->codemail;
         $job->tipofaturamento = $request->tipofaturamento;
         $job->codtele = $request->codtele;
+        $job->finacomp = $request->finacomp;
         $job->inicio = date('Y-m-d', strtotime(str_replace('/','-',$request->inicio)));
         $job->fim = date('Y-m-d', strtotime(str_replace('/','-',$request->fim)));
 

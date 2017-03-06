@@ -99,7 +99,7 @@
     <div class="form-group">
         {!! Form::label('finacomp', 'Financeiro compartilhado', array('class' => 'col-sm-3 control-label')) !!}
         <div class="col-sm-9">
-            <select name="status"  class="form-control" >
+            <select name="finacomp"  class="form-control" >
                 <option selected="selected" value="1">Sim</option>
                 <option value="0">Não</option>
 
