@@ -1,7 +1,7 @@
 <div>
     <table class="table">
         <tr><th>Valor Fechado</th><th>Data do Faturamento</th></tr>
-        <tr><td>R$ {{$faturamento->valor}}</td><td>{{date('d / m / Y', strtotime($faturamento->datafaturamento))}}</td></tr>
+        <tr><td>R$ {{$faturamento->valor}}</td><td>{{date('d/m/Y', strtotime(str_replace('-','/',$faturamento->datafaturamento)))}}</td></tr>
         <tr><th>Ultimo usuário</th><th>Status</th></tr>
         <tr><td>{{$faturamento->lastuser}}</td><td class="{!! $faturamento->nf<1? 'danger' : 'success' !!}">{{$faturamento->status}}</td></tr>
     </table>

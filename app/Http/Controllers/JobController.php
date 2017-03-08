@@ -410,10 +410,14 @@ class JobController extends Controller
         $faturamento = new Faturamento();
         $faturamento->parceiro = $request->parceiro;
         $faturamento->job = $request->job;
-        $faturamento->valor = $request->valor;
-        $faturamento->job_id = $request->id_job;
+        $faturamento->valor = str_replace(',','.',$request->valor);
         $faturamento->status = "Aberto";
+        $faturamento->job_id = $request->id_job;
+
+        $faturamento->datafaturamento = $request->datafaturamento;
+
         $faturamento->lastuser = \Auth::user()->name;
+
         //$faturamento->atualizador= \Auth::user()->name;
 
 
@@ -439,8 +443,8 @@ class JobController extends Controller
         $faturamento = Faturamento::find($request->id);
 
         $faturamento->nf = $request->nf;
-        $faturamento->valorfaturado = $request->valorfaturado;
-        $faturamento->valorliquido = $request->valorliquido;
+        $faturamento->valorfaturado = str_replace(',','.',$request->valorfaturado);
+        $faturamento->valorliquido = str_replace(',','.',$request->valorliquido);
         $faturamento->data = date('Y-m-d', strtotime(str_replace('/','-',$request->data)));
         $faturamento->obs = $request->obs;
         $faturamento->lastuser = \Auth::user()->name;

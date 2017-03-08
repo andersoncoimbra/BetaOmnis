@@ -28,7 +28,7 @@
                 <div class="col-sm-4">
                     <input name="valor"  class="form-control" type="text" placeholder="9999,99" x-moz-errormessage="Prencha o valor" required>
                 </div>
-                {!! Form::label('data', 'Data para Faturamento', array('class' => 'col-sm-2 control-label')) !!}
+                {!! Form::label('datafaturamento', 'Data para Faturamento', array('class' => 'col-sm-2 control-label')) !!}
                 <div class="col-sm-4">
                     <input name="datafaturamento"  class="form-control" type="date" placeholder="Data 12 / 07 / 2016" x-moz-errormessage="Prencha a data para faturamento" required>
                 </div>
