@@ -8,7 +8,18 @@
 @include('modal.jobs.editarjob')
 
 @section('content')
+    <?php
 
+    $custototal = null;
+    $valortotal = null;
+    $custoextra = null;
+    $custoomnis = null;
+    $reembtotal = null;
+
+
+    $valortotaljobfilho= null;
+    $custototaljobfilho = null;
+    ?>
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
@@ -63,10 +74,16 @@
                         </div>
                         <div class="col-md-6 ">
                             @if($job->tipodejob && $job->tipodejob != 2 )
+
                             <p>Job Filhos</p>
                             <table class="table">
                                 <tr><th>Nome</th><th>Detalhes</th></tr>
                                 @forelse($jf as $j)
+                                    <?php
+
+                                   $valortotaljobfilho += $j->vagajobs->sum('valor');
+                                    $custototaljobfilho += $j->vagajobs->sum('custo');
+                                            ?>
                                     <tr><td>{{$j->nomeJob}}</td><td><a href="{{route('detalhes.job', ['id' => $j->id])}}">
                                                 <button type="button" class="btn btn-danger">Detalhes</button></a></td></tr>
                                 @empty
@@ -77,13 +94,7 @@
                             <p>Vagas do Job</p>
                             <table class="table">
                                 <tr><th>Qtd</th><th>Cargo</th><th>Valor</th><th>Custo</th></tr>
-                                <?php
-                                $custototal = null;
-                                $valortotal = null;
-                                $custoextra = null;
-                                $custoomnis = null;
-                                $reembtotal = null;
-                                ?>
+
                                 @forelse($vj as $v)
                                     <tr class="active"><td>{{$v->quantidade}}</td><td>{{$v->cargos->nome}}</td><td>{{$v->valor}}</td><td>{{$v->custo}}</td></tr>
                                     @forelse($v->extras as $e)
@@ -146,7 +157,13 @@
                             @endif
                             <p class="bg-info" style="padding: 10px; text-align: right">Total de Recebido: R$ {{$job->faturas->sum('valorrecebido')}}</p>
                             <p class="bg-danger" style="padding: 10px; text-align: right">Total de Reembolsos: R$ {{$reembtotal}}</p>
-                            {{$job->faturas->sum('valorrecebido')}}
+                                @if($job->tipodejob == 1)
+                            <p class="bg-danger" style="padding: 10px; text-align: right">Custo Total de Job Filho:<br> R$ {{$custototaljobfilho}}</p>
+                            <p class="bg-info" style="padding: 10px; text-align: right">Valor Total de Job Filho:<br> R$ {{$valortotaljobfilho}}</p>
+                                    @endif
+
+
+
 
 
                         </div>

@@ -302,7 +302,9 @@ class JobController extends Controller
         // $vj = VagasJob::all()->where('id_job', $id)->sum('valor');
         $vj = VagasJob::all()->where('id_job', $id);
 
-        return view('layouts.jobs.orcamento', ['id'=>$id, "job"=>$job, 'pc'=>$pc, 'vj'=>$vj, 'dp'=>$dp, 'tipo'=>$this->tipoajuda]);
+        $jf = Job::where('jobpai',$id)->where('finacomp', 1)->get();
+
+        return view('layouts.jobs.orcamento', ['id'=>$id, "job"=>$job, 'pc'=>$pc, 'vj'=>$vj, 'dp'=>$dp, 'tipo'=>$this->tipoajuda, 'jf'=>$jf]);
     }
 
     public function taxacoligada(Request $request, $id)
