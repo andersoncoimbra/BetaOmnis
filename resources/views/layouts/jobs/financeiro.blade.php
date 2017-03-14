@@ -27,7 +27,7 @@
                 <div class="panel-heading"><h4>Faturamento</h4></div>
                 <div class="panel-body">
 
-                    <input type="button" class="btn btn-success pull-right" value="Novo Faturamento" onclick="formModal('faturamento')" style="margin-bottom: 10px;">
+                    <button class="btn btn-success pull-right" Novo  onclick="formModal('faturamento')" style="margin-bottom: 10px;">Faturamento</button>
 
                     @include('list.jobs.faturamentodeJob', ['jobs'=> $job->faturas])
                 </div>
@@ -40,7 +40,7 @@
                     Relatorio Gráfico
                 </div>
                 <div class="panel-body">
-                    <div id="legendPlaceholder" style="display: block; float: right" >
+                    <div id="legendPlaceholder" style="display: block;  >
 
                         <div class="panel panel-primary text-center no-boder">
                             <div class="panel-body yellow">
@@ -64,7 +64,9 @@
                             </div>
                         </div>
                     </div>
-                    <div id="relatoriografico" style="width: 250px; height: 200px; text-align: left;"> </div>
+                    <div id="relatoriografico" style="width: 250px; height: 200px; text-align: left;">
+                        <canvas id="grafico"></canvas>
+                    </div>
 
                 </div>
         </div>
@@ -75,7 +77,7 @@
                 <div class="panel-heading"><h4>Reembolso</h4></div>
                 <div class="panel-body">
 
-                    <input type="button" class="btn btn-success pull-right" value="Novo Reembolso" onclick="newreembolso()" style="margin-bottom: 10px;">
+                    <button type="button" class="btn btn-success pull-right" onclick="newreembolso()" style="margin-bottom: 10px;">Novo Reembolso</button>
                     @include('list.listreembolso', ['reembolsos'=> $job->reembolsos])
                 </div>
             </div>
@@ -86,10 +88,8 @@
 @section('script')
 
     <!-- Plugin de grafico  -->
-        <script src="http://static.pureexample.com/js/flot/excanvas.min.js"></script>
-        <script src="http://static.pureexample.com/js/flot/jquery.flot.min.js"></script>
-        <script src="http://static.pureexample.com/js/flot/jquery.flot.pie.min.js"></script>
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/js/mdb.min.js"></script>
         <script type="text/javascript">
         function newreembolso() {
             $('#novo-reembolso').html("Carregando...");
@@ -176,19 +176,33 @@
     </script>
     <script type="text/javascript">
         $(function () {
-            var data = [
-                {label:"Faturamento", data:{{$job->faturas->sum('valor')? $job->faturas->sum('valor') :0.001}}},
-                {label:"Reembolso", data:{{$job->reembolsos->sum("valor")? $job->reembolsos->sum("valor"): 0.001}}}
 
-            ];
-            var options = {
-                series:{
-                    pie:{show: true}
-                },
-                legend:{show:false}
+            var data = [
+                {
+                    value: {{$job->faturas->sum('valor')? $job->faturas->sum('valor') :0.001}},
+                    color:"#F7464A",
+                    highlight: "#FF5A5E",
+                    label: "Faturamento"
+
+
+        },
+                {
+                    value: {{$job->reembolsos->sum("valor")? $job->reembolsos->sum("valor"): 0.001}},
+                    color: "#46BFBD",
+                    highlight: "#5AD3D1",
+                    label: "reembolso"
+                }
+            ]
+
+            var option = {
+                responsive: true,
             };
-            $.plot($('#relatoriografico'),data,options)
-        })
+
+            // Get the context of the canvas element we want to select
+            var ctx = document.getElementById("grafico").getContext('2d');
+            var myLineChart = new Chart(ctx).Doughnut(data, option); //'Line' defines type of the chart.
+        });
+
 
     </script>
 
