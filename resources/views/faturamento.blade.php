@@ -5,7 +5,11 @@
 
             @include('panel.dashboardFaturamento', ['totalquitacao' => $totalquitacao,'totalfaturado'=>$totalfaturado,'totalreceber'=>$totalreceber])
 
-            <input type="button" class="btn btn-success pull-right" value="Vencidos a 5 dias" onclick="showModal('#vencimento5')" style="margin-bottom: 10px;">
+            <button class="btn btn-info pull-right" style="margin-left: 10px; margin-right: 19px;">Vencidos</button>
+            <button class="btn btn-info pull-right" style="margin-left: 10px;">A Receber</button>
+            <button class="btn btn-info pull-right" style="margin-left: 10px;">A Receber \ Vencidos</button>
+
+            <input type="button" class="btn btn-success pull-right" value="Vencidos a 5 dias" onclick="showModal('#vencimento5')" style="margin-left: 10px;">
 
             <div class="col-md-12">
                 <div class="panel panel-default">

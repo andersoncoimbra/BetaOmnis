@@ -40,7 +40,7 @@
                     Relatorio Gráfico
                 </div>
                 <div class="panel-body">
-                    <div id="legendPlaceholder" style="display: block;  >
+                    <div id="legendPlaceholder" style="display: block; float: right" >
 
                         <div class="panel panel-primary text-center no-boder">
                             <div class="panel-body yellow">
@@ -64,8 +64,8 @@
                             </div>
                         </div>
                     </div>
-                    <div id="relatoriografico" style="width: 250px; height: 200px; text-align: left;">
-                        <canvas id="grafico"></canvas>
+                    <div id="relatoriografico" style="width: 290px; height: 300px; text-align: left;">
+                        <canvas id="grafico" width="200px" height="auto"></canvas>
                     </div>
 
                 </div>
