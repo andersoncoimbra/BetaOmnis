@@ -7,6 +7,18 @@
             </div>
 
             {!! Form::open(array('route' => 'jobs.faturamento', 'class'=>'form-horizontal')) !!}
+
+            <div class="form-group">
+                {!! Form::label('tipo', 'Tipo', array('class' => 'col-sm-2 control-label')) !!}
+                <div class="col-sm-10">
+                    <select name="tipo" class="form-control" required>
+                        <option value="0">Nota Fiscal</option>
+                        <option value="1">Nota de Debito</option>
+                    </select>
+
+                </div>
+            </div>
+
             <div class="form-group">
                 {!! Form::label('parceiro', 'Nome do Parceiro', array('class' => 'col-sm-2 control-label')) !!}
                 <div class="col-sm-10">
@@ -66,7 +78,7 @@
             </div>
 
             <div class="modal-footer">
-                <input type="submit" class="btn btn-success" value="Registrar">
+                <button type="submit" class="btn btn-success" >Registrar<button>
 
             </div>
             {!! Form::close() !!}
