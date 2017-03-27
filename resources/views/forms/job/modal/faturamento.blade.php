@@ -42,7 +42,7 @@
                 </div>
                 {!! Form::label('datafaturamento', 'Data para Faturamento', array('class' => 'col-sm-2 control-label')) !!}
                 <div class="col-sm-4">
-                    <input name="datafaturamento"  class="form-control" type="date" placeholder="Data 12 / 07 / 2016" x-moz-errormessage="Prencha a data para faturamento" required>
+                    <input name="datafaturamento"  class="form-control" type="date" required>
                 </div>
             </div>
 
@@ -71,16 +71,16 @@
             -->
 
             <div class="form-group">
-                {!! Form::label('obs', 'Observações', array('class' => 'col-sm-2 control-label')) !!}
-                <div class="col-sm-10">
-                    <textarea name="obs" class="form-control" placeholder="Escreva o Observações"></textarea>
+                {!! Form::label('obs', 'Observações', array('class' => 'col-sm-3 control-label')) !!}
+                <div class="col-sm-9">
+                    <input name="obs" class="form-control" placeholder="Escreva o Observações">
                 </div>
             </div>
 
             <div class="modal-footer">
-                <button type="submit" class="btn btn-success" >Registrar<button>
-
+                <button type="submit" class="btn btn-success" >Registrar</button>
             </div>
+
             {!! Form::close() !!}
         </div>
     </div>

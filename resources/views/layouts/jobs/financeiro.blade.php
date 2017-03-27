@@ -22,7 +22,7 @@
     @include('forms.faturamento.modal.detalhes')
 
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-8">
             <div class="panel panel-default">
                 <div class="panel-heading"><h4>Faturamento</h4></div>
                 <div class="panel-body">
@@ -33,17 +33,20 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-4">
             <!-- pie chart-->
             <div class="panel panel-default">
                 <div class="panel-heading">
                     Relatorio Gráfico
                 </div>
                 <div class="panel-body">
-                    <div id="legendPlaceholder" style="display: block; float: right" >
+                    <div id="relatoriografico" style="width: 290px; height: 300px; text-align: left;">
+                        <canvas id="grafico" width="200px" height="auto"></canvas>
+                    </div>
+                    <div id="legendPlaceholder" >
 
-                        <div class="panel panel-primary text-center no-boder">
-                            <div class="panel-body yellow">
+                        <div class="panel panel-primary text-center no-boder col-lg-6">
+                            <div class="panel-body red">
                                 <i class="fa fa-bar-chart-o fa"></i>
                                 <h5>R${{$job->faturas->sum('valor')}}</h5>
                             </div>
@@ -53,8 +56,8 @@
                             </div>
                         </div>
 
-                        <div class="panel panel-primary text-center no-boder">
-                            <div class="panel-body red">
+                        <div class="panel panel-primary text-center no-boder col-lg-6">
+                            <div class="panel-body yellow">
                                 <i class="fa fa-mail-reply fa"></i>
                                 <h5>R${{$job->reembolsos->sum('valor')}}</h5>
                             </div>
@@ -64,9 +67,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="relatoriografico" style="width: 290px; height: 300px; text-align: left;">
-                        <canvas id="grafico" width="200px" height="auto"></canvas>
-                    </div>
+
 
                 </div>
         </div>

@@ -409,14 +409,16 @@ class JobController extends Controller
 
     public function jobfaturamento(Request $request)
     {
+    //dd($request);
         $faturamento = new Faturamento();
         $faturamento->parceiro = $request->parceiro;
+        $faturamento->tipo = $request->tipo;
         $faturamento->job = $request->job;
         $faturamento->valor = str_replace(',','.',$request->valor);
         $faturamento->status = "Aberto";
         $faturamento->job_id = $request->id_job;
 
-        $faturamento->datafaturamento = $request->datafaturamento;
+        $faturamento->datafaturamento = date('Y-m-d', strtotime(str_replace('/','-',$request->datafaturamento)));
 
         $faturamento->lastuser = \Auth::user()->name;
 

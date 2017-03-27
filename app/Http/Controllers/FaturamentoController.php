@@ -119,8 +119,10 @@ class FaturamentoController extends Controller
         $faturamento->lastuser = \Auth::user()->name;
         $faturamento->save();
 
-        return redirect()->route('faturamento.index');
+        return redirect()->route('jobs.financeiro', ['id'=>$faturamento->job_id]);
     }
+
+
 
 }
 
