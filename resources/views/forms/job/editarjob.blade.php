@@ -1,14 +1,14 @@
 <div class="form-horizontal">
     {!! Form::model($job, array('route' => array('post.editar.job',$job->id), 'class'=>'form-horizontal')) !!}
     <div class="form-group">
-        {!! Form::label('nomeJob', 'Nome do Job', array('class' => 'col-sm-2 control-label')) !!}
-        <div class="col-sm-10">
+        {!! Form::label('nomeJob', 'Nome do Job', array('class' => 'col-sm-3 control-label')) !!}
+        <div class="col-sm-9">
             {!! Form::text('nomeJob', null, array('class'=>'form-control')) !!}
         </div>
     </div>
     <div class="form-group">
-        {!! Form::label('parceiro', 'Selecione o parceiro', array('class' => 'col-sm-4 control-label')) !!}
-        <div class="col-sm-8">
+        {!! Form::label('parceiro', 'Selecione o parceiro', array('class' => 'col-sm-3 control-label')) !!}
+        <div class="col-sm-9">
             <select name="parceiro" class="form-control selectpicker" style="margin: 3px;">
                 @forelse($parceiros as $parceiro)
                     @if($parceiro->id == $job->parceiros->id)
@@ -23,8 +23,8 @@
         </div>
     </div>
     <div class="form-group">
-        {!! Form::label('praca', 'Selecione a praça', array('class' => 'col-sm-4 control-label')) !!}
-        <div class="col-sm-8">
+        {!! Form::label('praca', 'Selecione a praça', array('class' => 'col-sm-3 control-label')) !!}
+        <div class="col-sm-9">
             <select name="praca" class="form-control selectpicker" style="margin: 3px;">
                 @forelse($p as $value)
                     @if($value->id == $job->pracas->id)
@@ -47,23 +47,23 @@
     </div>
 
     <div class="form-group">
-        {!! Form::label('codemail', 'Email', array('class' => 'col-sm-2 control-label')) !!}
-        <div class="col-sm-10">
+        {!! Form::label('codemail', 'Email', array('class' => 'col-sm-3 control-label')) !!}
+        <div class="col-sm-9">
             {!! Form::text('codemail', null, array('class'=>'form-control')) !!}
         </div>
     </div>
 
 
     <div class="form-group">
-        {!! Form::label('codetele', 'Telefone', array('class' => 'col-sm-2 control-label')) !!}
-        <div class="col-sm-10">
+        {!! Form::label('codetele', 'Telefone', array('class' => 'col-sm-3 control-label')) !!}
+        <div class="col-sm-9">
             {!! Form::text('codtele', null, array('class'=>'form-control')) !!}
         </div>
     </div>
 
     <div class="form-group">
-        {!! Form::label('tipofaturamento', 'Nota fiscal', array('class' => 'col-sm-2 control-label')) !!}
-        <div class="col-sm-10">
+        {!! Form::label('tipofaturamento', 'Nota fiscal', array('class' => 'col-sm-3 control-label')) !!}
+        <div class="col-sm-9">
             <select name="tipofaturamento" class="form-control" >
                 @if($job->tipofaturamento == "Nota Fiscal")
                     <option value="Nota de Debito">Nota de Debito</option>
@@ -110,13 +110,15 @@
 
 
     <div class="form-group">
-        {!! Form::label('status', 'Status', array('class' => 'col-sm-2 control-label')) !!}
-        <div class="col-sm-10">
+        {!! Form::label('status', 'Status', array('class' => 'col-sm-3 control-label')) !!}
+        <div class="col-sm-9">
             <select name="status"  class="form-control" >
                 <option selected="selected" value="0">Status</option>
                 <option value="1">Orçamento</option>
                 <option value="2">Standy by</option>
                 <option value="3">Execução</option>
+                <option value="4">Pendente</option>
+                <option value="5">Finalizado</option>
             </select>
         </div>
     </div>

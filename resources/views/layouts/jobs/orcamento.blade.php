@@ -12,7 +12,7 @@
                 <img src="{{URL::to('assets/logo.png')}}" style="height: 80px; width: auto;">
 
         </div>
-        <div class="panel-body">
+        <div class="panel-body orcamento">
 
             <table class="table" style="margin-top: 3px; border: 1px solid #dddddd; margin: 10px">
 

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema Omnis - SISOMNIS | Admin</title>
+    <title>OMNISCIENT | Admin</title>
     <!-- Core CSS - Include with every page -->
     {!! Html::style('/assets/plugins/bootstrap/bootstrap.css') !!}
     {!! Html::style('/assets/font-awesome/css/font-awesome.css') !!}
