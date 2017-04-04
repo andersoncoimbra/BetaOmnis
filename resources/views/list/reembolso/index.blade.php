@@ -16,7 +16,7 @@
     <tr><th>Parceiro</th><th>Job</th><th>Valor</th><th>Status</th><th>Ações</th></tr>
     @forelse($reembolsos as $reembolso)
         <tr><td>{{$reembolso->parceiro}}</td><td>
-                {{substr($reembolso->job, 0, 32)}}
+                <a href="{{route('detalhes.job', ['id'=>$reembolso->job_id])}}"> {{substr($reembolso->job, 0, 32)}}</a>
                 @if(strlen($reembolso->job) > 31)
                     ...
                 @endif

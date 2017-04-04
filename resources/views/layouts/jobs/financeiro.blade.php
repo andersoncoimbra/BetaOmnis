@@ -2,9 +2,11 @@
 
 
 @section('breadcrumbs')
-    >>{!! Html::linkRoute('lista.jobs', 'Todos os Jobs') !!}
-    >>{!! Html::linkRoute('detalhes.job', 'Detalhes do Job', $id) !!}
-
+    <ul class="breadcrumb">
+        <li><a href="{{route("lista.jobs")}}">Todos os Jobs</a></li>
+        <li><a href="{{route('detalhes.job', ['id'=>$id])}}">{{$job->nomeJob}}</a></li>
+        <li class="active">Financeiro</li>
+    </ul>
 @endsection
 
 @section('title')

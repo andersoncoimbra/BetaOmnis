@@ -6,9 +6,9 @@
                                         @if(strlen($reembolso->obs) > 31)
                                             ...
                                             @endif
-                                    </td><td>{{$reembolso->valor}}</td><td>{{date('d / m / Y', strtotime($reembolso->data))}}</td><td><input type="button" class="btn btn-info" value="Detalhes" onclick="detalhesreembolso({{$reembolso->id}})" style="margin-right: 2px; margin-left: 2px" ><input type="button" class="btn btn-primary" value="Check-in" onclick="checkinreembolso({{$reembolso->id}})" style="margin-right: 2px; margin-left: 2px" >
+                                    </td><td>{{$reembolso->valor}}</td><td>{{date('d / m / Y', strtotime($reembolso->data))}}</td><td><button class="btn btn-info"  onclick="detalhesreembolso({{$reembolso->id}})" style="margin-right: 2px; margin-left: 2px" >Detalhes</button><button class="btn btn-primary"  onclick="checkinreembolso({{$reembolso->id}})" style="margin-right: 2px; margin-left: 2px" >Check-in</button>
                                         @if($reembolso->identificador)
-                                        <input type="button" class="btn btn-danger"  style="margin-right: 2px; margin-left: 2px" value="Quitação" onclick="quitacaoreembolso({{$reembolso->id}})">
+                                        <button  class="btn btn-danger"  style="margin-right: 2px; margin-left: 2px" onclick="quitacaoreembolso({{$reembolso->id}})">Quitação</button>
                                         @endif
                                     </td></tr>
                             @empty

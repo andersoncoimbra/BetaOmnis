@@ -1,6 +1,9 @@
 @extends('layouts.dashboard')
 @section('breadcrumbs')
-    >>{!! Html::linkRoute('lista.jobs', 'Todos os Jobs') !!}
+    <ul class="breadcrumb">
+        <li><a href="{{route("lista.jobs")}}">Todos os Jobs</a></li>
+        <li class="active">{{$job->nomeJob}}</li>
+    </ul>
 @endsection
 @section('title')
 
