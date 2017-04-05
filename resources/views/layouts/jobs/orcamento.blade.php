@@ -58,7 +58,7 @@
             $valoromnis = null;
             $custoextra = null;
             ?>
-            <tr class="info"><td>{{$job->nomeJob}}</td><td></td><td></td></tr>
+            <tr class="info"><td><a href="{{route('detalhes.job', ['id'=>$id])}}}}">{{$job->nomeJob}}</a></td><td></td><td></td></tr>
             @forelse($vj as $v)
                   <tr><td>{{$v->quantidade}}</td><td>{{$v->cargos->nome}}</td><td>{{$v->valor}}</td><td></td></tr>
 
@@ -92,7 +92,7 @@
             @if($jf->count() > 0)
                 @foreach($jf as $jobfilho)
                 @if($jobfilho->vagajobs->count() > 0)
-                        <tr class="info"><td>{{$jobfilho->nomeJob}}</td><td></td><td></td></tr>
+                        <tr class="info"><td><a href="{{route('detalhes.job', ['id'=>$jobfilho->id])}}">{{$jobfilho->nomeJob}}</a></td><td></td><td></td></tr>
                     @forelse($jobfilho->vagajobs as $v)
                         <tr><td>{{$v->quantidade}}</td><td>{{$v->cargos->nome}}</td><td>{{$v->valor}}</td><td></td></tr>
 

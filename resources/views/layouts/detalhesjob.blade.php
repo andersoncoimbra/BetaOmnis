@@ -156,10 +156,16 @@
                             @if($custoomnis > $job->valor)
                                 <p class="bg-danger" style="padding: 10px; text-align: right">Atenção prejuizo em <strong>R$ {{$custoomnis-$job->valor }}</strong></p>
                             @else
-                                <p class="bg-info" style="padding: 10px; text-align: right">Saldo: <strong>R$ {{$job->valor-$custoomnis}}</strong></p>
+                                <p class="bg-info" style="padding: 10px; text-align: right">Saldo: <strong>R$ {{$job->valor-$custoomnis - $jf->sum('imposto')- $job->imposto - $custototaljobfilho}}</strong></p>
                             @endif
-                            <p class="bg-info" style="padding: 10px; text-align: right">Total de Recebido: R$ {{$job->faturas->sum('valorrecebido')}}</p>
+                                @if($job->faturas->sum('valorrecebido')> 0)
+                                    <p class="bg-info" style="padding: 10px; text-align: right">Total de Recebido: R$ {{$job->faturas->sum('valorrecebido')}}</p>
+                                    @else
+                                    <p class="bg-info" style="padding: 10px; text-align: right">Nenhum pagamento</p>
+                                @endif
+                                @if($reembtotal> 0)
                             <p class="bg-danger" style="padding: 10px; text-align: right">Total de Reembolsos: R$ {{$reembtotal}}</p>
+                                @endif
                                 @if($job->tipodejob == 1)
                             <p class="bg-danger" style="padding: 10px; text-align: right">Custo Total de Job Filho:<br> R$ {{$custototaljobfilho}}</p>
                             <p class="bg-info" style="padding: 10px; text-align: right">Valor Total de Job Filho:<br> R$ {{$valortotaljobfilho}}</p>

@@ -16,7 +16,7 @@ use App\Http\Requests;
 
 class JobController extends Controller
 {
-    private $status = ['','Orçamento', 'Stand by', 'Execução','Pendente', 'Finalizado'];
+    private $status = ['','Orçamento', 'Stand by', 'Execução','Pendente', 'Finalizado', 'Cancelado'];
     private $tipojob = ['Normal','Tipo Pai', 'Tipo Filho'];
     private $praca;
     private $cargo = ['','cargo 1','cargo 2','cargo 3','cargo 4','cargo 5','cargo 6','cargo 7','cargo 8','cargo 9','cargo 2','cargo 3','cargo 4','cargo 5','cargo 6','cargo 7','cargo 8','cargo 9','cargo 2','cargo 3','cargo 4','cargo 5','cargo 6','cargo 7','cargo 8','cargo 9'];

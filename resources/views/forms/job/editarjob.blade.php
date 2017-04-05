@@ -83,18 +83,20 @@
     </div>
 
     <div class="form-group">
-        {!! Form::label('inicio', 'Data de Inicio', array('class' => 'col-sm-2 control-label')) !!}
-        <div class="col-sm-4">
+        {!! Form::label('inicio', 'Data de Inicio', array('class' => 'col-sm-3 control-label')) !!}
+        <div class="col-sm-9">
             {!! Form::text('inicio', date('d/m/Y', strtotime(str_replace('/','-',$job->inicio))), array('class'=>'form-control')) !!}
 
         </div>
 
-        {!! Form::label('fim', 'Data Fim', array('class' => 'col-sm-2 control-label')) !!}
-        <div class="col-sm-4">
+    </div>
+    <div class="form-group">
+        {!! Form::label('fim', 'Data Fim', array('class' => 'col-sm-3 control-label')) !!}
+        <div class="col-sm-9">
             {!! Form::text('fim', date('d/m/Y', strtotime(str_replace('/','-',$job->fim))), array('class'=>'form-control')) !!}
 
         </div>
-    </div>
+        </div>
     @if($job->tipodejob == 2)
     <div class="form-group">
         {!! Form::label('finacomp', 'Financeiro compartilhado', array('class' => 'col-sm-3 control-label')) !!}
@@ -114,11 +116,11 @@
         <div class="col-sm-9">
             <select name="status"  class="form-control" >
                 <option selected="selected" value="0">Status</option>
-                <option value="1">Orçamento</option>
-                <option value="2">Standy by</option>
-                <option value="3">Execução</option>
-                <option value="4">Pendente</option>
-                <option value="5">Finalizado</option>
+                <option value="1" {{$job->status == 1? "selected='selected'":""}}>Orçamento</option>
+                <option value="2" {{$job->status == 2? "selected='selected'":""}}>Standy by</option>
+                <option value="3" {{$job->status == 3? "selected='selected'":""}}>Execução</option>
+                <option value="4" {{$job->status == 4? "selected='selected'":""}}>Pendente</option>
+                <option value="5" {{$job->status == 5? "selected='selected'":""}}>Finalizado</option>
             </select>
         </div>
     </div>
