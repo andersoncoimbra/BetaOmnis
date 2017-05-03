@@ -38,6 +38,11 @@ Route::group(['prefix'=>'jobs'], function () {
     Route::get('/{id}/sp/{evg}/editar',['uses'=>'JobController@geteditarvaga']);
     Route::post('/{id}/sp/{evg}/editar',['uses'=>'JobController@posteditarvaga', 'as'=>'post.editar.vaga']);
 
+    //descrições e Informações
+    Route::get('/{id}/descricao',['uses'=>'JobController@descricao', 'as'=>'jobs.descricao']);
+    Route::post('/{id}/descricao',['uses'=>'JobController@descricaoeditar', 'as'=>'jobs.descricao.editar']);
+
+
     //Alocarção de candidatos
     Route::get('/{id}/sp/vaga/{idvaga}',['uses'=>'JobController@alocarCandidatos', 'as'=>'jobs.sp.candidato']);
     Route::get('/{id}/sp/vaga/{idvaga}/alocar/{idcandidato}',['uses'=>'JobController@alocarNewCandidatos', 'as'=>'jobs.sp.candidato.alocar']);

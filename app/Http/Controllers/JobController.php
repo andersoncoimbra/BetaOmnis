@@ -345,6 +345,22 @@ class JobController extends Controller
         return view('layouts.jobs.financeiro', ['id'=>$id,'job'=>$job]);
     }
 
+    public function descricao($id)
+    {
+        $job = Job::find($id);
+
+        return view('layouts.jobs.descricao', ['id'=>$id,'job'=>$job]);
+    }
+    public function descricaoeditar($id, Request $request)
+    {
+
+        $job = Job::find($id);
+        $job->descricao = $request->descricao;
+        $job->save();
+
+        return redirect()->route('detalhes.job', ['id'=>$id]);
+    }
+
     protected function gravar($nomejob, $parceiro, $praca, $codnome, $codnome, $codmail, $tipofaturamento, $codtele, $inicio, $fim, $status, $valor, $custo, $tipodejob)
     {
         $job = new Job();

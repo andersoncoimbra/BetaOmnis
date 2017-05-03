@@ -69,6 +69,9 @@
                                 <dd>{{date('d/m/ Y', strtotime($job->fim))}}</dd>
                                 <dt>Status</dt>
                                 <dd>{{$ds[$job->status]}}</dd>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modaldescricao">
+                                        Informações
+                                    </button>
                                 @if($job->taxacoligada != "0.00")
                                     <dt>Taxa Coligada</dt>
                                     <dd>{{$job->taxacoligada}}</dd>
@@ -85,7 +88,7 @@
                                     <?php
 
                                    $valortotaljobfilho += $j->vagajobs->sum('valor');
-                                    $custototaljobfilho += $j->vagajobs->sum('custo');
+                                   $custototaljobfilho += $j->vagajobs->sum('custo');
                                             ?>
                                     <tr><td>{{$j->nomeJob}}</td><td><a href="{{route('detalhes.job', ['id' => $j->id])}}">
                                                 <button type="button" class="btn btn-danger">Detalhes</button></a></td></tr>
@@ -182,5 +185,26 @@
                 </div>
             </div>
         </div>
+
+
+    <!-- Modal Descriçao -->
+    <div class="modal fade" id="modaldescricao" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Infomações sobre o job</h4>
+                </div>
+                <div class="modal-body">
+    {{$job->descricao}}
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+    <a href="{{route('jobs.descricao', ['id'=> $job->id])}}"><button type="button" class="btn btn-primary">Editar</button>
+    </a>
+</div>
+</div>
+</div>
+</div>
 @endsection
 
