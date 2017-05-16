@@ -11,4 +11,10 @@ class ExtrasVagasJob extends Model
     {
         return $this->belongsTo(VagasJob::class);
     }
+
+    public function tipo()
+    {
+        return $this->belongsTo(TipoExtraVagaJob::class);
+
+    }
 }

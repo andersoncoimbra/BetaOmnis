@@ -17,7 +17,7 @@
                 <div class="panel panel-default">
                     <div class="pull-right" style="margin-top: 3px; margin-right: 3px">
 
-                        <a href="{{URL::route('job.sp', $job->id)}}"><button class="btn btn-success ">Concluir</button></a>
+                        <a href="{{URL::route('detalhes.job', $job->id)}}"><button class="btn btn-success ">Concluir</button></a>
                     </div>
                     <div class="panel-heading"><h3>Detalhes de vagas do job - {{$job->nomeJob}}</h3></div>
                     <div class="panel-body" style="padding-right: 5px; padding-left: 5px;">
@@ -49,7 +49,7 @@
                                 <caption>Extras</caption>
                                 <tr><th>Tipo</th><th>Qtd</th><th>Periodo</th><th>Valor</th><th>Custo</th></tr>
                                 @forelse($evj as $v)
-                                    <tr><td>{{$tipo[$v->tipo]}}</td><td>{{$v->quantidade}}</td><td>{{$per[$v->periodo]}}</td><td>{{$v->valor}}</td><td>{{$v->custo}}</td></tr>
+                                    <tr><td>{{$tipo->find($v->tipo)->nome}}</td><td>{{$v->quantidade}}</td><td>{{$per[$v->periodo]}}</td><td>{{$v->valor}}</td><td>{{$v->custo}}</td></tr>
                                 @empty
                                     <p>Sem Extra nesse cargo</p>
                                 @endforelse
@@ -61,8 +61,8 @@
                             <div class="col-lg-2">
                                 {!! Form::label('tipo', 'Tipo', array('class' => 'control-label')) !!}
                                 <select name="tipo" class="form-control">
-                                    @forelse($tipo as $key => $value)
-                                        <option value="{{$key}}">{{$value}}</option>
+                                    @forelse($tipo as $extra)
+                                        <option value="{{$extra->id}}">{{$extra->nome}}</option>
                                     @empty
                                         <p>Sem tipos de ajuda</p>
                                     @endforelse

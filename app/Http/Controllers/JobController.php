@@ -9,6 +9,7 @@ use App\Funcoes;
 use App\Job;
 use App\Parceiro;
 use App\Praca;
+use App\TipoExtraVagaJob;
 use App\VagasJob;
 use Illuminate\Http\Request;
 
@@ -23,7 +24,7 @@ class JobController extends Controller
     private $regime = ['','Temporario', 'Prazo Inderteminado', 'Menor Aprendiz', 'CLT', 'Freelancer', 'Outros'];
     private $contratante = ['','Omnis', 'Parceiro', 'Outro'];
     private $periodo = ['', 'Mensal', 'Diario','Unico'];
-    private $tipoajuda = ['','Ajuda de custo', 'Pacote de dados', 'Vale transporte'];
+    private $tipoajuda = ['','Ajuda de custo', 'Pacote de dados', 'Vale transporte', 'Hospedagen'];
     private $estados = array("AC"=>"Acre", "AL"=>"Alagoas", "AM"=>"Amazonas", "AP"=>"Amapá","BA"=>"Bahia","CE"=>"Ceará","DF"=>"Distrito Federal","ES"=>"Espírito Santo","GO"=>"Goiás","MA"=>"Maranhão","MT"=>"Mato Grosso","MS"=>"Mato Grosso do Sul","MG"=>"Minas Gerais","PA"=>"Pará","PB"=>"Paraíba","PR"=>"Paraná","PE"=>"Pernambuco","PI"=>"Piauí","RJ"=>"Rio de Janeiro","RN"=>"Rio Grande do Norte","RO"=>"Rondônia","RS"=>"Rio Grande do Sul","RR"=>"Roraima","SC"=>"Santa Catarina","SE"=>"Sergipe","SP"=>"São Paulo","TO"=>"Tocantins");
 
     public function __construct()
@@ -100,6 +101,7 @@ class JobController extends Controller
         $job->tipofaturamento = $request->tipofaturamento;
         $job->codtele = $request->codtele;
         $job->finacomp = $request->finacomp;
+        $job->tipodejob = $request->tipodejob;
         $job->inicio = date('Y-m-d', strtotime(str_replace('/','-',$request->inicio)));
         $job->fim = date('Y-m-d', strtotime(str_replace('/','-',$request->fim)));
 
@@ -157,7 +159,7 @@ class JobController extends Controller
         $dp = $this->cargo;
         $ds = $this->status;
         $p  = $this->praca;
-        $tipo   = $this->tipoajuda;
+        $tipo   = TipoExtraVagaJob::all();
         $jf = Job::where('jobpai',$id)->get();
 
         //$vagas = VagasJob::all();
@@ -218,7 +220,7 @@ class JobController extends Controller
                 $dp = $this->cargo;
                 $p = $this->praca;
                 $per = $this->periodo;
-                $tipo = $this->tipoajuda;
+                $tipo = TipoExtraVagaJob::all();
                 return view('layouts.detalhesvaga', ['id' => $id, 'job' => $job, 'vj' => $vj, 'dp' => $dp, 'p' => $p, 'r' => $r, 'ct' => $ct, 'per' => $per, 'evj' => $evj, 'tipo' => $tipo]);
             }
             else

@@ -6,6 +6,7 @@ use App\Candidato;
 use App\Funcoes;
 use App\Job;
 use App\Praca;
+use App\TipoExtraVagaJob;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Requests;
 use App\Parceiro;
 
-class CadastroController extends Controller
+class   CadastroController extends Controller
 {
     public function __construct()
     {
@@ -158,7 +159,8 @@ class CadastroController extends Controller
     public function funcoesjob()
     {
         $funcoes = Funcoes::all();
-        return view('funcoes',['funcoes'=>$funcoes]);
+        $extras = TipoExtraVagaJob::all();
+        return view('funcoes',['funcoes'=>$funcoes, 'extras'=>$extras]);
     }
 
     public function newcargo()
@@ -166,12 +168,26 @@ class CadastroController extends Controller
         return view('forms.cadastros.formaddfuncao');
     }
 
+
     public function postnewcargo(Request $request)
     {
        $funcao = new Funcoes();
         $funcao->nome = $request->nome;
         $funcao->save();
 
+        return redirect()->route('funcoes.job');
+    }
+
+    public function newextras()
+    {
+        return view('forms.cadastros.formaddextras');
+    }
+
+    public function postnewextras(Request $request)
+    {
+        $extra = new TipoExtraVagaJob();
+        $extra->nome = $request->nome;
+        $extra->save();
         return redirect()->route('funcoes.job');
     }
 }

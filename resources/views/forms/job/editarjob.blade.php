@@ -109,6 +109,17 @@
         </div>
     </div>
     @endif
+    @if($job->tipodejob == 0)
+    <div class="form-group">
+        {!! Form::label('tipodejob', 'Tipo de Job', array('class' => 'col-sm-3 control-label')) !!}
+        <div class="col-sm-9">
+            <select name="tipodejob"  class="form-control" >
+            <option {{$job->tipodejob == 0? "selected='selected'":""}} value="1">Job Normal</option>
+            <option {{$job->tipodejob == 1? "selected='selected'":""}} value="1">Job Pai</option>
+        </select>
+        </div>
+    </div>
+    @endif
 
 
     <div class="form-group">

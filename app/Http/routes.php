@@ -140,8 +140,14 @@ Route::group(['prefix'=>'cadastros'], function (){
 
 
     Route::get('/funcoes', ['uses'=>'CadastroController@funcoesjob','as'=>'funcoes.job']);
+
     Route::get('/funcoes/newcargo', ['uses'=>'CadastroController@newcargo','as'=>'new.funcoes.job']);
     Route::post('/funcoes/newcargo', ['uses'=>'CadastroController@postnewcargo','as'=>'new.funcoes.job']);
+
+    Route::get('/funcoes/newextras', ['uses'=>'CadastroController@newextras','as'=>'new.extras.vagajob']);
+    Route::post('/funcoes/newextras', ['uses'=>'CadastroController@postnewextras','as'=>'post.new.extras.vagajob']);
+
+
 
 
 

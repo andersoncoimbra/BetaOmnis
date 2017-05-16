@@ -8,7 +8,7 @@
         <div class="col-md-6">
             <div id="print" class="panel panel-default">
                 <div class="panel-heading">
-                    Lista de Cagos de Job
+                    Lista de Cargos de Job
                     <button class="btn btn-info pull-right" onclick="addcargo();">Novo Cargo</button>
                 </div>
                 <div class="panel-body">
@@ -18,6 +18,25 @@
                             <tr><td>{{$funcao->id}}</td><td>{{$funcao->nome}}</td></tr>
                         @empty
                             <h3>sem cargos cadastrado</h3>
+                        @endforelse
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div id="print" class="panel panel-default">
+                <div class="panel-heading">
+                    Lista de Extras Cargos de Job
+                    <button class="btn btn-info pull-right" onclick="addextras();">Novo Extra</button>
+                </div>
+                <div class="panel-body">
+                    <table class="table">
+                        <tr><th>#ID</th><th>Nome</th></tr>
+                        @forelse($extras as $extra)
+                            <tr><td>{{$extra->id}}</td><td>{{$extra->nome}}</td></tr>
+                        @empty
+                            <h3>sem extras cadastrado</h3>
                         @endforelse
                     </table>
                 </div>
@@ -38,6 +57,23 @@
                 $.ajax({
                     url: '{{URL::to('/cadastros/funcoes/newcargo')}}'
                 }).done(function (html) {
+
+                    $('#new-funcao').html(html);
+
+                })
+                $('#modal-funcao').modal('show');
+
+            });
+        }
+
+        function addextras() {
+            $('#new-funcao').html("Carregando...");
+            $('#titlefuncao').html("Extra de Vagas de Job");
+            $(document).ready(function () {
+                $.ajax({
+                    url: '{{URL::to('/cadastros/funcoes/newextras')}}'
+                }).done(function (html) {
+
 
                     $('#new-funcao').html(html);
 

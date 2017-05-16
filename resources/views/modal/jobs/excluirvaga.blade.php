@@ -1,13 +1,18 @@
-<div id="modal-funcao" class="modal fade">
+<div id="excluirvaga" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content col-md-10 ">
             <div class="modal-header">
+                Excluir Vaga
+
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4><span id="titlefuncao">Cadastro de nova função de job</span> </h4>
             </div>
-            <div id="new-funcao">
-                <h1>Detalhes</h1>
+            <br>
+
+            <div class="modal-footer">
+                <input type="submit" class="btn btn-info pull-left" value="Excluir">
+
             </div>
         </div>
     </div>
+
 </div>
