@@ -66,7 +66,7 @@
                 <!--
                                     Troca parametro tipo por um relacionamento
                                     -->
-                    <tr><td></td><td class="info">{{$e->quantidade." ".$tipo[$e->tipo]}}</td><td class="info">{{$e->valor}}</td><td class="info"></td></tr>
+                    <tr><td></td><td class="info">{{$e->quantidade." ".$tipo->find($e->tipo)->nome}}</td><td class="info">{{$e->valor}}</td><td class="info"></td></tr>
                     <?php
                     $custoextra += $e->quantidade*$e->custo*$v->quantidade
                     ?>
@@ -100,7 +100,7 @@
                         <!--
                                     Troca parametro tipo por um relacionamento
                                     -->
-                            <tr><td></td><td class="info">{{$e->quantidade." ".$tipo[$e->tipo]}}</td><td class="info">{{$e->valor}}</td><td class="info"></td></tr>
+                            <tr><td></td><td class="info">{{$e->quantidade." ".$tipo->find($e->tipo)->nome}}</td><td class="info">{{$e->valor}}</td><td class="info"></td></tr>
                             <?php
                             $custoextra += $e->quantidade*$e->custo*$v->quantidade
                             ?>

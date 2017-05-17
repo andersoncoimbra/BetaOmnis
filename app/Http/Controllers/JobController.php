@@ -101,7 +101,11 @@ class JobController extends Controller
         $job->tipofaturamento = $request->tipofaturamento;
         $job->codtele = $request->codtele;
         $job->finacomp = $request->finacomp;
-        $job->tipodejob = $request->tipodejob;
+        if($job->tipojob == 2) {
+            $job->tipodejob = 2;
+        }else{
+            $job->tipodejob = $request->tipodejob;
+        }
         $job->inicio = date('Y-m-d', strtotime(str_replace('/','-',$request->inicio)));
         $job->fim = date('Y-m-d', strtotime(str_replace('/','-',$request->fim)));
 
@@ -301,12 +305,13 @@ class JobController extends Controller
 
         $pc = $this->praca;
         $dp = $this->cargo;
+        $tipoajuda = TipoExtraVagaJob::all();
         // $vj = VagasJob::all()->where('id_job', $id)->sum('valor');
         $vj = VagasJob::all()->where('id_job', $id);
 
         $jf = Job::where('jobpai',$id)->where('finacomp', 1)->get();
 
-        return view('layouts.jobs.orcamento', ['id'=>$id, "job"=>$job, 'pc'=>$pc, 'vj'=>$vj, 'dp'=>$dp, 'tipo'=>$this->tipoajuda, 'jf'=>$jf]);
+        return view('layouts.jobs.orcamento', ['id'=>$id, "job"=>$job, 'pc'=>$pc, 'vj'=>$vj, 'dp'=>$dp, 'tipo'=>$tipoajuda, 'jf'=>$jf]);
     }
 
     public function taxacoligada(Request $request, $id)
