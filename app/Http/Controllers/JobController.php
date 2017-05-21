@@ -225,7 +225,7 @@ class JobController extends Controller
                 $p = $this->praca;
                 $per = $this->periodo;
                 $tipo = TipoExtraVagaJob::all();
-                return view('layouts.detalhesvaga', ['id' => $id, 'job' => $job, 'vj' => $vj, 'dp' => $dp, 'p' => $p, 'r' => $r, 'ct' => $ct, 'per' => $per, 'evj' => $evj, 'tipo' => $tipo]);
+                return view('layouts.detalhesvaga', ['id' => $id,'idvj'=>$idvj, 'job' => $job, 'vj' => $vj, 'dp' => $dp, 'p' => $p, 'r' => $r, 'ct' => $ct, 'per' => $per, 'evj' => $evj, 'tipo' => $tipo]);
             }
             else
             {
@@ -256,7 +256,10 @@ class JobController extends Controller
                 $evj->id_vaga_job = $idvj;
                 $evj->save();
 
-                $param = ['id'=>$id,'evg'=>$idvj];
+                $param = [
+                    'id'=>$id,
+                    'evg'=>$idvj
+                ];
 
                 return redirect()->route('get.extras',$param);
             }
@@ -297,6 +300,14 @@ class JobController extends Controller
         $param = ['id'=>$id,'evg'=>$evg];
 
        return redirect()->route('get.extras',$param);
+    }
+
+    public function deleteextra($id, $idvj, $idex, Request $request)
+    {
+        //dd($idvj, $id, $idex);
+        dd($request->idex);
+
+
     }
 
     public function orcamento($id)

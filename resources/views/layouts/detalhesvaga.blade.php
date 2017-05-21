@@ -47,9 +47,27 @@
                         <div class="col-md-7">
                             <table class="table">
                                 <caption>Extras</caption>
-                                <tr><th>Tipo</th><th>Qtd</th><th>Periodo</th><th>Valor</th><th>Custo</th></tr>
+                                <tr><th>Tipo</th><th>Qtd</th><th>Periodo</th><th>Valor</th><th>Custo</th><th></th></tr>
                                 @forelse($evj as $v)
-                                    <tr><td>{{$tipo->find($v->tipo)->nome}}</td><td>{{$v->quantidade}}</td><td>{{$per[$v->periodo]}}</td><td>{{$v->valor}}</td><td>{{$v->custo}}</td></tr>
+                                    <tr>
+                                        <td>{{$tipo->find($v->tipo)->nome}}</td>
+                                        <td>{{$v->quantidade}}</td>
+                                        <td>{{$per[$v->periodo]}}</td>
+                                        <td>{{$v->valor}}</td>
+                                        <td>{{$v->custo}}</td>
+                                        <td>
+                                            <form method="POST" action="{{route('delete.extra', [$id, $idvj, $v->id])}}" accept-charset="UTF-8">
+                                                <input name="_method" type="hidden" value="DELETE">
+                                                <input name="idex" type="hidden" value="{{$v->id}}">
+
+                                                {{ Form::token() }}
+                                                <button type="submit" >
+                                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                </button>
+                                            </form>
+                                        </td>
+                                        </td>
+                                    </tr>
                                 @empty
                                     <p>Sem Extra nesse cargo</p>
                                 @endforelse

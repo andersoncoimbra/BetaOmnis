@@ -37,6 +37,8 @@ Route::group(['prefix'=>'jobs'], function () {
     Route::post('/{id}/sp/{evg}',['uses'=>'JobController@postExtraVaga']);
     Route::get('/{id}/sp/{evg}/editar',['uses'=>'JobController@geteditarvaga']);
     Route::post('/{id}/sp/{evg}/editar',['uses'=>'JobController@posteditarvaga', 'as'=>'post.editar.vaga']);
+    Route::delete('/{id}/sp/{evg}/extra/{idex}/delete',['uses'=>'JobController@deleteextra', 'as'=>'delete.extra']);
+
 
     //descrições e Informações
     Route::get('/{id}/descricao',['uses'=>'JobController@descricao', 'as'=>'jobs.descricao']);
