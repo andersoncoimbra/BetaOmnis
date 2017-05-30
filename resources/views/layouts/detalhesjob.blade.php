@@ -32,7 +32,7 @@
                         @endif
                             @if($job->tipodejob == 2)
                                <a href="{{route('detalhes.job', ['id' => $job->jobpai])}}"> <button class="btn btn-success" >Job Pai</button></a>
-                            @endif
+                         @endif
                         <button class="btn btn-danger " onclick="editarjob({{$job->id}});">Editar</button>
                         <a href="{{URL::route('jobs.sp', $job->id)}}"> <button class="btn btn-default ">Equipe</button></a>
                         <button class="btn btn-info " style="display: none">Solicitações</button>
@@ -195,8 +195,11 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="myModalLabel">Infomações sobre o job</h4>
                 </div>
-                <div class="modal-body">
-    {{$job->descricao}}
+                <div class="modal-body" id="descricao">
+                    <?php
+                     echo  $job->descricao
+                     ?>
+
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
@@ -206,5 +209,6 @@
 </div>
 </div>
 </div>
+
 @endsection
 

@@ -60,7 +60,7 @@
                                                 <input name="_method" type="hidden" value="DELETE">
                                                 <input name="idex" type="hidden" value="{{$v->id}}">
 
-                                                {{ Form::token() }}
+                                                {{ Form::token()}}
                                                 <button type="submit" >
                                                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                                                 </button>

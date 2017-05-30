@@ -305,9 +305,12 @@ class JobController extends Controller
     public function deleteextra($id, $idvj, $idex, Request $request)
     {
         //dd($idvj, $id, $idex);
-        dd($request->idex);
 
+        ExtrasVagasJob::find($request->idex)->delete();
 
+        $param = ['id'=>$id,'evg'=>$idvj];
+        //dd($param);
+        return redirect()->route('get.extras',$param);
     }
 
     public function orcamento($id)
