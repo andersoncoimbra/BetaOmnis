@@ -101,11 +101,7 @@ class JobController extends Controller
         $job->tipofaturamento = $request->tipofaturamento;
         $job->codtele = $request->codtele;
         $job->finacomp = $request->finacomp;
-        if($job->tipojob == 2) {
-            $job->tipodejob = 2;
-        }else{
-            $job->tipodejob = $request->tipodejob;
-        }
+
         $job->inicio = date('Y-m-d', strtotime(str_replace('/','-',$request->inicio)));
         $job->fim = date('Y-m-d', strtotime(str_replace('/','-',$request->fim)));
 
